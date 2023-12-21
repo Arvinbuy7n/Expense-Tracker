@@ -7,11 +7,13 @@ export const Signup = () => {
   const [isHidden, setIsHidden] = useState(true);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repass, setRepass] = useState("");
 
   function isName(name) {
     if (name.length > 5) {
       return true;
-    } else return "insert name";    
+    } else return "insert name";
   }
 
   function emailValidation(email) {
@@ -46,6 +48,47 @@ export const Signup = () => {
     } else return true;
   }
 
+  function passwordValid(password) {
+    let num = 0;
+    let capNum = 0;
+    let specialCharacter = 0;
+
+    for (let i = 0; i < password.length; i++) {
+      if (password.charCodeAt(i) > 47 && password.charCodeAt(i) < 58) {
+        num++;
+      }
+      if (password.charCodeAt(i) > 64 && password.charCodeAt(i) < 91) {
+        capNum++;
+      }
+      if (password.charCodeAt(i) > 33 && password.charCodeAt(i) < 47) {
+        specialCharacter++;
+      }
+      if (password.charCodeAt(i) > 57 && password.charCodeAt(i) < 65) {
+        specialCharacter++;
+      }
+    }
+    if (password.length == 0) {
+      return "insert password";
+    }
+    if (password.length < 8) {
+      return "Password length should be min 8 character";
+    }
+    if (num < 0) {
+      return "Password should include number";
+    }
+    if (capNum == 0) {
+      return "Password should include CAPITAL letter";
+    }
+    if (specialCharacter == 0) {
+      return "Password should include special character";
+    } else return true;
+  }
+  function isRepasswordSimilar(password, repassword) {
+    if (password === repassword) {
+      return true;
+    } else return "Re-entered password not similar";
+  }
+
   function signUpValidation(Name, Email, Password, Repassword) {}
 
   return (
@@ -67,11 +110,10 @@ export const Signup = () => {
           onSubmit={(event) => {
             event.preventDefault();
             signUpValidation();
-            setName(isName(event.target.Name.value))
-            setEmail(emailValidation(event.target.Email.value))
-
-            // console.log(event.target.Name.value),
-            //   console.log(isName(event.target.Name.value));
+            setName(isName(event.target.Name.value));
+            setEmail(emailValidation(event.target.Email.value));
+            setPassword(passwordValid(event.target.Password.value));
+            setRepass(isRepasswordSimilar(event.target.Repassword.value));
           }}
           className="flex flex-col w-80 gap-4 relative"
         >
@@ -81,19 +123,27 @@ export const Signup = () => {
             placeholder="  Name"
             className="border-2 p-3 rounded-lg bg-slate-100 w-[410px]"
           />
-          <p className="absolute bottom-[-50%] italic opacity-50 text-red-500">{name}</p>
+          <p className="absolute bottom-[78%] ml-7 italic opacity-50 text-red-500">
+            {name}
+          </p>
           <input
             type="text"
             name="Email"
             placeholder="  Email"
             className="border-2 p-3 rounded-lg bg-slate-100 w-[410px]"
           />
-          <p className="absolute bottom-[-50%] italic opacity-50 text-red-500">{email}</p>
+          <p className="absolute bottom-[57%] ml-7 italic opacity-50 text-red-500">
+            {email}
+          </p>
           <input
             type={isHidden ? "password" : "text"}
+            name="Password"
             placeholder="  Password"
             className="border-2 p-3 rounded-lg bg-slate-100 w-[410px]"
           />
+          <p className="absolute bottom-[37%] ml-7 italic opacity-50 text-red-500">
+            {password}
+          </p>
           <div className="absolute ml-[355px] mt-36">
             <button
               onClick={() => {
@@ -106,9 +156,13 @@ export const Signup = () => {
           </div>
           <input
             type={isHidden ? "password" : "text"}
+            name="Repassword"
             placeholder="  Re-Password"
             className="border-2 p-3 rounded-lg bg-slate-100 w-[410px]"
           />
+          <p className="absolute bottom-[15%] ml-7 italic opacity-50 text-red-500">
+            {repass}
+          </p>
           {/* <div className="absolute ml-[355px] mt-36">
                         <img src="hide.webp" onClick={() => {
                             setIsHidden(!isHidden);
