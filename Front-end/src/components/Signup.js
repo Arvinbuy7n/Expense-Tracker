@@ -1,5 +1,6 @@
 "use client";
 
+import { useAuth } from "@/app/layout";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -9,6 +10,8 @@ export const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repass, setRepass] = useState("");
+
+  const { Signup } = useAuth();
 
   function isName(name) {
     if (name.length > 5) {
@@ -89,7 +92,7 @@ export const Signup = () => {
     } else return "Re-entered password not similar";
   }
 
-  function signUpValidation(Name, Email, Password, Repassword) {}
+  function signUpValidation(Name, Email, Password, Repassword) { }
 
   return (
     <div className="w-full h-screen flex bg-white max-w-[1800px] m-auto">
@@ -168,14 +171,14 @@ export const Signup = () => {
                             setIsHidden(!isHidden);
                         }}>{isHidden ? "show" : "hide"}</img>
                     </div> */}
-          {/* <Link href="/step1"> */}
-          <button
-            type="submit"
-            className="bg-[#0166FF] text-white py-3 rounded-[20px] w-[410px] text-xl"
-          >
-            Sign up
-          </button>
-          {/* </Link> */}
+          <Link href="/step1">
+            <button
+              type="submit"
+              className="bg-[#0166FF] text-white py-3 rounded-[20px] w-[410px] text-xl"
+            >
+              Sign up
+            </button>
+          </Link>
         </form>
         <div className="flex gap-2 pl-20">
           <p className="text-[16px]">Already have account?</p>

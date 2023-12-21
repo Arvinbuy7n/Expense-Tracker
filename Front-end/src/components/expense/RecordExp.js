@@ -1,14 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { RecordIncome } from "../income/RecordIncome";
+
+import { useAuth } from "@/app/layout";
 
 export const RecordExp = (props) => {
-  const [openDraw, setOpenDraw] = useState(false);
-
-  const getData = () => {
-    setOpenDraw((prev) => !prev);
-  };
 
   return (
     <div className="w-[50%] flex flex-col gap-6">
@@ -39,22 +35,28 @@ export const RecordExp = (props) => {
       <input
         type="text"
         placeholder="  ₮ 000.00"
-        className=" w-full rounded-xl bg-[bg-slate-200] border-2 py-5"
+        className=" w-full rounded-xl bg-slate-100 border-2 py-5"
       />
       <div className="w-full flex flex-col gap-1">
         <p className="text-[16px] text-[#1F2937]">Category</p>
-        <select className="w-full py-4 px-3 rounded-lg">
+        <select className="w-full py-4 px-3 rounded-lg bg-slate-100 text-[#94A3B8]">
           <option> Choose</option>
+          <option>
+            <div className="flex gap-4">
+              <img src="plusc.png" className="bg-blue-500"></img>
+              <p>Add Category</p>
+            </div>
+          </option>
         </select>
       </div>
       <div className="flex w-full gap-5">
         <div className="w-[50%] flex flex-col gap-1">
           <p className="text-[16px] text-[#1F2937]">Date</p>
-          <input type="date" className="py-3 px-2 rounded-lg" />
+          <input type="date" className="py-3 px-2 rounded-lg bg-slate-100 text-[#94A3B8]" />
         </div>
         <div className="w-[50%] flex flex-col gap-1">
           <p className="text-[16px] text-[#1F2937]">Time</p>
-          <select className="w-full py-3 rounded-lg px-2">
+          <select className="w-full py-3 rounded-lg px-2 bg-slate-100 text-[#94A3B8]">
             <option>4:15 PM</option>
           </select>
         </div>
@@ -62,7 +64,6 @@ export const RecordExp = (props) => {
       <button className="bg-[#0166FF] py-2 text-white rounded-3xl mt-2">
         Add Record
       </button>
-      {openDraw ? <RecordIncome getData={getData} /> : null}
     </div>
   );
 };

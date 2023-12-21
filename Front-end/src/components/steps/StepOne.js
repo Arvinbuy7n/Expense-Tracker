@@ -32,10 +32,10 @@ export const StepOne = () => {
                             MNT - Mongolian Tugrik
                         </option>
                         <option>
-                            MNT - Mongolian Tugrik
+                            USD - US Dollar
                         </option>
                         <option>
-                            MNT - Mongolian Tugrik
+                            EUR - Euro
                         </option>
                     </select>
                     <p className="text-[12px] text-slate-700">

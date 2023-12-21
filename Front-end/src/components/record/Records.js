@@ -8,15 +8,12 @@ import { RecordSelect } from "./RecordSelect";
 import { RecordHead } from "./RecordHead";
 import { RecordTypes } from "./RecordTypes";
 import { MainHead } from "../MainHead";
-import { useState } from "react";
 import { RecordAdd } from "../expense/RecordAdd";
+import { useAuth } from "@/app/layout";
 
 export const Records = () => {
-  const [openPage, setOpenDraw] = useState(false);
 
-  const getData = () => {
-    setOpenDraw((prev) => !prev);
-  };
+  const { openDraw, getData } = useAuth();
 
   return (
     <div className="w-full h-full flex flex-col max-w-[1800px] m-auto relative">
@@ -49,7 +46,7 @@ export const Records = () => {
         </div>
       </div>
       <div className="flex justify-center items-center mt-[300px] w-full">
-        {openPage && <RecordAdd getData={getData} />}
+        {openDraw && <RecordAdd getData={getData} />}
       </div>
     </div>
   );

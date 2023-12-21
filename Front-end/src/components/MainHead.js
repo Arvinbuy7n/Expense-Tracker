@@ -3,9 +3,11 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Addition } from "./Addition"
+import { useAuth } from "@/app/layout"
 
 export const MainHead = () => {
     const [openDraw, setOpenDraw] = useState(false)
+    const { getData } = useAuth();
 
     const openPage = () => {
         setOpenDraw((p) => !p);
@@ -24,14 +26,14 @@ export const MainHead = () => {
 
             </div>
             <div className="flex flex-col gap-7">
-                <div className="flex h-fit gap-7">
-                   <button className="bg-[#0166FF] text-white rounded-3xl px-4 text-xl">+ Records</button>
-                   <img src="face.png" className="w-[40px] h-[40px]" onClick={openPage}></img>
+                <div className="flex h-fit gap-7 justify-between w-full">
+                    <button className="bg-[#0166FF] text-white rounded-3xl px-4 text-xl" onClick={getData}>+ Records</button>
+                    <img src="face.png" className="w-[40px] h-[40px]" onClick={openPage}></img>
                 </div>
                 {
-                   openDraw ? (<Addition
-                   openPage={openPage}
-                   />) : null
+                    openDraw ? (<Addition
+                        openPage={openPage}
+                    />) : null
                 }
             </div>
         </div>
