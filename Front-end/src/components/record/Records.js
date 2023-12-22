@@ -10,10 +10,10 @@ import { RecordTypes } from "./RecordTypes";
 import { MainHead } from "../MainHead";
 import { RecordAdd } from "../expense/RecordAdd";
 import { useAuth } from "@/app/layout";
+import { AddCategory } from "./AddCategory";
 
 export const Records = () => {
-
-  const { openDraw, getData } = useAuth();
+  const { openDraw, getData, isOpen, setIsOpen, setData } = useAuth();
 
   return (
     <div className="w-full h-full flex flex-col max-w-[1800px] m-auto relative">
@@ -46,7 +46,8 @@ export const Records = () => {
         </div>
       </div>
       <div className="flex justify-center items-center mt-[300px] w-full">
-        {openDraw && <RecordAdd getData={getData} />}
+        {openDraw && <RecordAdd getData={getData} />}{" "}
+        {isOpen && <AddCategory />}
       </div>
     </div>
   );

@@ -1,9 +1,8 @@
-"use client"
+"use client";
 
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { createContext, useContext, useEffect, useState } from "react";
-
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,9 +10,19 @@ const AuthContext = createContext();
 
 export default function RootLayout({ children }) {
   const [openDraw, setOpenDraw] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isCategory, setIsCategory] = useState(false);
+
+  const addCat = () => {
+    setIsCategory((prev) => !prev);
+  };
 
   const getData = () => {
     setOpenDraw((prev) => !prev);
+  };
+
+  const setData = () => {
+    setIsOpen((p) => !p);
   };
 
   const [isLogged, setIsLogged] = useState(false);
@@ -28,7 +37,7 @@ export default function RootLayout({ children }) {
         body: JSON.stringify({ email, password }),
       });
       if (res.status !== 200) {
-        throw new Error("Invalid cred")
+        throw new Error("Invalid cred");
       }
 
       const data = await res.json();
@@ -39,8 +48,6 @@ export default function RootLayout({ children }) {
     } catch (err) {
       console.log(err, "FFF");
     }
-
-
     // setIsLogged(true)
     // localStorage.setItem("token", "abc")
   };
@@ -58,15 +65,28 @@ export default function RootLayout({ children }) {
       });
 
     if (token) {
-      setIsLogged(true)
+      setIsLogged(true);
     }
   }, []);
-
 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthContext.Provider value={{ isLogged, setIsLogged, setOpenDraw, openDraw, getData }}>
+        <AuthContext.Provider
+          value={{
+            isLogged,
+            setIsLogged,
+            setOpenDraw,
+            openDraw,
+            getData,
+            isOpen,
+            setIsOpen,
+            setData,
+            isCategory,
+            setIsCategory,
+            addCat,
+          }}
+        >
           {children}
         </AuthContext.Provider>
       </body>

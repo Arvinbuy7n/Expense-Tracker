@@ -92,7 +92,7 @@ export const Signup = () => {
     } else return "Re-entered password not similar";
   }
 
-  function signUpValidation(Name, Email, Password, Repassword) { }
+  function signUpValidation(Name, Email, Password, Repassword) {}
 
   return (
     <div className="w-full h-screen flex bg-white max-w-[1800px] m-auto">
