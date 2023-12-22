@@ -1,10 +1,8 @@
 "use client"
-
-import Link from "next/link"
-import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 export const StepOne = () => {
-    const [isLoading, setIsloading] = useState(true)
+    const router = useRouter();
 
     return (
         <div className="w-full h-screen flex flex-col bg-white gap-36 py-10 max-w-[1800px] m-auto">
@@ -42,9 +40,11 @@ export const StepOne = () => {
                         Your base currency should be the one you use most often. All <br></br>
                         transaction in other currencies will be calculated based on this one
                     </p>
-                    <Link href="/step2">
-                        <button className="bg-blue-600 w-[384px] rounded-2xl p-2 text-white mt-5 text-[20px]">Confirm</button>
-                    </Link>
+                    <button className="bg-blue-600 w-[384px] rounded-2xl p-2 text-white mt-5 text-[20px]"
+                        onClick={() => {
+                            router.push("./step2")
+                        }}
+                    >Confirm</button>
                 </div>
             </div>
         </div>

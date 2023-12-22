@@ -1,5 +1,5 @@
 import { useAuth } from "@/app/layout";
-import { IoMdArrowDropdown } from "react-icons/io";
+import { MdArrowDropDown } from "react-icons/md";
 import { FaHouse } from "react-icons/fa6";
 import { AiFillAlipayCircle } from "react-icons/ai";
 import { MdHomeFilled } from "react-icons/md";
@@ -45,9 +45,9 @@ export const AddCategory = () => {
         </div>
         <div className="w-full flex flex-col gap-6 py-7 px-3">
           <div className="flex gap-2 h-[30px] relative">
-            <div className="w-[15%] rounded-lg bg-slate-100 flex gap-2 justify-between items-center p-3">
+            <div className="w-[15%] rounded-lg bg-slate-100 flex gap-2 justify-between items-center p-4">
               <MdHomeFilled size={60} />
-              <IoMdArrowDropdown size={50} onClick={addCat} />
+              <MdArrowDropDown size={60} onClick={addCat} />
               {isCategory ? (
                 <div className="absolute left-0 w-fit h-fit bg-white p-7 mt-[400px] rounded-xl flex flex-col gap-6">
                   <div className="drop-shadow-md grid grid-cols-6 gap-x-6 gap-y-6 border-b-2 pb-8">

@@ -13,9 +13,10 @@ export const RecordExp = (props) => {
           onClick={() => {
             props.setType("Expense");
           }}
-          className="px-16 py-2 text-black rounded-3xl"
+          className="px-16 py-2 rounded-3xl"
           style={{
             background: props.type === "Expense" ? "#0166FF" : "transparent",
+            color: props.type === "Expense" ? "white" : "#000000"
           }}
         >
           Expense
@@ -27,6 +28,7 @@ export const RecordExp = (props) => {
           className="px-16 py-2 text-black rounded-3xl"
           style={{
             background: props.type === "Income" ? "#16A34A" : "transparent",
+            color: props.type === "Income" ? "white" : "#000000"
           }}
         >
           Income
@@ -61,9 +63,13 @@ export const RecordExp = (props) => {
           </select>
         </div>
       </div>
-      <button className="bg-[#0166FF] py-2 text-white rounded-3xl mt-2">
+      <button className="bg-[#0166FF] py-2 text-white rounded-3xl mt-2"
+        style={{
+          background: props.type === "Expense" ? "#0166FF" : "#16A34A",
+        }}
+      >
         Add Record
       </button>
-    </div>
+    </div >
   );
 };

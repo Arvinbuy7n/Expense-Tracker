@@ -1,6 +1,10 @@
-import Link from "next/link"
+'use client'
+
+import { useRouter } from "next/navigation"
 
 export const StepTwo = () => {
+    const router = useRouter();
+
     return (
         <div className="w-full h-screen flex flex-col bg-white gap-36 py-10 max-w-[1800px] m-auto">
             <div className="flex flex-col gap-10">
@@ -30,9 +34,11 @@ export const StepTwo = () => {
                     <p className="text-[13px] text-slate-700 pr-32">
                         How much cash do you have in your wallet?
                     </p>
-                    <Link href="/step3">
-                        <button className="bg-blue-600 w-[405px] rounded-2xl p-2 text-white mt-5 text-[20px]">Confirm</button>
-                    </Link>
+                    <button className="bg-blue-600 w-[405px] rounded-2xl p-2 text-white mt-5 text-[20px]"
+                        onClick={() => {
+                            router.push("./step3")
+                        }}
+                    >Confirm</button>
                 </div>
             </div>
         </div>

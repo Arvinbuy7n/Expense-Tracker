@@ -1,13 +1,14 @@
 "use client"
 
-import Link from "next/link"
 import { useState } from "react"
 import { Addition } from "./Addition"
 import { useAuth } from "@/app/layout"
+import { useRouter } from "next/navigation"
 
 export const MainHead = () => {
     const [openDraw, setOpenDraw] = useState(false)
     const { getData } = useAuth();
+    const router = useRouter();
 
     const openPage = () => {
         setOpenDraw((p) => !p);
@@ -17,13 +18,12 @@ export const MainHead = () => {
         <div className="flex justify-between px-36 py-7 w-full bg-white h-24">
             <div className="flex gap-8">
                 <img src="vector.png" className="w-[28px] h-[28px]"></img>
-                <Link href="/main">
-                    <p className="text-[16px] font-normal hover:font-bold">Dashboard</p>
-                </Link>
-                <Link href="/record">
-                    <p className="text-[16px] font-normal hover:font-bold">Records</p>
-                </Link>
-
+                <p className="text-[16px] font-normal hover:font-bold"
+                    onClick={() => { router.push("./main") }}
+                >Dashboard</p>
+                <p className="text-[16px] font-normal hover:font-bold"
+                    onClick={() => { router.push("./record") }}
+                >Records</p>
             </div>
             <div className="flex flex-col gap-7">
                 <div className="flex h-fit gap-7 justify-between w-full">

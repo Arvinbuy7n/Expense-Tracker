@@ -1,10 +1,13 @@
 "use client"
 
-import Link from "next/link"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
+
 
 export const Login = () => {
     const [isHidden, setIsHidden] = useState(true)
+    const router = useRouter();
+
 
     return (
         <div className="w-full h-screen flex bg-white">
@@ -35,17 +38,15 @@ export const Login = () => {
                             setIsHidden(!isHidden);
                         }} className="text-[15px]">{isHidden ? 'Show' : 'Hide'}</button>
                     </div>
-                    <Link href="/main">
-                        <button className="bg-[#0166FF] text-white p-3 text-[20px] rounded-2xl w-[384px]">
-                            Log in
-                        </button>
-                    </Link>
+                    <button className="bg-[#0166FF] text-white p-3 text-[20px] rounded-2xl w-[384px]"
+                        onClick={() => { router.push("./main") }}
+                    >
+                        Log in
+                    </button>
                 </div>
                 <div className="flex gap-2 mt-3 pl-10">
                     <p className="text-[16px] text-[#0F172A]">Don’t have account?</p>
-                    <Link href="/sign">
-                        <p className="text-[#0166FF] text-[16px]">Sign up</p>
-                    </Link>
+                    <p className="text-[#0166FF] text-[16px]" onClick={() => { router.push("/sign") }}>Sign up</p>
                 </div>
             </div>
             <div className="w-[50%] bg-[#0166FF]"></div>

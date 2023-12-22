@@ -1,8 +1,7 @@
 "use client";
 
-import { useAuth } from "@/app/layout";
-import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export const Signup = () => {
   const [isHidden, setIsHidden] = useState(true);
@@ -10,8 +9,7 @@ export const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repass, setRepass] = useState("");
-
-  const { Signup } = useAuth();
+  const router = useRouter();
 
   function isName(name) {
     if (name.length > 5) {
@@ -92,7 +90,7 @@ export const Signup = () => {
     } else return "Re-entered password not similar";
   }
 
-  function signUpValidation(Name, Email, Password, Repassword) {}
+  function signUpValidation(Name, Email, Password, Repassword) { }
 
   return (
     <div className="w-full h-screen flex bg-white max-w-[1800px] m-auto">
@@ -166,28 +164,22 @@ export const Signup = () => {
           <p className="absolute bottom-[15%] ml-7 italic opacity-50 text-red-500">
             {repass}
           </p>
-          {/* <div className="absolute ml-[355px] mt-36">
-                        <img src="hide.webp" onClick={() => {
-                            setIsHidden(!isHidden);
-                        }}>{isHidden ? "show" : "hide"}</img>
-                    </div> */}
-          <Link href="/step1">
-            <button
-              type="submit"
-              className="bg-[#0166FF] text-white py-3 rounded-[20px] w-[410px] text-xl"
-            >
-              Sign up
-            </button>
-          </Link>
+          <button
+            type="submit"
+            className="bg-[#0166FF] text-white py-3 rounded-[20px] w-[410px] text-xl"
+            onClick={() => { router.push("./step1") }}
+          >
+            Sign up
+          </button>
         </form>
         <div className="flex gap-2 pl-20">
           <p className="text-[16px]">Already have account?</p>
-          <Link href="/login">
-            <p className="text-[#0166FF] text-[16px]">Log in</p>
-          </Link>
+          <p className="text-[#0166FF] text-[16px]"
+            onClick={() => { router.push("./login") }}
+          >Log in</p>
         </div>
       </div>
       <div className="w-2/4 bg-[#0166FF]"></div>
-    </div>
+    </div >
   );
 };

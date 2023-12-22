@@ -1,6 +1,10 @@
-import Link from "next/link"
+"use client"
+
+import { useRouter } from "next/navigation"
 
 export const StepThree = () => {
+    const router = useRouter();
+
     return (
         <div className="w-full h-screen flex flex-col bg-white gap-36 py-10 max-w-[1800px] m-auto">
             <div className="flex flex-col gap-10">
@@ -24,9 +28,9 @@ export const StepThree = () => {
                         Your very first account has been created. Now <br></br>
                         continue to dashboard and start tracking
                     </p>
-                    <Link href="/main">
-                        <button className="bg-blue-600 w-[384px] rounded-[20px] p-2 text-white mt-5 text-[20px]">Go to Dashboard</button>
-                    </Link>
+                    <button className="bg-blue-600 w-[384px] rounded-[20px] p-2 text-white mt-5 text-[20px]"
+                        onClick={() => { router.push("./main") }}
+                    >Go to Dashboard</button>
                 </div>
             </div>
         </div>

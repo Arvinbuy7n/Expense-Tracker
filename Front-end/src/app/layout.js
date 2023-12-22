@@ -12,6 +12,11 @@ export default function RootLayout({ children }) {
   const [openDraw, setOpenDraw] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isCategory, setIsCategory] = useState(false);
+  const [isSign, setIsSign] = useState(false);
+
+  const getSign = () => {
+    setIsSign((p) => !p);
+  };
 
   const addCat = () => {
     setIsCategory((prev) => !prev);
@@ -85,6 +90,9 @@ export default function RootLayout({ children }) {
             isCategory,
             setIsCategory,
             addCat,
+            isSign,
+            setIsSign,
+            getSign,
           }}
         >
           {children}
