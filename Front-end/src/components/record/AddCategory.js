@@ -96,7 +96,7 @@ export const AddCategory = () => {
             </div>
             <div className="w-[85%] rounded-lg bg-slate-100 p-5"></div>
           </div>
-          <button className="bg-blue-600 py-2 rounded-xl text-white">
+          <button className="bg-[#16A34A] py-2 rounded-xl text-white">
             Add Category
           </button>
         </div>

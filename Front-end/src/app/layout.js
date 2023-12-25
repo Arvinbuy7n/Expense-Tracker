@@ -3,6 +3,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,6 +14,11 @@ export default function RootLayout({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isCategory, setIsCategory] = useState(false);
   const [isSign, setIsSign] = useState(false);
+  const [isAddition, setIsAddition] = useState(false);
+
+  const setAddition = () => {
+    setIsAddition((a) => !a);
+  };
 
   const getSign = () => {
     setIsSign((p) => !p);
@@ -32,20 +38,20 @@ export default function RootLayout({ children }) {
 
   const [isLogged, setIsLogged] = useState(false);
 
-  const signIn = async (email, password) => {
+  const Login = async (email, password) => {
     try {
-      const res = await fetch("http://localhost:3001/sign-in", {
-        method: "POST",
-        headers: {
-          "Content-Type": "appliciation/json",
+      const { data } = await axios.post(
+        "http://localhost:3001/login",
+        {
+          email,
+          password,
         },
-        body: JSON.stringify({ email, password }),
-      });
-      if (res.status !== 200) {
-        throw new Error("Invalid cred");
-      }
-
-      const data = await res.json();
+        {
+          headers: {
+            Authorization: "token",
+          },
+        }
+      );
 
       const { token } = data;
 
@@ -53,21 +59,19 @@ export default function RootLayout({ children }) {
     } catch (err) {
       console.log(err, "FFF");
     }
-    // setIsLogged(true)
-    // localStorage.setItem("token", "abc")
   };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:3001")
-      .then((res) => res.text())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log("Error", err);
-      });
+    // fetch("http://localhost:3001")
+    //   .then((res) => res.text())
+    //   .then((data) => {
+    //     console.log(data);
+    //   })
+    //   .catch((err) => {
+    //     console.log("Error", err);
+    //   });
 
     if (token) {
       setIsLogged(true);
@@ -93,6 +97,9 @@ export default function RootLayout({ children }) {
             isSign,
             setIsSign,
             getSign,
+            isAddition,
+            setAddition,
+            setIsAddition,
           }}
         >
           {children}
