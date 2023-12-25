@@ -7,7 +7,7 @@ import { useAuth } from "@/app/layout";
 export const Login = () => {
   const [isHidden, setIsHidden] = useState(true);
   const router = useRouter();
-  const login = useAuth();
+  const { login } = useAuth();
 
   return (
     <div className="w-full h-screen flex bg-white">
@@ -50,7 +50,7 @@ export const Login = () => {
           <button
             className="bg-[#0166FF] text-white p-3 text-[20px] rounded-2xl w-[384px]"
             onClick={() => {
-              router.push("./main");
+              login();
             }}
           >
             Log in

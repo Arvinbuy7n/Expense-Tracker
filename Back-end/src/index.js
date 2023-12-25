@@ -9,9 +9,27 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post("/login", (req, res) => {
+  // res.json({
+  //   token: "123456",
+  // });
+  app.get("/", (req, res) => {
+    console.log(req);
 
-  res.json({
-    token: "123456",
+    res.send("Hello world");
+  });
+
+  app.post("/login", (req, res) => {
+    const { email, password } = req.body;
+
+    if (email === "admin" && password === "admin1") {
+      return res.json({
+        token: "123456",
+      });
+    }
+
+    res.status(401).send({
+      message: "invalid cred",
+    });
   });
 
   // const { email, password } = res.body;
@@ -28,36 +46,3 @@ const port = 3001;
 app.listen(port, () => {
   console.log(`Example app listen ${port}`);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// app.get("/", (req, res) => {
-//   console.log(req);
-
-//   res.send("Hello world");
-// });
-
-// app.post("/login", (req, res) => {
-//   const { email, password } = req.body;
-
-//   if (email === "admin" && password === "admin1") {
-//     return res.json({
-//       token: "123456",
-//     });
-//   }
-
-//   res.status(401).send({
-//     message: "invalid cred",
-//   });
-// });
