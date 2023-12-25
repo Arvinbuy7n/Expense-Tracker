@@ -54,7 +54,7 @@ export const RecordExp = (props) => {
           <MdArrowDropDown size={20} onClick={setAddition} />
         </div>
         {isAddition ? (
-          <div className="absolute top-[63%] w-[47%] flex flex-col bg-[#FFFFFF] rounded-xl border-2">
+          <div className="absolute top-[63%] w-[47%] flex flex-col bg-[#FFFFFF] h-[300px] rounded-xl border-2 overflow-scroll ">
             <div className="flex gap-3 p-4">
               <FaPlusCircle color="#0166FF" size={22} onClick={addCat} />
               <p className="text-[16px]">Add Category</p>
@@ -81,7 +81,7 @@ export const RecordExp = (props) => {
             </div>
             <div className="flex gap-3 p-4">
               <PiTShirtFill color="#6F6CF3" size={22} />
-              <p>Gift</p>
+              <p>Shopping</p>
             </div>
           </div>
         ) : null}

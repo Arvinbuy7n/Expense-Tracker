@@ -8,6 +8,8 @@ export const Login = () => {
   const [isHidden, setIsHidden] = useState(true);
   const router = useRouter();
   const { login } = useAuth();
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   return (
     <div className="w-full h-screen flex bg-white">
@@ -30,11 +32,19 @@ export const Login = () => {
           <input
             type="text"
             placeholder="  Email"
+            value={email}
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
             className="border-2 p-3 rounded-lg bg-slate-100 w-[382px]"
           />
           <input
             type={isHidden ? "password" : "text"}
             placeholder="  Password"
+            value={password}
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
             className="border-2 p-3 rounded-lg bg-slate-100 w-[382px]"
           />
           <div className="absolute ml-80 mt-20">
@@ -49,8 +59,9 @@ export const Login = () => {
           </div>
           <button
             className="bg-[#0166FF] text-white p-3 text-[20px] rounded-2xl w-[384px]"
-            onClick={() => {
-              login();
+            onClick={(e) => {
+              e.preventDefault();
+              login(email, password);
             }}
           >
             Log in

@@ -1,4 +1,7 @@
+import { BarChart } from "./BarChart";
+
 export const DashChart = () => {
+
     return (
         <div className="flex gap-8 px-36 w-full h-[320px]">
             <div className="w-1/2 bg-white rounded-xl">

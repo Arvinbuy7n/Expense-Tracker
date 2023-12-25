@@ -55,8 +55,6 @@ export default function RootLayout({ children }) {
 
       const { token } = data;
 
-      isLogged(true);
-
       console.log(token);
     } catch (err) {
       console.log(err, "FFF");
