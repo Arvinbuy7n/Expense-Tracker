@@ -9,17 +9,38 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post("/login", (req, res) => {
-  // res.json({
-  //   token: "123456",
-  // });
-  const { email, password } = res.body;
-
-  const token = jwt.sign({ email }, "secret-key");
 
   res.json({
-    token,
+    token: "123456",
   });
+
+  // const { email, password } = res.body;
+
+  // const token = jwt.sign({ email }, "secret-key");
+
+  // res.json({
+  //   token,
+  // });
 });
+
+const port = 3001;
+
+app.listen(port, () => {
+  console.log(`Example app listen ${port}`);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // app.get("/", (req, res) => {
 //   console.log(req);
@@ -40,9 +61,3 @@ app.post("/login", (req, res) => {
 //     message: "invalid cred",
 //   });
 // });
-
-const port = 3001;
-
-app.listen(port, () => {
-  console.log(`Example app listen ${port}`);
-});

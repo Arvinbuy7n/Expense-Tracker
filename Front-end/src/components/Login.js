@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/app/layout";
 
 export const Login = () => {
   const [isHidden, setIsHidden] = useState(true);
   const router = useRouter();
+  const login = useAuth();
 
   return (
     <div className="w-full h-screen flex bg-white">

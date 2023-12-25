@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
 
   const [isLogged, setIsLogged] = useState(false);
 
-  const Login = async (email, password) => {
+  const login = async (email, password) => {
     try {
       const { data } = await axios.post(
         "http://localhost:3001/login",
@@ -63,15 +63,6 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-
-    // fetch("http://localhost:3001")
-    //   .then((res) => res.text())
-    //   .then((data) => {
-    //     console.log(data);
-    //   })
-    //   .catch((err) => {
-    //     console.log("Error", err);
-    //   });
 
     if (token) {
       setIsLogged(true);
