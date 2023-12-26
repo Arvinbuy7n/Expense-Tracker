@@ -3,6 +3,7 @@
 import { Inter } from "next/font/google";
 
 import { createContext, useContext, useEffect, useState } from "react";
+import './globals.css'
 import { api } from "@/common/axios";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
