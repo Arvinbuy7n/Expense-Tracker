@@ -1,9 +1,11 @@
 "use client";
 
 import { Inter } from "next/font/google";
-import "./globals.css";
+
 import { createContext, useContext, useEffect, useState } from "react";
-import axios from "axios";
+import { api } from "@/common/axios";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,36 +39,75 @@ export default function RootLayout({ children }) {
   };
 
   const [isLogged, setIsLogged] = useState(false);
+  const [isReady, setIsReady] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const router = useRouter();
 
   const login = async (email, password) => {
+    setIsLoading(true);
+
     try {
-      const { data } = await axios.post(
-        "http://localhost:3001/login",
-        {
-          email,
-          password,
-        },
-        {
-          headers: {
-            Authorization: "token",
-          },
-        }
-      );
+      const { data } = await api.post("/login", {
+        email,
+        password,
+      });
 
       const { token } = data;
 
-      console.log(token);
+      localStorage.setItem("token", token);
+
+      setIsLogged(true);
+
+      router.push("/main");
     } catch (err) {
-      console.log(err, "FFF");
+      toast.error(error.response.data.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
+  const signUp = async (email, password) => {
+    setIsLoading(true);
+
+    try {
+      const { data } = await api.post("/sign-up", {
+        email,
+        password,
+      });
+
+      const { token } = data;
+
+      localStorage.setItem("token", token);
+
+      setIsLoggedIn(true);
+
+      router.push("/main");
+    } catch (error) {
+      toast.error(error.response.data.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const signOut = () => {
+    localStorage.removeItem("token");
+
+    setIsLogged(false);
+
+    router.push("/login");
+  };
+
   useEffect(() => {
+    setIsReady(false);
+
     const token = localStorage.getItem("token");
 
     if (token) {
       setIsLogged(true);
     }
+
+    setIsReady(true);
   }, []);
 
   return (
@@ -92,15 +133,16 @@ export default function RootLayout({ children }) {
             setAddition,
             setIsAddition,
             login,
+            signUp,
+            isLoading,
+            signOut,
           }}
         >
-          {children}
+          {isReady && children}
         </AuthContext.Provider>
       </body>
     </html>
   );
 }
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+export const useAuth = () => useContext(AuthContext);

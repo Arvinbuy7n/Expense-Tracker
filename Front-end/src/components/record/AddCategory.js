@@ -70,7 +70,7 @@ export const AddCategory = () => {
     <FaPeace size={25} />,
     <PiToiletPaperFill size={25} />,
     <FaPencilAlt size={25} />,
-  ]
+  ];
   const color = [
     "#0166FF",
     "#01B3FF",
@@ -79,7 +79,7 @@ export const AddCategory = () => {
     "#FF7B01",
     "#AE01FF",
     "#FF0101",
-  ]
+  ];
 
   return (
     <div className="fixed top-0 bg-[#00000080] w-screen h-screen">
@@ -97,13 +97,30 @@ export const AddCategory = () => {
                 <div className="absolute left-0 w-fit h-fit bg-white p-7 mt-[400px] rounded-xl flex flex-col gap-6">
                   <div className="drop-shadow-md grid grid-cols-6 gap-x-6 gap-y-6 border-b-2 pb-8">
                     {icon.map((item, index) => {
-                      return <div onClick={() => { setIsChoose(item) }} key={index}>{item}</div>
+                      return (
+                        <div
+                          onClick={() => {
+                            setIsChoose(item);
+                          }}
+                          key={index}
+                        >
+                          {item}
+                        </div>
+                      );
                     })}
-
                   </div>
                   <div className="flex justify-between items-center gap-4">
                     {color.map((item, index) => {
-                      return <div className="rounded-full w-6 h-6" onClick={() => { setIsColor(item) }} key={index} style={{ backgroundColor: item }}></div>
+                      return (
+                        <div
+                          className="rounded-full w-6 h-6"
+                          onClick={() => {
+                            setIsColor(item);
+                          }}
+                          key={index}
+                          style={{ backgroundColor: item }}
+                        ></div>
+                      );
                     })}
                   </div>
                 </div>

@@ -4,18 +4,15 @@ const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 
 const app = express();
-const users = [
-
-]
+const users = [];
 
 app.use(cors());
 app.use(bodyParser.json());
 
 app.post("/login", (req, res) => {
-
   const { email, password } = req.body;
 
-  console.log(email, password)
+  console.log(email, password);
 
   const token = jwt.sign({ email }, "secret-key", { expiresIn: "1h" });
 
@@ -26,9 +23,8 @@ app.post("/login", (req, res) => {
   }
 
   res.status(401).send({
-    message: "Invalid cred"
+    message: "Invalid cred",
   });
-
 });
 
 const port = 3001;
@@ -36,18 +32,3 @@ const port = 3001;
 app.listen(port, () => {
   console.log(`Chekist tanii portiig sonsoj chadaj bnaa ${port}`);
 });
-
-
-// app.post("/login", (req, res) => {
-//   const { email, password } = req.body;
-
-//   if (email === "admin" && password === "admin1") {
-//     return res.json({
-//       token: "123456",
-//     });
-//   }
-
-//   res.status(401).send({
-//     message: "invalid cred",
-//   });
-// });
