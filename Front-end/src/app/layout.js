@@ -1,12 +1,13 @@
 "use client";
 
 import { Inter } from "next/font/google";
+import "react-toastify/dist/ReactToastify.css";
+import "./globals.css";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import './globals.css'
 import { api } from "@/common/axios";
 import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -62,7 +63,7 @@ export default function RootLayout({ children }) {
 
       router.push("/main");
     } catch (err) {
-      toast.error(error.response.data.message);
+      toast.error(err.response.data.message);
     } finally {
       setIsLoading(false);
     }
@@ -141,6 +142,8 @@ export default function RootLayout({ children }) {
         >
           {isReady && children}
         </AuthContext.Provider>
+
+        <ToastContainer />
       </body>
     </html>
   );
