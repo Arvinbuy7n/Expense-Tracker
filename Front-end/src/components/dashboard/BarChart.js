@@ -28,7 +28,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Chart.js Bar Chart",
+      text: "Bar Chart",
     },
   },
 };
@@ -53,7 +53,7 @@ export const data = {
 
 export const BarChart = () => {
   return (
-    <div className="w-[510px] h-fit ml-10">
+    <div className="w-[600px] h-fit ml-10">
       {" "}
       <Bar options={options} data={data} />{" "}
     </div>

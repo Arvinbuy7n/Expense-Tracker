@@ -7,7 +7,6 @@ export const DashMap = () => {
         "Lending & Renting",
         "Lending & Renting",
         "Lending & Renting",
-        "Lending & Renting",
     ];
 
     return (

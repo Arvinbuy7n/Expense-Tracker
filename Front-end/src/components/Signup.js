@@ -132,7 +132,10 @@ export const Signup = () => {
             name="Email"
             placeholder="  Email"
             className="border-2 p-3 rounded-lg bg-slate-100 w-[410px]"
-          />
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          ></input>
           <p className="absolute bottom-[57%] ml-7 italic opacity-50 text-red-500">
             {email}
           </p>
@@ -141,6 +144,9 @@ export const Signup = () => {
             name="Password"
             placeholder="  Password"
             className="border-2 p-3 rounded-lg bg-slate-100 w-[410px]"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
           <p className="absolute bottom-[37%] ml-7 italic opacity-50 text-red-500">
             {password}
@@ -167,7 +173,10 @@ export const Signup = () => {
           <button
             type="submit"
             className="bg-[#0166FF] text-white py-3 rounded-[20px] w-[410px] text-xl"
-            onClick={() => { router.push("./step1") }}
+            onClick={(e) => {
+              e.preventDefault();
+              Signup(email, password)
+            }}
           >
             Sign up
           </button>

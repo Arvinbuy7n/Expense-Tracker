@@ -50,7 +50,7 @@ export const RecordExp = (props) => {
       <div className="w-full flex flex-col gap-1">
         <p className="text-[16px] text-[#1F2937]">Category</p>
         <div className="flex justify-between w-full py-4 px-3 rounded-lg bg-slate-100 text-[#94A3B8] relative">
-          <p>Choose</p>
+          <p>Find or choose category</p>
           <MdArrowDropDown size={20} onClick={setAddition} />
         </div>
         {isAddition ? (
