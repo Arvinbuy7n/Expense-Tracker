@@ -73,7 +73,7 @@ export default function RootLayout({ children }) {
     setIsLoading(true);
 
     try {
-      const { data } = await api.post("/sign-up", {
+      const { data } = await api.post("/sign", {
         email,
         password,
       });
@@ -84,9 +84,9 @@ export default function RootLayout({ children }) {
 
       setIsLoggedIn(true);
 
-      router.push("/main");
+      router.push("/step1");
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data.message);
     } finally {
       setIsLoading(false);
     }

@@ -53,7 +53,7 @@ export const data = {
 
 export const BarChart = () => {
   return (
-    <div className="w-[600px] h-fit ml-10">
+    <div className="w-[600px] h-fit">
       {" "}
       <Bar options={options} data={data} />{" "}
     </div>

@@ -25,7 +25,7 @@ app.post("/login", async (req, res) => {
 
   if (!user) {
     return res.status(401).json({
-      message: "Unauthorized",
+      message: "User not found",
     });
   }
 
@@ -40,16 +40,6 @@ app.post("/login", async (req, res) => {
   res.json({
     token,
   });
-
-  // if (email === "Chekist" && password === "admin") {
-  //   return res.json({
-  //     token,
-  //   });
-  // }
-
-  // res.status(401).send({
-  //   message: "Invalid cred",
-  // });
 });
 
 app.post("/sign", async (req, res) => {
@@ -65,7 +55,7 @@ app.post("/sign", async (req, res) => {
 
   if (user) {
     return res.status(409).json({
-      message: "User already exists",
+      message: "User already entered",
     });
   }
 

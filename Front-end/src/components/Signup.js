@@ -2,95 +2,101 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/app/layout";
 
 export const Signup = () => {
   const [isHidden, setIsHidden] = useState(true);
-  const [name, setName] = useState("");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [repass, setRepass] = useState("");
+
+  // const [name, setName] = useState("");
+  // const [repass, setRepass] = useState("");
+
   const router = useRouter();
 
-  function isName(name) {
-    if (name.length > 5) {
-      return true;
-    } else return "insert name";
-  }
+  const { signUp } = useAuth();
 
-  function emailValidation(email) {
-    let atChar = 0;
-    let dotChar = 0;
-    let spaceChar = 0;
-    for (let i = 0; i < email.length; i++) {
-      if (email.charCodeAt(i) == 64) {
-        atChar++;
-      }
-      if (email.charCodeAt(i) == 46) {
-        dotChar++;
-      }
-      if (email.charCodeAt(i) == 40) {
-        spaceChar++;
-      }
-    }
-    if (email.length == 0) {
-      return "insert email";
-    }
-    if (email.length < 5) {
-      return "5aas ih bich";
-    }
-    if (atChar != 1) {
-      return "must be atchar";
-    }
-    if (dotChar != 1) {
-      return "must be dotchar";
-    }
-    if (spaceChar > 0) {
-      return "not space";
-    } else return true;
-  }
+  // function isName(name) {
+  //   if (name.length > 5) {
+  //     return true;
+  //   } else return "insert name";
+  // }
 
-  function passwordValid(password) {
-    let num = 0;
-    let capNum = 0;
-    let specialCharacter = 0;
+  // function emailValidation(email) {
+  //   let atChar = 0;
+  //   let dotChar = 0;
+  //   let spaceChar = 0;
+  //   for (let i = 0; i < email.length; i++) {
+  //     if (email.charCodeAt(i) == 64) {
+  //       atChar++;
+  //     }
+  //     if (email.charCodeAt(i) == 46) {
+  //       dotChar++;
+  //     }
+  //     if (email.charCodeAt(i) == 40) {
+  //       spaceChar++;
+  //     }
+  //   }
+  //   if (email.length == 0) {
+  //     return "insert email";
+  //   }
+  //   if (email.length < 5) {
+  //     return "5aas ih bich";
+  //   }
+  //   if (atChar != 1) {
+  //     return "must be atchar";
+  //   }
+  //   if (dotChar != 1) {
+  //     return "must be dotchar";
+  //   }
+  //   if (spaceChar > 0) {
+  //     return "not space";
+  //   } else return true;
+  // }
 
-    for (let i = 0; i < password.length; i++) {
-      if (password.charCodeAt(i) > 47 && password.charCodeAt(i) < 58) {
-        num++;
-      }
-      if (password.charCodeAt(i) > 64 && password.charCodeAt(i) < 91) {
-        capNum++;
-      }
-      if (password.charCodeAt(i) > 33 && password.charCodeAt(i) < 47) {
-        specialCharacter++;
-      }
-      if (password.charCodeAt(i) > 57 && password.charCodeAt(i) < 65) {
-        specialCharacter++;
-      }
-    }
-    if (password.length == 0) {
-      return "insert password";
-    }
-    if (password.length < 8) {
-      return "Password length should be min 8 character";
-    }
-    if (num < 0) {
-      return "Password should include number";
-    }
-    if (capNum == 0) {
-      return "Password should include CAPITAL letter";
-    }
-    if (specialCharacter == 0) {
-      return "Password should include special character";
-    } else return true;
-  }
-  function isRepasswordSimilar(password, repassword) {
-    if (password === repassword) {
-      return true;
-    } else return "Re-entered password not similar";
-  }
+  // function passwordValid(password) {
+  //   let num = 0;
+  //   let capNum = 0;
+  //   let specialCharacter = 0;
 
-  function signUpValidation(Name, Email, Password, Repassword) { }
+  //   for (let i = 0; i < password.length; i++) {
+  //     if (password.charCodeAt(i) > 47 && password.charCodeAt(i) < 58) {
+  //       num++;
+  //     }
+  //     if (password.charCodeAt(i) > 64 && password.charCodeAt(i) < 91) {
+  //       capNum++;
+  //     }
+  //     if (password.charCodeAt(i) > 33 && password.charCodeAt(i) < 47) {
+  //       specialCharacter++;
+  //     }
+  //     if (password.charCodeAt(i) > 57 && password.charCodeAt(i) < 65) {
+  //       specialCharacter++;
+  //     }
+  //   }
+  //   if (password.length == 0) {
+  //     return "insert password";
+  //   }
+  //   if (password.length < 8) {
+  //     return "Password length should be min 8 character";
+  //   }
+  //   if (num < 0) {
+  //     return "Password should include number";
+  //   }
+  //   if (capNum == 0) {
+  //     return "Password should include CAPITAL letter";
+  //   }
+  //   if (specialCharacter == 0) {
+  //     return "Password should include special character";
+  //   } else return true;
+  // }
+  // function isRepasswordSimilar(password, repassword) {
+  //   if (password === repassword) {
+  //     return true;
+  //   } else return "Re-entered password not similar";
+  // }
+
+  // function signUpValidation(Name, Email, Password, Repassword) {}
 
   return (
     <div className="w-full h-screen flex bg-white max-w-[1800px] m-auto">
@@ -110,11 +116,12 @@ export const Signup = () => {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            signUpValidation();
-            setName(isName(event.target.Name.value));
-            setEmail(emailValidation(event.target.Email.value));
-            setPassword(passwordValid(event.target.Password.value));
-            setRepass(isRepasswordSimilar(event.target.Repassword.value));
+            signUp(email, password);
+            // signUpValidation();
+            // setName(isName(event.target.Name.value));
+            // setEmail(emailValidation(event.target.Email.value));
+            // setPassword(passwordValid(event.target.Password.value));
+            // setRepass(isRepasswordSimilar(event.target.Repassword.value));
           }}
           className="flex flex-col w-80 gap-4 relative"
         >
@@ -167,15 +174,13 @@ export const Signup = () => {
             placeholder="  Re-Password"
             className="border-2 p-3 rounded-lg bg-slate-100 w-[410px]"
           />
-          <p className="absolute bottom-[15%] ml-7 italic opacity-50 text-red-500">
-            {repass}
-          </p>
+          <p className="absolute bottom-[15%] ml-7 italic opacity-50 text-red-500"></p>
           <button
             type="submit"
             className="bg-[#0166FF] text-white py-3 rounded-[20px] w-[410px] text-xl"
             onClick={(e) => {
               e.preventDefault();
-              Signup(email, password)
+              signUp(email, password);
             }}
           >
             Sign up
@@ -183,12 +188,17 @@ export const Signup = () => {
         </form>
         <div className="flex gap-2 pl-20">
           <p className="text-[16px]">Already have account?</p>
-          <p className="text-[#0166FF] text-[16px]"
-            onClick={() => { router.push("./login") }}
-          >Log in</p>
+          <p
+            className="text-[#0166FF] text-[16px]"
+            onClick={() => {
+              router.push("./login");
+            }}
+          >
+            Log in
+          </p>
         </div>
       </div>
       <div className="w-2/4 bg-[#0166FF]"></div>
-    </div >
+    </div>
   );
 };
