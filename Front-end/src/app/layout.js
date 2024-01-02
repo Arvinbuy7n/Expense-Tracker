@@ -20,6 +20,8 @@ export default function RootLayout({ children }) {
   const [isSign, setIsSign] = useState(false);
   const [isAddition, setIsAddition] = useState(false);
 
+  //front-end new sector .............................
+
   const setAddition = () => {
     setIsAddition((a) => !a);
   };
@@ -39,6 +41,8 @@ export default function RootLayout({ children }) {
   const setData = () => {
     setIsOpen((p) => !p);
   };
+
+  //connection between the "back" and "front" /////////////////////////
 
   const [isLogged, setIsLogged] = useState(false);
   const [isReady, setIsReady] = useState(false);
@@ -82,7 +86,7 @@ export default function RootLayout({ children }) {
 
       localStorage.setItem("token", token);
 
-      setIsLoggedIn(true);
+      setIsLogged(true);
 
       router.push("/step1");
     } catch (error) {
@@ -98,6 +102,29 @@ export default function RootLayout({ children }) {
     setIsLogged(false);
 
     router.push("/login");
+  };
+
+  const records = async (amount, category, type) => {
+    setIsLoading(true);
+
+    try {
+      const { data } = await api.post("/records", {
+        amount,
+        category,
+        type,
+      },
+        {
+          headers: {
+            Authorization: localStorage.getItem("token")
+          }
+        }
+      )
+      setIsLogged(true);
+    } catch (error) {
+      toast.error(error.response.data.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -138,6 +165,7 @@ export default function RootLayout({ children }) {
             signUp,
             isLoading,
             signOut,
+            records,
           }}
         >
           {isReady && children}

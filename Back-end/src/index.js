@@ -35,7 +35,7 @@ app.post("/login", async (req, res) => {
     });
   }
 
-  const token = jwt.sign({ email }, "secret-key", { expiresIn: "1h" });
+  const token = jwt.sign({ email }, "secret-key");
 
   res.json({
     token,
@@ -55,7 +55,7 @@ app.post("/sign", async (req, res) => {
 
   if (user) {
     return res.status(409).json({
-      message: "User already entered",
+      message: "User entered",
     });
   }
 
@@ -69,6 +69,49 @@ app.post("/sign", async (req, res) => {
   res.json({
     message: "User created",
   });
+});
+
+app.post("/records", async (req, res) => {
+
+  const { authorization } = req.headers;
+
+  if (!authorization) {
+    return res.status(401).json({
+      message: "Unauthorized1"
+    })
+  }
+
+  try {
+    const payload = jwt.verify(authorization, "secret-key");
+
+    const { email } = payload;
+
+    const { category, amount, type } = req.body;
+
+    const filePath = "src/data/records.json";
+
+    const recordsRaw = await fs.readFile(filePath, "utf-8")
+
+    const records = JSON.parse(recordsRaw);
+
+    records.push({
+      type,
+      category,
+      amount,
+      userEmail: email,
+    });
+
+    await fs.writeFile(filePath, JSON.stringify(records));
+
+    res.json({
+      message: "Record created"
+    })
+
+  } catch (err) {
+    return res.status(401).json({
+      message: "Unauthorized"
+    });
+  }
 });
 
 const port = 3001;
