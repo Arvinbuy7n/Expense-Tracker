@@ -88,7 +88,7 @@ export default function RootLayout({ children }) {
 
       setIsLogged(true);
 
-      router.push("/step1");
+      router.push("/login");
     } catch (error) {
       toast.error(error.response?.data.message);
     } finally {
@@ -108,17 +108,19 @@ export default function RootLayout({ children }) {
     setIsLoading(true);
 
     try {
-      const { data } = await api.post("/records", {
-        amount,
-        category,
-        type,
-      },
+      const { data } = await api.post(
+        "/records",
+        {
+          amount,
+          category,
+          type,
+        },
         {
           headers: {
-            Authorization: localStorage.getItem("token")
-          }
+            Authorization: localStorage.getItem("token"),
+          },
         }
-      )
+      );
       setIsLogged(true);
     } catch (error) {
       toast.error(error.response.data.message);

@@ -12,6 +12,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+//newtreh heseg
+
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -25,13 +27,13 @@ app.post("/login", async (req, res) => {
 
   if (!user) {
     return res.status(401).json({
-      message: "User not found",
+      message: "Ийм нэртэй хэрэглэгч олдсонгүй",
     });
   }
 
   if (user.password != password) {
     return res.status(401).json({
-      message: "Unauthorized",
+      message: "Нууц үг буруу байна",
     });
   }
 
@@ -41,6 +43,8 @@ app.post("/login", async (req, res) => {
     token,
   });
 });
+
+//shine hereglegch uusgeh
 
 app.post("/sign", async (req, res) => {
   const { email, password } = req.body;
@@ -55,7 +59,7 @@ app.post("/sign", async (req, res) => {
 
   if (user) {
     return res.status(409).json({
-      message: "User entered",
+      message: "Хэрэглэгч нэвтэрсэн байна.",
     });
   }
 
@@ -67,18 +71,19 @@ app.post("/sign", async (req, res) => {
   await fs.writeFile(filePath, JSON.stringify(users));
 
   res.json({
-    message: "User created",
+    message: "Шинэ хэрэглэгч амжилттай үүслээ.",
   });
 });
 
-app.post("/records", async (req, res) => {
+//add new record
 
+app.post("/records", async (req, res) => {
   const { authorization } = req.headers;
 
   if (!authorization) {
     return res.status(401).json({
-      message: "Unauthorized1"
-    })
+      message: "Should be token!!",
+    });
   }
 
   try {
@@ -90,7 +95,7 @@ app.post("/records", async (req, res) => {
 
     const filePath = "src/data/records.json";
 
-    const recordsRaw = await fs.readFile(filePath, "utf-8")
+    const recordsRaw = await fs.readFile(filePath, "utf-8");
 
     const records = JSON.parse(recordsRaw);
 
@@ -104,12 +109,45 @@ app.post("/records", async (req, res) => {
     await fs.writeFile(filePath, JSON.stringify(records));
 
     res.json({
-      message: "Record created"
-    })
-
+      message: "Шинэ хэрэглэгч үүссэн байна.",
+    });
   } catch (err) {
     return res.status(401).json({
-      message: "Unauthorized"
+      message: "Unauthorized",
+    });
+  }
+});
+
+//get records
+
+app.get("/records", async (req, res) => {
+  const { authorization } = req.headers;
+
+  if (!authorization) {
+    res.status(401).json({
+      message: "Unauthorization1",
+    });
+  }
+
+  try {
+    const payload = jwt.verify(authorization, "secret-key");
+
+    const { email } = payload;
+
+    const filePath = "src/data/records.json";
+
+    const recordsRaw = await fs.readFile(filePath, "utf-8");
+
+    const records = JSON.parse(recordsRaw);
+
+    const userRecords = records.filter((record) => record.userEmail === email);
+
+    res.json({
+      records: userRecords,
+    });
+  } catch (error) {
+    return res.status(401).json({
+      message: "Author",
     });
   }
 });
