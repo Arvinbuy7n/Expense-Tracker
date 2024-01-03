@@ -12,8 +12,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-//newtreh heseg
-
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -44,8 +42,6 @@ app.post("/login", async (req, res) => {
   });
 });
 
-//shine hereglegch uusgeh
-
 app.post("/sign", async (req, res) => {
   const { email, password } = req.body;
 
@@ -75,7 +71,17 @@ app.post("/sign", async (req, res) => {
   });
 });
 
-//add new record
+app.get("/users", async (_req, res) => {
+  const filePath = "src/data/users.json";
+
+  const usersRaw = await fs.readFile(filePath, "utf8")
+
+  const users = JSON.parse(usersRaw);
+
+  res.json({
+    users,
+  });
+});
 
 app.post("/records", async (req, res) => {
   const { authorization } = req.headers;
@@ -118,8 +124,6 @@ app.post("/records", async (req, res) => {
   }
 });
 
-//get records
-
 app.get("/records", async (req, res) => {
   const { authorization } = req.headers;
 
@@ -151,6 +155,85 @@ app.get("/records", async (req, res) => {
     });
   }
 });
+
+app.post("/category", async (req, res) => {
+  const { authorization } = req.headers;
+
+  if (!authorization) {
+    return res.status(401).json({
+      message: "Unauthorized2"
+    })
+  }
+
+  try {
+    const payload = jwt.verify(authorization, "secret-key")
+
+    const { email } = payload;
+
+
+    const { icon, cate, color } = req.body;
+
+
+    const filePath = "src/data/categories.json";
+
+    const categoryRaw = await fs.readFile(filePath, "utf8");
+
+    const category = JSON.parse(categoryRaw);
+
+    category.push({
+      icon,
+      color,
+      cate,
+      userEmail: email,
+    });
+
+
+
+    await fs.writeFile(filePath, JSON.stringify(category));
+
+    res.json({
+      message: "new category created"
+    });
+  } catch (error) {
+    return res.status(401).json({
+      message: "unauthor"
+    });
+  }
+});
+
+app.get("/category", async (req, res) => {
+  const { authorization } = req.headers;
+
+  if (!authorization) {
+    res.status(401).json({
+      message: "authorized"
+    });
+  }
+
+  try {
+    const payload = jwt.verify(authorization, "secret-key");
+
+    const { email } = payload;
+
+    const filePath = "src/data/categories.json";
+
+    const categoryRaw = fs.readFile(filePath, "utf-8");
+
+    const category = JSON.parse(categoryRaw)
+
+    const userCategory = category.filter((categor) => categor.userEmail === email);
+
+    res.json({
+      category: userCategory,
+    });
+  } catch (err) {
+    return res.status(401).json({
+      message: "Unauthor12"
+    });
+  }
+});
+
+
 
 const port = 3001;
 

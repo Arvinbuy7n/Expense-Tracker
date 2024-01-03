@@ -13,7 +13,7 @@ import { useAuth } from "@/app/layout";
 import { AddCategory } from "./AddCategory";
 
 export const Records = () => {
-  const { openDraw, getData, isOpen, setIsOpen, setData } = useAuth();
+  const { openDraw, getData, isOpen, records } = useAuth();
 
   return (
     <div className="w-full h-full flex flex-col max-w-[1800px] m-auto relative">

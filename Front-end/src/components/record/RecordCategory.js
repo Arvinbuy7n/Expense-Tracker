@@ -2,20 +2,20 @@ import { EachCategory } from "./EachCategory";
 import { useAuth } from "@/app/layout";
 
 export const RecordCategory = () => {
-  const { setData } = useAuth();
+  const { setData, records } = useAuth();
 
   const data = [
     "Food & Drinks",
-    "Shopping",
-    "Housing",
-    "Transportation",
-    "Vehicle",
-    "Life & Entertainment",
-    "Communication, PC",
-    "Financial expenses",
-    "Investments",
-    "Income",
-    "Others",
+    // "Shopping",
+    // "Housing",
+    // "Transportation",
+    // "Vehicle",
+    // "Life & Entertainment",
+    // "Communication, PC",
+    // "Financial expenses",
+    // "Investments",
+    // "Income",
+    // "Others",
   ];
 
   return (

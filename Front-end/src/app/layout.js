@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
   const [isSign, setIsSign] = useState(false);
   const [isAddition, setIsAddition] = useState(false);
 
-  //front-end new sector .............................
+  //front-end new sector
 
   const setAddition = () => {
     setIsAddition((a) => !a);
@@ -129,6 +129,30 @@ export default function RootLayout({ children }) {
     }
   };
 
+  const categories = async (icon, cate, color) => {
+    setIsLoading(true)
+
+    try {
+      const { data } = api.post(
+        "/category",
+        {
+          icon,
+          cate,
+          color
+        },
+        {
+          headers: {
+            Authorization: localStorage.getItem("token")
+          },
+        }
+      );
+    } catch (error) {
+      toast.error(error.response.data.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
     setIsReady(false);
 
@@ -168,6 +192,7 @@ export default function RootLayout({ children }) {
             isLoading,
             signOut,
             records,
+            categories,
           }}
         >
           {isReady && children}
