@@ -43,7 +43,7 @@ app.post("/login", async (req, res) => {
 });
 
 app.post("/sign", async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, name } = req.body;
 
   const filePath = "src/data/users.json";
 
@@ -60,6 +60,7 @@ app.post("/sign", async (req, res) => {
   }
 
   users.push({
+    name,
     email,
     password,
   });
@@ -74,7 +75,7 @@ app.post("/sign", async (req, res) => {
 app.get("/users", async (_req, res) => {
   const filePath = "src/data/users.json";
 
-  const usersRaw = await fs.readFile(filePath, "utf8")
+  const usersRaw = await fs.readFile(filePath, "utf8");
 
   const users = JSON.parse(usersRaw);
 
@@ -161,18 +162,16 @@ app.post("/category", async (req, res) => {
 
   if (!authorization) {
     return res.status(401).json({
-      message: "Unauthorized2"
-    })
+      message: "Unauthorized2",
+    });
   }
 
   try {
-    const payload = jwt.verify(authorization, "secret-key")
+    const payload = jwt.verify(authorization, "secret-key");
 
     const { email } = payload;
 
-
     const { icon, cate, color } = req.body;
-
 
     const filePath = "src/data/categories.json";
 
@@ -187,16 +186,14 @@ app.post("/category", async (req, res) => {
       userEmail: email,
     });
 
-
-
     await fs.writeFile(filePath, JSON.stringify(category));
 
     res.json({
-      message: "new category created"
+      message: "new category created",
     });
   } catch (error) {
     return res.status(401).json({
-      message: "unauthor"
+      message: "unauthor",
     });
   }
 });
@@ -206,7 +203,7 @@ app.get("/category", async (req, res) => {
 
   if (!authorization) {
     res.status(401).json({
-      message: "authorized"
+      message: "authorized",
     });
   }
 
@@ -219,21 +216,21 @@ app.get("/category", async (req, res) => {
 
     const categoryRaw = fs.readFile(filePath, "utf-8");
 
-    const category = JSON.parse(categoryRaw)
+    const category = JSON.parse(categoryRaw);
 
-    const userCategory = category.filter((categor) => categor.userEmail === email);
+    const userCategory = category.filter(
+      (categor) => categor.userEmail === email
+    );
 
     res.json({
       category: userCategory,
     });
   } catch (err) {
     return res.status(401).json({
-      message: "Unauthor12"
+      message: "Unauthor12",
     });
   }
 });
-
-
 
 const port = 3001;
 

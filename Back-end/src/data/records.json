@@ -1,1 +1,14 @@
-[{"type":"income","category":"3dah","amount":1000,"userEmail":"wednes"},{"type":"income","category":"3dah","amount":1000,"userEmail":"wednes"}]
+[
+  {
+    "type": "income",
+    "category": "3dah",
+    "amount": 1000,
+    "userEmail": "wednes"
+  },
+  {
+    "type": "income",
+    "category": "3dah",
+    "amount": 1000,
+    "userEmail": "wednes"
+  }
+]

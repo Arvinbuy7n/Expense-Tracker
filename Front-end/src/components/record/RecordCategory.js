@@ -31,7 +31,14 @@ export const RecordCategory = () => {
       </div>
       <div className="flex gap-2 " onClick={setData}>
         <img src="plus.png" className="w-5 h-5"></img>
-        <p>Add Category</p>
+        <p
+        // onClick={(e) => {
+        //   e.preventDefault();
+        //   records();
+        // }}
+        >
+          Add Category
+        </p>
       </div>
     </div>
   );

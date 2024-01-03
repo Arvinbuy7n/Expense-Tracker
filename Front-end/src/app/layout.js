@@ -73,13 +73,14 @@ export default function RootLayout({ children }) {
     }
   };
 
-  const signUp = async (email, password) => {
+  const signUp = async (email, password, name) => {
     setIsLoading(true);
 
     try {
       const { data } = await api.post("/sign", {
         email,
         password,
+        name,
       });
 
       const { token } = data;
@@ -130,7 +131,7 @@ export default function RootLayout({ children }) {
   };
 
   const categories = async (icon, cate, color) => {
-    setIsLoading(true)
+    setIsLoading(true);
 
     try {
       const { data } = api.post(
@@ -138,11 +139,11 @@ export default function RootLayout({ children }) {
         {
           icon,
           cate,
-          color
+          color,
         },
         {
           headers: {
-            Authorization: localStorage.getItem("token")
+            Authorization: localStorage.getItem("token"),
           },
         }
       );

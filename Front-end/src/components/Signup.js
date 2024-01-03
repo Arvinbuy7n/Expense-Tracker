@@ -9,6 +9,7 @@ export const Signup = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
   // const [name, setName] = useState("");
   // const [repass, setRepass] = useState("");
@@ -130,6 +131,9 @@ export const Signup = () => {
             name="Name"
             placeholder="  Name"
             className="border-2 p-3 rounded-lg bg-slate-100 w-[410px]"
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
           />
           <p className="absolute bottom-[78%] ml-7 italic opacity-50 text-red-500">
             {name}
@@ -180,7 +184,7 @@ export const Signup = () => {
             className="bg-[#0166FF] text-white py-3 rounded-[20px] w-[410px] text-xl"
             onClick={(e) => {
               e.preventDefault();
-              signUp(email, password);
+              signUp(email, password, name);
             }}
           >
             Sign up
