@@ -2,21 +2,9 @@ import { EachCategory } from "./EachCategory";
 import { useAuth } from "@/app/layout";
 
 export const RecordCategory = () => {
-  const { setData, records } = useAuth();
+  const { setData, records, setCategoryList, categoryList } = useAuth();
 
-  const data = [
-    "Food & Drinks",
-    // "Shopping",
-    // "Housing",
-    // "Transportation",
-    // "Vehicle",
-    // "Life & Entertainment",
-    // "Communication, PC",
-    // "Financial expenses",
-    // "Investments",
-    // "Income",
-    // "Others",
-  ];
+  // const data = categoryList.cate;
 
   return (
     <div className="w-full flex flex-col gap-5">
@@ -25,20 +13,13 @@ export const RecordCategory = () => {
         <p className="text-[16px] text-[#1F2937]">Clear</p>
       </div>
       <div className="flex flex-col gap-4 text-[16px] font-normal">
-        {data.map((each, index) => {
-          return <EachCategory key={index} title={each} />;
+        {categoryList.map((item, index) => {
+          return <EachCategory key={index} title={item.cate} />;
         })}
       </div>
       <div className="flex gap-2 " onClick={setData}>
         <img src="plus.png" className="w-5 h-5"></img>
-        <p
-        // onClick={(e) => {
-        //   e.preventDefault();
-        //   records();
-        // }}
-        >
-          Add Category
-        </p>
+        <p>Add Category</p>
       </div>
     </div>
   );

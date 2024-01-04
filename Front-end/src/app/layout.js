@@ -8,6 +8,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "@/common/axios";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
+import { headers } from "../../next.config";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,6 +48,8 @@ export default function RootLayout({ children }) {
   const [isLogged, setIsLogged] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [categoryList, setCategoryList] = useState([]);
+  const [refresh, setRefresh] = useState(0);
 
   const router = useRouter();
 
@@ -154,6 +157,20 @@ export default function RootLayout({ children }) {
     }
   };
 
+  const getCategory = async () => {
+    try {
+      const { data } = await api.get("/category", {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      });
+      setCategoryList(data);
+      setRefresh(refresh + 1);
+    } catch (err) {
+      console.log(err), "FFF";
+    }
+  };
+
   useEffect(() => {
     setIsReady(false);
 
@@ -166,6 +183,10 @@ export default function RootLayout({ children }) {
     setIsReady(true);
   }, []);
 
+  useEffect(() => {
+    getCategory();
+  }, [refresh]);
+  console.log(categoryList);
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -194,6 +215,8 @@ export default function RootLayout({ children }) {
             signOut,
             records,
             categories,
+            categoryList,
+            setCategoryList,
           }}
         >
           {isReady && children}

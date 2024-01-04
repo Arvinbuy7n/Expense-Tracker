@@ -35,7 +35,7 @@ import { FaPencilAlt } from "react-icons/fa";
 import { useState } from "react";
 
 export const AddCategory = () => {
-  const { setData, isCategory, addCat } = useAuth();
+  const { setData, isCategory, addCat, categories, setIsOpen } = useAuth();
   const [isChoose, setIsChoose] = useState(<MdHomeFilled size={20} />);
   const [isColor, setIsColor] = useState("inherit");
 
@@ -88,7 +88,18 @@ export const AddCategory = () => {
           <p className="text-[20px] font-semibold">Add Category</p>
           <img src="x.png" className="w-6 h-6" onClick={setData}></img>
         </div>
-        <div className="w-full flex flex-col gap-6 py-7 px-3">
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            categories(
+              isChoose.type.name,
+              event.target.categoryName.value,
+              isColor
+            );
+            setIsOpen(false);
+          }}
+          className="w-full flex flex-col gap-6 py-7 px-3"
+        >
           <div className="flex gap-2 h-[30px] relative">
             <div className="w-[22%] rounded-lg bg-slate-100 flex gap-2 justify-between items-center p-5">
               <p style={{ color: isColor }}>{isChoose}</p>
@@ -126,12 +137,18 @@ export const AddCategory = () => {
                 </div>
               ) : null}
             </div>
-            <div className="w-[85%] rounded-lg bg-slate-100 p-5"></div>
+            <input
+              name="categoryName"
+              className="w-[85%] rounded-lg bg-slate-100 p-5"
+            />{" "}
           </div>
-          <button className="bg-[#16A34A] py-2 rounded-xl text-white">
+          <button
+            className="bg-[#16A34A] py-2 rounded-xl text-white"
+            type="submit"
+          >
             Add Category
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

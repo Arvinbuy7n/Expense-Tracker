@@ -203,7 +203,7 @@ app.get("/category", async (req, res) => {
 
   if (!authorization) {
     res.status(401).json({
-      message: "authorized",
+      message: "Unauthorized",
     });
   }
 
@@ -214,7 +214,7 @@ app.get("/category", async (req, res) => {
 
     const filePath = "src/data/categories.json";
 
-    const categoryRaw = fs.readFile(filePath, "utf-8");
+    const categoryRaw = await fs.readFile(filePath, "utf-8");
 
     const category = JSON.parse(categoryRaw);
 
@@ -222,9 +222,7 @@ app.get("/category", async (req, res) => {
       (categor) => categor.userEmail === email
     );
 
-    res.json({
-      category: userCategory,
-    });
+    res.json(userCategory);
   } catch (err) {
     return res.status(401).json({
       message: "Unauthor12",
