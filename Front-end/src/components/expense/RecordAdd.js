@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { RecordExp } from "./RecordExp";
-import { RecordPay } from "./RecordPay";
 import { useAuth } from "@/app/layout";
 
 export const RecordAdd = () => {
@@ -19,7 +18,6 @@ export const RecordAdd = () => {
         </div>
         <div className="flex w-full px-6 py-8 gap-5 border-t-2 border-slate-200">
           <RecordExp type={type} setType={setType} />
-          <RecordPay />
         </div>
       </div>
     </div>

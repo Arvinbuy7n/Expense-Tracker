@@ -1,76 +1,77 @@
 import { useAuth } from "@/app/layout";
-import { MdArrowDropDown } from "react-icons/md";
+import { useState } from "react";
+
 import { FaHouse } from "react-icons/fa6";
-import { AiFillAlipayCircle } from "react-icons/ai";
-import { MdHomeFilled } from "react-icons/md";
-import { TiHome } from "react-icons/ti";
-import { RiContactsBook2Fill } from "react-icons/ri";
-import { MdContactMail } from "react-icons/md";
-import { PiLadderFill } from "react-icons/pi";
-import { PiIntersectSquareFill } from "react-icons/pi";
+import { MdArrowDropDown } from "react-icons/md";
+import { FaWrench } from "react-icons/fa";
+import { FaAirFreshener } from "react-icons/fa";
+import { FaAmazon } from "react-icons/fa";
+import { FaApple } from "react-icons/fa";
+import { FaBatteryFull } from "react-icons/fa";
+import { FaBatteryQuarter } from "react-icons/fa";
+import { FaBluetooth } from "react-icons/fa";
+import { FaBusAlt } from "react-icons/fa";
+import { FaCamera } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaFingerprint } from "react-icons/fa";
+import { FaFireExtinguisher } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaGlasses } from "react-icons/fa";
+import { FaGrinStars } from "react-icons/fa";
+import { FaHeadphones } from "react-icons/fa";
 import { FaImage } from "react-icons/fa6";
+import { FaAddressBook } from "react-icons/fa";
 import { FaMagnifyingGlassPlus } from "react-icons/fa6";
 import { FaMicrophone } from "react-icons/fa6";
-import { SiMicrosoftexcel } from "react-icons/si";
-import { PiNotepadFill } from "react-icons/pi";
-import { ImMenu } from "react-icons/im";
-import { PiLeafFill } from "react-icons/pi";
-import { PiNumberFiveFill } from "react-icons/pi";
-import { PiNumberCircleSevenFill } from "react-icons/pi";
-import { PiRoadHorizonFill } from "react-icons/pi";
-import { GiSandsOfTime } from "react-icons/gi";
-import { PiAnchorSimpleBold } from "react-icons/pi";
-import { PiTriangleFill } from "react-icons/pi";
-import { PiIntersectBold } from "react-icons/pi";
-import { BiLogoFlickrSquare } from "react-icons/bi";
 import { FaBaseballBall } from "react-icons/fa";
-import { AiFillQuestionCircle } from "react-icons/ai";
-import { TbSquareRoundedLetterA } from "react-icons/tb";
-import { BsWatch } from "react-icons/bs";
-import { PiGlobeSimpleFill } from "react-icons/pi";
-import { TbLemon } from "react-icons/tb";
 import { FaPeace } from "react-icons/fa";
-import { PiToiletPaperFill } from "react-icons/pi";
 import { FaPencilAlt } from "react-icons/fa";
-import { useState } from "react";
+import { FaAddressCard } from "react-icons/fa";
+import { FaSimCard } from "react-icons/fa6";
+import { FaLaptopCode } from "react-icons/fa";
+import { FaPalette } from "react-icons/fa";
+import { FaPlaystation } from "react-icons/fa";
+import { FaPowerOff } from "react-icons/fa";
 
 export const AddCategory = () => {
   const { setData, isCategory, addCat, categories, setIsOpen } = useAuth();
-  const [isChoose, setIsChoose] = useState(<MdHomeFilled size={20} />);
+  const [isChoose, setIsChoose] = useState(<FaImage size={20} />);
   const [isColor, setIsColor] = useState("inherit");
 
   const icon = [
-    <MdHomeFilled size={25} />,
-    <TiHome size={25} />,
-    <RiContactsBook2Fill size={23} />,
-    <MdContactMail size={25} />,
-    <PiLadderFill size={25} />,
-    <PiIntersectSquareFill size={25} />,
-    <FaImage size={22} />,
-    <FaMagnifyingGlassPlus size={23} />,
-    <FaMicrophone size={23} />,
-    <SiMicrosoftexcel size={23} />,
-    <PiNotepadFill size={25} />,
-    <ImMenu size={25} />,
-    <PiLeafFill size={25} />,
-    <PiNumberFiveFill size={25} />,
-    <PiNumberCircleSevenFill size={25} />,
-    <PiRoadHorizonFill size={25} />,
-    <GiSandsOfTime size={25} />,
-    <PiAnchorSimpleBold size={25} />,
-    <PiTriangleFill size={25} />,
-    <PiIntersectBold size={25} />,
-    <BiLogoFlickrSquare size={25} />,
-    <FaBaseballBall size={25} />,
-    <AiFillQuestionCircle size={25} />,
-    <TbSquareRoundedLetterA size={25} />,
-    <BsWatch size={25} />,
-    <PiGlobeSimpleFill size={25} />,
-    <TbLemon size={25} />,
-    <FaPeace size={25} />,
-    <PiToiletPaperFill size={25} />,
-    <FaPencilAlt size={25} />,
+    <FaHouse size={20} />,
+    <FaAddressBook size={20} />,
+    <FaAddressCard size={20} />,
+    <FaAirFreshener size={20} />,
+    <FaAmazon size={20} />,
+    <FaApple size={20} />,
+    <FaMagnifyingGlassPlus size={20} />,
+    <FaMicrophone size={20} />,
+    <FaBatteryFull size={20} />,
+    <FaBatteryQuarter size={20} />,
+    <FaBluetooth size={20} />,
+    <FaBusAlt size={20} />,
+    <FaCamera size={20} />,
+    <FaCalendarAlt size={20} />,
+    <FaFacebook size={20} />,
+    <FaFingerprint size={20} />,
+    <FaFireExtinguisher size={20} />,
+    <FaGithub size={20} />,
+    <FaGlasses size={20} />,
+    <FaGrinStars size={20} />,
+    <FaBaseballBall size={20} />,
+    <FaHeadphones size={20} />,
+    <FaSimCard size={20} />,
+    <FaLaptopCode size={20} />,
+    <FaPalette size={20} />,
+    <FaPlaystation size={20} />,
+    <FaPeace size={20} />,
+    <FaPowerOff size={20} />,
+    <FaPencilAlt size={20} />,
+    <FaWrench size={20} />,
   ];
+
   const color = [
     "#0166FF",
     "#01B3FF",

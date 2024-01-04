@@ -8,7 +8,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "@/common/axios";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
-import { headers } from "../../next.config";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +19,7 @@ export default function RootLayout({ children }) {
   const [isCategory, setIsCategory] = useState(false);
   const [isSign, setIsSign] = useState(false);
   const [isAddition, setIsAddition] = useState(false);
+  const [category, setCategory] = useState("Find or choose category");
 
   //front-end new sector
 
@@ -49,8 +49,10 @@ export default function RootLayout({ children }) {
   const [isReady, setIsReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [categoryList, setCategoryList] = useState([]);
+  const [recordList, _setRecordList] = useState([]);
   const [refresh, setRefresh] = useState(0);
-
+  const [recordColor, setRecordColor] = useState("#000000");
+  const [recordIcon, setRecordIcon] = useState("FaHouse");
   const router = useRouter();
 
   const login = async (email, password) => {
@@ -108,7 +110,16 @@ export default function RootLayout({ children }) {
     router.push("/login");
   };
 
-  const records = async (amount, category, type) => {
+  const records = async (
+    amount,
+    category,
+    type,
+    date,
+    payee,
+    note,
+    color,
+    icon
+  ) => {
     setIsLoading(true);
 
     try {
@@ -118,6 +129,11 @@ export default function RootLayout({ children }) {
           amount,
           category,
           type,
+          date,
+          payee,
+          note,
+          color,
+          icon,
         },
         {
           headers: {
@@ -130,6 +146,18 @@ export default function RootLayout({ children }) {
       toast.error(error.response.data.message);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const getRecords = async () => {
+    try {
+      const data = await api.get("/records", {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      });
+    } catch (error) {
+      console.log(error), "FFF";
     }
   };
 
@@ -185,8 +213,9 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     getCategory();
+    getRecords();
   }, [refresh]);
-  console.log(categoryList);
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -217,6 +246,14 @@ export default function RootLayout({ children }) {
             categories,
             categoryList,
             setCategoryList,
+            recordList,
+            setCategoryList,
+            category,
+            setCategory,
+            recordColor,
+            setRecordColor,
+            recordIcon,
+            setRecordIcon,
           }}
         >
           {isReady && children}

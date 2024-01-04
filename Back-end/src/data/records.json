@@ -1,14 +1,1 @@
-[
-  {
-    "type": "income",
-    "category": "3dah",
-    "amount": 1000,
-    "userEmail": "wednes"
-  },
-  {
-    "type": "income",
-    "category": "3dah",
-    "amount": 1000,
-    "userEmail": "wednes"
-  }
-]
+[{"type":"Income","category":"Find or choose category","amount":"","date":"","payee":"","note":"","color":"#000000","icon":"FaHouse","userEmail":"admin"}]
