@@ -98,7 +98,8 @@ app.post("/records", async (req, res) => {
 
     const { email } = payload;
 
-    const { category, amount, type, date, payee, note, color, icon } = req.body;
+    const { category, amount, type, date, payee, note, color, icon, time } =
+      req.body;
 
     const filePath = "src/data/records.json";
 
@@ -115,6 +116,7 @@ app.post("/records", async (req, res) => {
       note,
       color,
       icon,
+      time,
       userEmail: email,
     });
 
@@ -152,9 +154,7 @@ app.get("/records", async (req, res) => {
 
     const userRecords = records.filter((record) => record.userEmail === email);
 
-    res.json({
-      records: userRecords,
-    });
+    res.json(userRecords);
   } catch (error) {
     return res.status(401).json({
       message: "Author",

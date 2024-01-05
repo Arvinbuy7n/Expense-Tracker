@@ -1,1 +1,32 @@
-[{"icon":"FaBatteryFull","color":"#01B3FF","cate":"Chekist","userEmail":"admin"},{"icon":"FaBatteryQuarter","color":"#FF0101","cate":"First","userEmail":"admin"},{"icon":"FaMagnifyingGlassPlus","color":"#01B3FF","cate":"Exam","userEmail":"admin"}]
+[
+  {
+    "icon": "FaFingerprint",
+    "color": "#01B3FF",
+    "cate": "FingerPrint",
+    "userEmail": "admin"
+  },
+  {
+    "icon": "FaFacebook",
+    "color": "#0166FF",
+    "cate": "Facebook",
+    "userEmail": "admin"
+  },
+  {
+    "icon": "FaAmazon",
+    "color": "#F9D100",
+    "cate": "Amazon",
+    "userEmail": "admin"
+  },
+  {
+    "icon": "FaApple",
+    "color": "#FF0101",
+    "cate": "Apple",
+    "userEmail": "admin"
+  },
+  {
+    "icon": "FaLaptopCode",
+    "color": "#AE01FF",
+    "cate": "Pinecone",
+    "userEmail": "admin"
+  }
+]

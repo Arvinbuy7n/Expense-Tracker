@@ -49,7 +49,7 @@ export default function RootLayout({ children }) {
   const [isReady, setIsReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [categoryList, setCategoryList] = useState([]);
-  const [recordList, _setRecordList] = useState([]);
+  const [recordList, setRecordList] = useState([]);
   const [refresh, setRefresh] = useState(0);
   const [recordColor, setRecordColor] = useState("#000000");
   const [recordIcon, setRecordIcon] = useState("FaHouse");
@@ -118,7 +118,8 @@ export default function RootLayout({ children }) {
     payee,
     note,
     color,
-    icon
+    icon,
+    time
   ) => {
     setIsLoading(true);
 
@@ -134,6 +135,7 @@ export default function RootLayout({ children }) {
           note,
           color,
           icon,
+          time,
         },
         {
           headers: {
@@ -151,11 +153,12 @@ export default function RootLayout({ children }) {
 
   const getRecords = async () => {
     try {
-      const data = await api.get("/records", {
+      const { data } = await api.get("/records", {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
       });
+      setRecordList(data);
     } catch (error) {
       console.log(error), "FFF";
     }
@@ -192,8 +195,9 @@ export default function RootLayout({ children }) {
           Authorization: localStorage.getItem("token"),
         },
       });
+
+      console.log("GetCategory", data);
       setCategoryList(data);
-      setRefresh(refresh + 1);
     } catch (err) {
       console.log(err), "FFF";
     }
@@ -215,6 +219,8 @@ export default function RootLayout({ children }) {
     getCategory();
     getRecords();
   }, [refresh]);
+
+  console.log(categoryList, "GGGG");
 
   return (
     <html lang="en">

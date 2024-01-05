@@ -1,1 +1,62 @@
-[{"type":"Income","category":"Find or choose category","amount":"","date":"","payee":"","note":"","color":"#000000","icon":"FaHouse","userEmail":"admin"}]
+[
+  {
+    "type": "Expense",
+    "category": "Facebook",
+    "amount": "3333",
+    "date": "2024-01-05",
+    "time": "14:00",
+    "payee": "modal",
+    "note": "number",
+    "color": "#0166FF",
+    "icon": "FaFacebook",
+    "userEmail": "admin"
+  },
+  {
+    "type": "Expense",
+    "category": "FingerPrint",
+    "amount": "1000",
+    "date": "2024-01-05",
+    "time": "14:00",
+    "payee": "",
+    "note": "helloo",
+    "color": "#01B3FF",
+    "icon": "FaFingerprint",
+    "userEmail": "admin"
+  },
+  {
+    "type": "Expense",
+    "category": "Amazon",
+    "amount": "9999",
+    "date": "2024-01-05",
+    "time": "14:00",
+    "payee": "",
+    "note": "",
+    "color": "#F9D100",
+    "icon": "FaAmazon",
+    "userEmail": "admin"
+  },
+  {
+    "type": "Expense",
+    "category": "Apple",
+    "amount": "1111",
+    "date": "2024-01-05",
+    "time": "14:00",
+    "payee": "",
+    "note": "",
+    "color": "#FF0101",
+    "icon": "FaApple",
+    "userEmail": "admin"
+  },
+  {
+    "type": "Expense",
+    "category": "Pinecone",
+    "amount": "12000000",
+    "date": "2024-01-05",
+    "time": "14:00",
+    "payee": "",
+    "note": "",
+    "color": "#AE01FF",
+    "icon": "FaLaptopCode",
+    "userEmail": "admin"
+  }
+]

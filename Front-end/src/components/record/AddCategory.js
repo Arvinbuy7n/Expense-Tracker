@@ -22,7 +22,7 @@ import { FaGrinStars } from "react-icons/fa";
 import { FaHeadphones } from "react-icons/fa";
 import { FaImage } from "react-icons/fa6";
 import { FaAddressBook } from "react-icons/fa";
-import { FaMagnifyingGlassPlus } from "react-icons/fa6";
+import { FaLock } from "react-icons/fa";
 import { FaMicrophone } from "react-icons/fa6";
 import { FaBaseballBall } from "react-icons/fa";
 import { FaPeace } from "react-icons/fa";
@@ -46,7 +46,7 @@ export const AddCategory = () => {
     <FaAirFreshener size={20} />,
     <FaAmazon size={20} />,
     <FaApple size={20} />,
-    <FaMagnifyingGlassPlus size={20} />,
+    <FaLock size={20} />,
     <FaMicrophone size={20} />,
     <FaBatteryFull size={20} />,
     <FaBatteryQuarter size={20} />,

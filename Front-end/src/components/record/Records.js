@@ -10,10 +10,10 @@ import { MainHead } from "../MainHead";
 import { RecordAdd } from "../expense/RecordAdd";
 import { useAuth } from "@/app/layout";
 import { AddCategory } from "./AddCategory";
-import { EachYes } from "./EachYes";
+import { EachYes, RecordPlus } from "./RecordPlus";
 
 export const Records = () => {
-  const { openDraw, getData, isOpen, records } = useAuth();
+  const { openDraw, getData, isOpen } = useAuth();
 
   return (
     <div className="w-full h-full flex flex-col max-w-[1800px] m-auto relative">
@@ -40,9 +40,8 @@ export const Records = () => {
         </div>
         <div className="py-6 w-full flex flex-col gap-[7px]">
           <RecordHead />
-          <RecordSelect />
+          {/* <RecordSelect /> */}
           <RecordYes />
-          <EachYes />
         </div>
       </div>
       <div className="flex justify-center items-center mt-[300px] w-full">

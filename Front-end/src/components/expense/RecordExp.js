@@ -15,6 +15,7 @@ export const RecordExp = (props) => {
     category,
     recordColor,
     recordIcon,
+    setOpenDraw,
   } = useAuth();
 
   return (
@@ -30,9 +31,10 @@ export const RecordExp = (props) => {
           e.target.payee.value,
           e.target.note.value,
           recordColor,
-          recordIcon
+          recordIcon,
+          e.target.time.value
         );
-        // amount, category, type, date, payee, note, color, icon
+        setOpenDraw(false);
       }}
     >
       <div className="w-[50%] flex flex-col gap-6">
@@ -113,9 +115,10 @@ export const RecordExp = (props) => {
           </div>
           <div className="w-[50%] flex flex-col gap-1">
             <p className="text-[16px] text-[#1F2937]">Time</p>
-            <select className="w-full py-3 rounded-lg px-2 bg-slate-100 text-[#94A3B8]">
-              <option>4:15 PM</option>
-            </select>
+            <input
+              name="time"
+              className="w-full py-3 rounded-lg px-2 bg-slate-100 text-[#94A3B8]"
+            />
           </div>
         </div>
         <button
