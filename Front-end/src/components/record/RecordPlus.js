@@ -9,13 +9,13 @@ export const RecordPlus = (props) => {
 
   return (
     <div className="w-full h-fit flex item-center justify-between bg-[#FFFFFF] py-1 px-5 rounded-2xl">
-      <div className="flex gap-4 py-2">
+      <div className="flex gap-4 p-2">
         <input type="checkbox" className="w-6" />
         <div
-          className="flex items-center justify-center text-white p-3 rounded-full"
+          className="flex items-center justify-center text-white px-4 rounded-full"
           style={{ backgroundColor: props.color }}
         >
-          <Icon1 size={26} />
+          <Icon1 size={24} />
         </div>
         <div className="flex flex-col py-1">
           <p className="text -[18px]">{props.title}</p>
@@ -25,7 +25,12 @@ export const RecordPlus = (props) => {
           </div>
         </div>
       </div>
-      <p className="py-4">{props.amount}</p>
+      <p
+        className="py-4"
+        style={{ color: props.type == "Expense" ? "#F54949" : "#23E01F" }}
+      >
+        {props.amount}
+      </p>
     </div>
   );
 };

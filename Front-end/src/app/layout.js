@@ -198,6 +198,7 @@ export default function RootLayout({ children }) {
 
       console.log("GetCategory", data);
       setCategoryList(data);
+      setRefresh(refresh + 1);
     } catch (err) {
       console.log(err), "FFF";
     }

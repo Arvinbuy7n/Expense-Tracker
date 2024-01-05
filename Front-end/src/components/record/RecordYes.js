@@ -1,5 +1,5 @@
 import { useAuth } from "@/app/layout";
-import { EachYes, RecordPlus } from "./RecordPlus";
+import { RecordPlus } from "./RecordPlus";
 
 export const RecordYes = () => {
   const { recordList } = useAuth();
@@ -19,6 +19,7 @@ export const RecordYes = () => {
               time={item.time}
               icon={item.icon}
               color={item.color}
+              type={item.type}
             />
           );
         })}

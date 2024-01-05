@@ -39,7 +39,7 @@ export const RecordExp = (props) => {
     >
       <div className="w-[50%] flex flex-col gap-6">
         <div className="bg-[#F3F4F6] rounded-3xl flex justify-between">
-          <button
+          <div
             onClick={() => {
               props.setType("Expense");
             }}
@@ -50,8 +50,8 @@ export const RecordExp = (props) => {
             }}
           >
             Expense
-          </button>
-          <button
+          </div>
+          <div
             onClick={() => {
               props.setType("Income");
             }}
@@ -62,7 +62,7 @@ export const RecordExp = (props) => {
             }}
           >
             Income
-          </button>
+          </div>
         </div>
         <input
           type="text"
@@ -73,14 +73,14 @@ export const RecordExp = (props) => {
         <p className="absolute top-[183px] ml-4 text-slate-600">Amount</p>
         <div className="w-full flex flex-col gap-1">
           <p className="text-[16px] text-[#1F2937]">Category</p>
-          <div className="flex justify-between w-full py-4 px-3 rounded-lg bg-slate-100 text-[#94A3B8] relative">
+          <div
+            onClick={() => {
+              setAddition();
+            }}
+            className="flex justify-between w-full py-4 px-3 rounded-lg bg-slate-100 text-[#94A3B8] relative"
+          >
             <p>{category}</p>
-            <MdArrowDropDown
-              size={20}
-              onClick={() => {
-                setAddition();
-              }}
-            />
+            <MdArrowDropDown size={20} />
           </div>
           {isAddition ? (
             <div className="absolute top-[63%] w-[47%] flex flex-col bg-[#FFFFFF] h-[300px] rounded-xl border-2 overflow-scroll ">
@@ -117,6 +117,7 @@ export const RecordExp = (props) => {
             <p className="text-[16px] text-[#1F2937]">Time</p>
             <input
               name="time"
+              type="time"
               className="w-full py-3 rounded-lg px-2 bg-slate-100 text-[#94A3B8]"
             />
           </div>

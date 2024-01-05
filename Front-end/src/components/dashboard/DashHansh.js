@@ -26,7 +26,7 @@ export const DashHansh = () => {
         </div>
         <div className="p-6 flex flex-col gap-1">
           <div className="flex">
-            <p className="text-[36px] font-semibold">1,200,000</p>
+            <p className="text-[36px] font-semibold">0</p>
             <p className="text-[36px] font-semibold">₮</p>
           </div>
           <p className="text-[18px] text-[#64748B] font-normal">
@@ -45,7 +45,7 @@ export const DashHansh = () => {
         </div>
         <div className="p-6 flex flex-col gap-1">
           <div className="flex">
-            <p className="text-[36px] font-semibold">-1,200,000</p>
+            <p className="text-[36px] font-semibold">0</p>
             <p className="text-[36px] font-semibold">₮</p>
           </div>
           <p className="text-[18px] text-[#64748B] font-normal">

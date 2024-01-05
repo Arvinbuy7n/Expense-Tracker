@@ -36,7 +36,7 @@ import { FaPowerOff } from "react-icons/fa";
 
 export const AddCategory = () => {
   const { setData, isCategory, addCat, categories, setIsOpen } = useAuth();
-  const [isChoose, setIsChoose] = useState(<FaImage size={20} />);
+  const [isChoose, setIsChoose] = useState(<FaHouse size={20} />);
   const [isColor, setIsColor] = useState("inherit");
 
   const icon = [
@@ -102,9 +102,12 @@ export const AddCategory = () => {
           className="w-full flex flex-col gap-6 py-7 px-3"
         >
           <div className="flex gap-2 h-[30px] relative">
-            <div className="w-[22%] rounded-lg bg-slate-100 flex gap-2 justify-between items-center p-5">
+            <div
+              onClick={addCat}
+              className="w-[22%] rounded-lg bg-slate-100 flex gap-2 justify-between items-center p-5"
+            >
               <p style={{ color: isColor }}>{isChoose}</p>
-              <MdArrowDropDown size={24} onClick={addCat} />
+              <MdArrowDropDown size={24} />
               {isCategory ? (
                 <div className="absolute left-0 w-fit h-fit bg-white p-7 mt-[400px] rounded-xl flex flex-col gap-6">
                   <div className="drop-shadow-md grid grid-cols-6 gap-x-6 gap-y-6 border-b-2 pb-8">
