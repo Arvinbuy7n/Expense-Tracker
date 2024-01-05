@@ -26,7 +26,7 @@ export const RecordPlus = (props) => {
         </div>
       </div>
       <p
-        className="py-4"
+        className="pt-5"
         style={{ color: props.type == "Expense" ? "#F54949" : "#23E01F" }}
       >
         {props.amount}

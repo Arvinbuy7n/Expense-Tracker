@@ -103,11 +103,11 @@ export const AddCategory = () => {
         >
           <div className="flex gap-2 h-[30px] relative">
             <div
-              onClick={addCat}
+              
               className="w-[22%] rounded-lg bg-slate-100 flex gap-2 justify-between items-center p-5"
             >
               <p style={{ color: isColor }}>{isChoose}</p>
-              <MdArrowDropDown size={24} />
+              <MdArrowDropDown size={24} onClick={addCat}/>
               {isCategory ? (
                 <div className="absolute left-0 w-fit h-fit bg-white p-7 mt-[400px] rounded-xl flex flex-col gap-6">
                   <div className="drop-shadow-md grid grid-cols-6 gap-x-6 gap-y-6 border-b-2 pb-8">

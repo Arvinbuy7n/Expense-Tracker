@@ -144,6 +144,7 @@ export default function RootLayout({ children }) {
         }
       );
       setIsLogged(true);
+      setRefresh(refresh + 1);
     } catch (error) {
       toast.error(error.response.data.message);
     } finally {
@@ -195,10 +196,9 @@ export default function RootLayout({ children }) {
           Authorization: localStorage.getItem("token"),
         },
       });
-
+      setRefresh(refresh + 1);
       console.log("GetCategory", data);
       setCategoryList(data);
-      setRefresh(refresh + 1);
     } catch (err) {
       console.log(err), "FFF";
     }
