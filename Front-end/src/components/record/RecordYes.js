@@ -4,7 +4,7 @@ import { RecordPlus } from "./RecordPlus";
 export const RecordYes = () => {
   const { recordList } = useAuth();
 
-  console.log("RecordList", recordList);
+  // console.log("RecordList", recordList);
 
   return (
     <div className="w-full flex flex-col gap-5 py-5">
