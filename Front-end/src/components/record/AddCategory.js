@@ -15,7 +15,6 @@ import { FaCamera } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaFingerprint } from "react-icons/fa";
-import { FaFireExtinguisher } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaGlasses } from "react-icons/fa";
 import { FaGrinStars } from "react-icons/fa";
@@ -33,6 +32,7 @@ import { FaLaptopCode } from "react-icons/fa";
 import { FaPalette } from "react-icons/fa";
 import { FaPlaystation } from "react-icons/fa";
 import { FaPowerOff } from "react-icons/fa";
+import { FaBalanceScale } from "react-icons/fa";
 
 export const AddCategory = () => {
   const { setData, isCategory, addCat, categories, setIsOpen } = useAuth();
@@ -56,7 +56,7 @@ export const AddCategory = () => {
     <FaCalendarAlt size={20} />,
     <FaFacebook size={20} />,
     <FaFingerprint size={20} />,
-    <FaFireExtinguisher size={20} />,
+    <FaBalanceScale size={20} />,
     <FaGithub size={20} />,
     <FaGlasses size={20} />,
     <FaGrinStars size={20} />,
@@ -102,12 +102,9 @@ export const AddCategory = () => {
           className="w-full flex flex-col gap-6 py-7 px-3"
         >
           <div className="flex gap-2 h-[30px] relative">
-            <div
-              
-              className="w-[22%] rounded-lg bg-slate-100 flex gap-2 justify-between items-center p-5"
-            >
+            <div className="w-[22%] rounded-lg bg-slate-100 flex gap-2 justify-between items-center p-5">
               <p style={{ color: isColor }}>{isChoose}</p>
-              <MdArrowDropDown size={24} onClick={addCat}/>
+              <MdArrowDropDown size={24} onClick={addCat} />
               {isCategory ? (
                 <div className="absolute left-0 w-fit h-fit bg-white p-7 mt-[400px] rounded-xl flex flex-col gap-6">
                   <div className="drop-shadow-md grid grid-cols-6 gap-x-6 gap-y-6 border-b-2 pb-8">

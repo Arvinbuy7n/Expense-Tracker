@@ -101,7 +101,7 @@ export const Signup = () => {
 
   return (
     <div className="w-full h-screen flex bg-white max-w-[1800px] m-auto">
-      <div className="w-2/4 flex flex-col justify-center items-center gap-12 bg-white">
+      <div className="md:w-2/4 w-full flex flex-col justify-center items-center gap-12 bg-white">
         <div className="gap-9 flex flex-col pl-20">
           <div className="flex justify-center gap-2">
             <img src="vector.png" className="w-5 h-5 mt-1"></img>
@@ -202,7 +202,7 @@ export const Signup = () => {
           </p>
         </div>
       </div>
-      <div className="w-2/4 bg-[#0166FF]"></div>
+      <div className="w-2/4 md:flex hidden bg-[#0166FF]"></div>
     </div>
   );
 };

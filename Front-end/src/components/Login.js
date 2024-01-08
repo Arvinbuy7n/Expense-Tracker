@@ -13,7 +13,7 @@ export const Login = () => {
 
   return (
     <div className="w-full h-screen flex bg-white">
-      <div className="w-[50%] flex flex-col justify-center items-center gap-10">
+      <div className="md:w-[50%] w-full flex flex-col justify-center items-center gap-10">
         <div className="gap-9 flex flex-col pl-20">
           <div className="flex justify-center gap-2">
             <img src="vector.png" className="w-6 h-6 mt-1"></img>
@@ -79,7 +79,7 @@ export const Login = () => {
           </p>
         </div>
       </div>
-      <div className="w-[50%] bg-[#0166FF]"></div>
+      <div className="w-[50%] md:flex hidden bg-[#0166FF]"></div>
     </div>
   );
 };

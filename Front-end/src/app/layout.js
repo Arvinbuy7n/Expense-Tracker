@@ -197,7 +197,7 @@ export default function RootLayout({ children }) {
         },
       });
       setRefresh(refresh + 1);
-      console.log("GetCategory", data);
+      // console.log("GetCategory", data);
       setCategoryList(data);
     } catch (err) {
       console.log(err), "FFF";
@@ -221,7 +221,7 @@ export default function RootLayout({ children }) {
     getRecords();
   }, [refresh]);
 
-  console.log(categoryList, "GGGG");
+  // console.log(categoryList, "GGGG");
 
   return (
     <html lang="en">
