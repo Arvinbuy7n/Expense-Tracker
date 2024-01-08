@@ -20,6 +20,7 @@ export default function RootLayout({ children }) {
   const [isSign, setIsSign] = useState(false);
   const [isAddition, setIsAddition] = useState(false);
   const [category, setCategory] = useState("Find or choose category");
+  // const [hansh, setHansh] = useState(0);
 
   //front-end new sector
 
@@ -221,8 +222,6 @@ export default function RootLayout({ children }) {
     getRecords();
   }, [refresh]);
 
-  // console.log(categoryList, "GGGG");
-
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -261,6 +260,8 @@ export default function RootLayout({ children }) {
             setRecordColor,
             recordIcon,
             setRecordIcon,
+            // hansh,
+            // setHansh,
           }}
         >
           {isReady && children}

@@ -6,7 +6,7 @@ export const Addition = () => {
   return (
     <div className="w-fit border-2 bg-blue-600 flex flex-col z-10 pr-32 pl-5 py-3 gap-3 rounded-xl">
       <p
-        className="text-white"
+        className="text-white hover:text-cyan-500"
         onClick={() => {
           router.push("/profile");
         }}

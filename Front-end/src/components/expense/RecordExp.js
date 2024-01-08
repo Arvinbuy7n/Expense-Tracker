@@ -4,18 +4,19 @@ import { FaPlusCircle } from "react-icons/fa";
 import { MdArrowDropDown } from "react-icons/md";
 import { useAuth } from "@/app/layout";
 import { AddIcon } from "../record/AddIcon";
+import { AddCategory } from "../record/AddCategory";
 
 export const RecordExp = (props) => {
   const {
     isAddition,
     setAddition,
-    addCat,
     categoryList,
     records,
     category,
     recordColor,
     recordIcon,
     setOpenDraw,
+    setData,
   } = useAuth();
 
   return (
@@ -83,9 +84,9 @@ export const RecordExp = (props) => {
             <MdArrowDropDown size={20} />
           </div>
           {isAddition ? (
-            <div className="absolute top-[63%] w-[47%] flex flex-col bg-[#FFFFFF] h-[300px] rounded-xl border-2 overflow-scroll ">
+            <div className="absolute top-[63%] w-[47%] flex flex-col bg-[#FFFFFF] h-[270px] rounded-xl border-2 overflow-scroll ">
               <div className="flex gap-3 p-4 border-b-2">
-                <FaPlusCircle color="#0166FF" size={22} onClick={addCat} />
+                <FaPlusCircle color="#0166FF" size={22} onClick={setData} />
                 <p className="text-[16px]">Add Category</p>
               </div>
               <div className="flex flex-col gap-7 text-[16px] font-normal p-5">
@@ -102,7 +103,6 @@ export const RecordExp = (props) => {
               </div>
             </div>
           ) : null}
-          {/* {isCategory ? <AddCategory /> : null} */}
         </div>
         <div className="flex w-full gap-5">
           <div className="w-[50%] flex flex-col gap-1">

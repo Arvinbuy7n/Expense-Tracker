@@ -74,7 +74,7 @@ export const AddCategory = () => {
 
   const color = [
     "#0166FF",
-    "#01B3FF",
+    "#000000",
     "#41CC00",
     "#F9D100",
     "#FF7B01",

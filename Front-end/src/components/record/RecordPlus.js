@@ -5,8 +5,6 @@ export const RecordPlus = (props) => {
   const {} = useAuth();
   const Icon1 = icons[props.icon];
 
-  console.log(Icon1, props.icon);
-
   return (
     <div className="w-full h-fit flex item-center justify-between bg-[#FFFFFF] py-1 px-5 rounded-2xl">
       <div className="flex gap-4 p-2">
