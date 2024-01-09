@@ -18,12 +18,6 @@
     "userEmail": "arwinbuyan88705548@gmail.com"
   },
   {
-    "icon": "FaGithub",
-    "color": "inherit",
-    "cate": "Github",
-    "userEmail": "arwinbuyan88705548@gmail.com"
-  },
-  {
     "icon": "FaSimCard",
     "color": "#41CC00",
     "cate": "Sim",
@@ -46,5 +40,11 @@
     "color": "#FF0101",
     "cate": "Apple",
     "userEmail": "admin"
+  },
+  {
+    "icon": "FaLaptopCode",
+    "color": "#AE01FF",
+    "cate": "Pinecone",
+    "userEmail": "arwinbuyan88705548@gmail.com"
   }
 ]

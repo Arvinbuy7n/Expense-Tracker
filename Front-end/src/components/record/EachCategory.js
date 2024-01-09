@@ -1,23 +1,26 @@
 import { useAuth } from "@/app/layout";
 
 export const EachCategory = (props) => {
-  const { filter, setFilter, setRefresh, refresh } = useAuth();
+  const { filterCategory, setFilterCategory, setRefresh, refresh } = useAuth();
 
   return (
     <div className="w-full h-fit flex item-center justify-between">
       <div className="flex gap-2">
         <img
-          src={filter.includes(props.title) ? "hide1.png" : "eye.png"}
+          src={filterCategory.includes(props.title) ? "hide.jpeg" : "eyes.webp"}
           className="w-5 h-5 mt-[2px]"
           onClick={() => {
-            if (filter.includes(props.category)) {
-              setFilter(filter.filter((item) => item !== props.category));
+            // console.log(filterCategory, filterCategory.includes(props.title));
+            if (filterCategory.includes(props.title)) {
+              setFilterCategory(
+                filterCategory.filter((item) => item !== props.title)
+              );
             } else {
-              filter.push(props.title);
-              setFilter(filter);
+              filterCategory.push(props.title);
+              setFilterCategory(filterCategory);
               setRefresh(refresh + 1);
             }
-            console.log(filter);
+            // console.log(filterCategory);
           }}
         />
 

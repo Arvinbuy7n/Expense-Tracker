@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   const [isAddition, setIsAddition] = useState(false);
   const [category, setCategory] = useState("Find or choose category");
   // const [hansh, setHansh] = useState(0);
-  const [filter, setFilter] = useState([]);
+  const [filterCategory, setFilterCategory] = useState([]);
 
   //front-end new sector
 
@@ -122,7 +122,7 @@ export default function RootLayout({ children }) {
     color,
     icon,
     time
-   ) => {
+  ) => {
     setIsLoading(true);
 
     try {
@@ -261,10 +261,10 @@ export default function RootLayout({ children }) {
             setRecordColor,
             recordIcon,
             setRecordIcon,
-            filter,
-            setFilter,
+            filterCategory,
+            setFilterCategory,
             refresh,
-            setRefresh
+            setRefresh,
             // hansh,
             // setHansh,
           }}

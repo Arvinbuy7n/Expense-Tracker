@@ -6,8 +6,11 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const jwt = require("jsonwebtoken");
+const { connectDatabase } = require("./database");
 
 const app = express();
+
+connectDatabase();
 
 app.use(cors());
 app.use(bodyParser.json());
