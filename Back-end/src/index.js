@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 
 const jwt = require("jsonwebtoken");
 const { connectDatabase } = require("./database");
+const { User } = require("./model/user.model");
+const { Category } = require("./model/category.model");
 
 const app = express();
 
@@ -18,19 +20,19 @@ app.use(bodyParser.json());
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
-  const filePath = "src/data/users.json";
+  // const filePath = "src/data/users.json";
 
-  const usersRaw = await fs.readFile(filePath, "utf-8");
+  // const usersRaw = await fs.readFile(filePath, "utf-8");
 
-  const users = JSON.parse(usersRaw);
+  // const users = JSON.parse(usersRaw);
 
-  const user = users.find((user) => user.email === email);
+  // const user = users.find((user) => user.email === email);
 
-  if (!user) {
-    return res.status(401).json({
-      message: "Ийм нэртэй хэрэглэгч олдсонгүй",
-    });
-  }
+  // if (!user) {
+  //   return res.status(401).json({
+  //     message: "Ийм нэртэй хэрэглэгч олдсонгүй",
+  //   });
+  // }
 
   if (user.password != password) {
     return res.status(401).json({
@@ -48,43 +50,52 @@ app.post("/login", async (req, res) => {
 app.post("/sign", async (req, res) => {
   const { email, password, name } = req.body;
 
-  const filePath = "src/data/users.json";
-
-  const usersRaw = await fs.readFile(filePath, "utf-8");
-
-  const users = JSON.parse(usersRaw);
-
-  const user = users.find((user) => user.email === email);
-
-  if (user) {
-    return res.status(409).json({
-      message: "Хэрэглэгч нэвтэрсэн байна.",
-    });
-  }
-
-  users.push({
-    name,
+  await User.create({
+    name: "Hello",
     email,
     password,
+    updatedAt: new Date(),
+    createdAt: new Date(),
   });
-
-  await fs.writeFile(filePath, JSON.stringify(users));
 
   res.json({
     message: "Шинэ хэрэглэгч амжилттай үүслээ.",
   });
+
+  // const filePath = "src/data/users.json";
+
+  // const usersRaw = await fs.readFile(filePath, "utf-8");
+
+  // const users = JSON.parse(usersRaw);
+
+  // const user = users.find((user) => user.email === email);
+
+  // if (user) {
+  //   return res.status(409).json({
+  //     message: "Хэрэглэгч нэвтэрсэн байна.",
+  //   });
+  // }
+
+  // users.push({
+  //   name,
+  //   email,
+  //   password,
+  // });
+
+  // await fs.writeFile(filePath, JSON.stringify(users));
 });
 
 app.get("/users", async (_req, res) => {
-  const filePath = "src/data/users.json";
-
-  const usersRaw = await fs.readFile(filePath, "utf8");
-
-  const users = JSON.parse(usersRaw);
+  const users = await User.find({ name: "Hello" });
 
   res.json({
     users,
   });
+  // const filePath = "src/data/users.json";
+
+  // const usersRaw = await fs.readFile(filePath, "utf8");
+
+  // const users = JSON.parse(usersRaw);
 });
 
 app.post("/records", async (req, res) => {
@@ -181,29 +192,38 @@ app.post("/category", async (req, res) => {
 
     const { icon, cate, color } = req.body;
 
-    const filePath = "src/data/categories.json";
-
-    const categoryRaw = await fs.readFile(filePath, "utf8");
-
-    const category = JSON.parse(categoryRaw);
-
-    category.push({
+    await Category.create({
+      name: "Hello",
       icon,
-      color,
       cate,
-      userEmail: email,
+      color,
+      updatedAt,
+      createdAt,
     });
-
-    await fs.writeFile(filePath, JSON.stringify(category));
 
     res.json({
       message: "new category created",
     });
   } catch (error) {
     return res.status(401).json({
-      message: "unauthor",
+      message: "Unauthorized",
     });
   }
+
+  // const filePath = "src/data/categories.json";
+
+  // const categoryRaw = await fs.readFile(filePath, "utf8");
+
+  // const category = JSON.parse(categoryRaw);
+
+  // category.push({
+  //   icon,
+  //   color,
+  //   cate,
+  //   userEmail: email,
+  // });
+
+  // await fs.writeFile(filePath, JSON.stringify(category));
 });
 
 app.get("/category", async (req, res) => {
