@@ -2,7 +2,7 @@ import { EachCategory } from "./EachCategory";
 import { useAuth } from "@/app/layout";
 
 export const RecordCategory = () => {
-  const { setData, categoryList, filter } = useAuth();
+  const { setData, categoryList } = useAuth();
 
   return (
     <div className="w-full flex flex-col gap-5">

@@ -208,7 +208,7 @@ app.post("/category", async (req, res) => {
 
     if (category) {
       return res.status(401).json({
-        message: "User already exist",
+        message: "Category already exist",
       });
     }
 
@@ -257,24 +257,27 @@ app.get("/category", async (req, res) => {
   try {
     const payload = jwt.verify(authorization, "secret-key");
 
-    const { email } = payload;
+    const { id } = payload;
 
-    const filePath = "src/data/categories.json";
+    const category = await Category.find({ userId: id });
 
-    const categoryRaw = await fs.readFile(filePath, "utf-8");
-
-    const category = JSON.parse(categoryRaw);
-
-    const userCategory = category.filter(
-      (categor) => categor.userEmail === email
-    );
-
-    res.json(userCategory);
+    return res.json(category);
   } catch (err) {
     return res.status(401).json({
-      message: "Unauthor12",
+      message: "Unauthorized",
     });
   }
+  // const filePath = "src/data/categories.json";
+
+  // const categoryRaw = await fs.readFile(filePath, "utf-8");
+
+  // const category = JSON.parse(categoryRaw);
+
+  // const userCategory = category.filter(
+  //   (categor) => categor.userEmail === email
+  // );
+
+  // res.json(userCategory);
 });
 
 const port = 3001;

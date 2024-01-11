@@ -265,8 +265,6 @@ export default function RootLayout({ children }) {
             setFilterCategory,
             refresh,
             setRefresh,
-            // hansh,
-            // setHansh,
           }}
         >
           {isReady && children}
