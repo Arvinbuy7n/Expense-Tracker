@@ -20,13 +20,7 @@ app.use(bodyParser.json());
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
-  const filePath = "src/data/users.json";
-
-  const usersRaw = await fs.readFile(filePath, "utf-8");
-
-  const users = JSON.parse(usersRaw);
-
-  const user = users.find((user) => user.email === email);
+  const user = await User.findOne({ email: email, password: password });
 
   if (!user) {
     return res.status(401).json({
@@ -34,21 +28,39 @@ app.post("/login", async (req, res) => {
     });
   }
 
-  if (user.password != password) {
-    return res.status(401).json({
-      message: "Нууц үг буруу байна",
-    });
-  }
+  const id = user._id;
 
-  const token = jwt.sign({ email }, "secret-key");
+  const token = jwt.sign({ id }, "secret-key");
 
   res.json({
     token,
   });
+
+  // if (user.password != password) {
+  //   return res.status(401).json({
+  //     message: "Нууц үг буруу байна",
+  //   });
+  // }
+
+  // const filePath = "src/data/users.json";
+
+  // const usersRaw = await fs.readFile(filePath, "utf-8");
+
+  // const users = JSON.parse(usersRaw);
+
+  // const user = users.find((user) => user.email === email);
 });
 
 app.post("/sign", async (req, res) => {
   const { email, password, name } = req.body;
+
+  const user = await User.findOne({ email: email });
+
+  if (user) {
+    return res.status(401).json({
+      message: "User already exist",
+    });
+  }
 
   await User.create({
     name,
@@ -188,32 +200,26 @@ app.post("/category", async (req, res) => {
   try {
     const payload = jwt.verify(authorization, "secret-key");
 
-    const { email } = payload;
+    const { id } = payload;
 
     const { icon, cate, color } = req.body;
 
-    // await Category.create({
-    //   name: "Hello",
-    //   icon,
-    //   cate,
-    //   color,
-    //   updatedAt: new Date(),
-    //   createdAt: new Date(),
-    // });
-    const filePath = "src/data/categories.json";
+    const category = await Category.findOne({ userId: id, cate: cate });
 
-    const categoryRaw = await fs.readFile(filePath, "utf8");
+    if (category) {
+      return res.status(401).json({
+        message: "User already exist",
+      });
+    }
 
-    const category = JSON.parse(categoryRaw);
-
-    category.push({
+    await Category.create({
+      userId: id,
       icon,
-      color,
       cate,
-      userEmail: email,
+      color,
+      updatedAt: new Date(),
+      createdAt: new Date(),
     });
-
-    await fs.writeFile(filePath, JSON.stringify(category));
 
     res.json({
       message: "new category created",
@@ -223,6 +229,20 @@ app.post("/category", async (req, res) => {
       message: "Unauthorized",
     });
   }
+  // const filePath = "src/data/categories.json";
+
+  //   const categoryRaw = await fs.readFile(filePath, "utf8");
+
+  //   const category = JSON.parse(categoryRaw);
+
+  //   category.push({
+  //     icon,
+  //     color,
+  //     cate,
+  //     userEmail: email,
+  //   });
+
+  //   await fs.writeFile(filePath, JSON.stringify(category));
 });
 
 app.get("/category", async (req, res) => {
