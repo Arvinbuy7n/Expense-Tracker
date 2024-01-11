@@ -20,19 +20,19 @@ app.use(bodyParser.json());
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
-  // const filePath = "src/data/users.json";
+  const filePath = "src/data/users.json";
 
-  // const usersRaw = await fs.readFile(filePath, "utf-8");
+  const usersRaw = await fs.readFile(filePath, "utf-8");
 
-  // const users = JSON.parse(usersRaw);
+  const users = JSON.parse(usersRaw);
 
-  // const user = users.find((user) => user.email === email);
+  const user = users.find((user) => user.email === email);
 
-  // if (!user) {
-  //   return res.status(401).json({
-  //     message: "Ийм нэртэй хэрэглэгч олдсонгүй",
-  //   });
-  // }
+  if (!user) {
+    return res.status(401).json({
+      message: "Ийм нэртэй хэрэглэгч олдсонгүй",
+    });
+  }
 
   if (user.password != password) {
     return res.status(401).json({
@@ -51,7 +51,7 @@ app.post("/sign", async (req, res) => {
   const { email, password, name } = req.body;
 
   await User.create({
-    name: "Hello",
+    name,
     email,
     password,
     updatedAt: new Date(),
@@ -192,14 +192,28 @@ app.post("/category", async (req, res) => {
 
     const { icon, cate, color } = req.body;
 
-    await Category.create({
-      name: "Hello",
+    // await Category.create({
+    //   name: "Hello",
+    //   icon,
+    //   cate,
+    //   color,
+    //   updatedAt: new Date(),
+    //   createdAt: new Date(),
+    // });
+    const filePath = "src/data/categories.json";
+
+    const categoryRaw = await fs.readFile(filePath, "utf8");
+
+    const category = JSON.parse(categoryRaw);
+
+    category.push({
       icon,
-      cate,
       color,
-      updatedAt,
-      createdAt,
+      cate,
+      userEmail: email,
     });
+
+    await fs.writeFile(filePath, JSON.stringify(category));
 
     res.json({
       message: "new category created",
@@ -209,21 +223,6 @@ app.post("/category", async (req, res) => {
       message: "Unauthorized",
     });
   }
-
-  // const filePath = "src/data/categories.json";
-
-  // const categoryRaw = await fs.readFile(filePath, "utf8");
-
-  // const category = JSON.parse(categoryRaw);
-
-  // category.push({
-  //   icon,
-  //   color,
-  //   cate,
-  //   userEmail: email,
-  // });
-
-  // await fs.writeFile(filePath, JSON.stringify(category));
 });
 
 app.get("/category", async (req, res) => {

@@ -2,73 +2,13 @@
   {
     "type": "Expense",
     "category": "Apple",
-    "amount": "5'000'000",
-    "date": "2024-01-08",
+    "amount": "",
+    "date": "2024-01-10",
     "payee": "",
     "note": "",
     "color": "#000000",
     "icon": "FaApple",
-    "time": "11:58",
-    "userEmail": "arwinbuyan88705548@gmail.com"
-  },
-  {
-    "type": "Income",
-    "category": "Amazon",
-    "amount": "12M",
-    "date": "2024-01-08",
-    "payee": "",
-    "note": "",
-    "color": "#000000",
-    "icon": "FaAmazon",
-    "time": "17:00",
-    "userEmail": "arwinbuyan88705548@gmail.com"
-  },
-  {
-    "type": "Expense",
-    "category": "Facebook",
-    "amount": "1000",
-    "date": "2024-01-08",
-    "payee": "",
-    "note": "",
-    "color": "#0166FF",
-    "icon": "FaFacebook",
-    "time": "16:26",
+    "time": "16:23",
     "userEmail": "admin"
-  },
-  {
-    "type": "Expense",
-    "category": "Bluetooth",
-    "amount": "100",
-    "date": "2024-01-09",
-    "payee": "",
-    "note": "",
-    "color": "#0166FF",
-    "icon": "FaBluetooth",
-    "time": "09:02",
-    "userEmail": "arwinbuyan88705548@gmail.com"
-  },
-  {
-    "type": "Expense",
-    "category": "Pinecone",
-    "amount": "12M",
-    "date": "2024-01-09",
-    "payee": "",
-    "note": "",
-    "color": "#AE01FF",
-    "icon": "FaLaptopCode",
-    "time": "09:03",
-    "userEmail": "arwinbuyan88705548@gmail.com"
-  },
-  {
-    "type": "Income",
-    "category": "Sim",
-    "amount": "100",
-    "date": "2024-01-09",
-    "payee": "",
-    "note": "",
-    "color": "#41CC00",
-    "icon": "FaSimCard",
-    "time": "09:39",
-    "userEmail": "arwinbuyan88705548@gmail.com"
   }
 ]

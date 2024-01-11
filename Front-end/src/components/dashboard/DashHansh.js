@@ -1,6 +1,6 @@
 export const DashHansh = () => {
   return (
-    <div className=" flex gap-8 px-36 w-full h-[250px]">
+    <div className="md:flex gap-8 px-36 w-full h-[250px]">
       <div className="w-1/3 relative">
         <img
           src="noise.png"

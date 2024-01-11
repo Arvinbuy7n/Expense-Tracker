@@ -13,14 +13,14 @@ export const Login = () => {
 
   return (
     <div className="w-full h-screen flex bg-white">
-      <div className="md:w-[50%] w-full flex flex-col justify-center items-center gap-10">
-        <div className="gap-9 flex flex-col pl-20">
+      <div className="md:w-[50%] w-full flex flex-col justify-center items-center gap-10 ">
+        <div className="gap-9 flex flex-col md:pl-20">
           <div className="flex justify-center gap-2">
             <img src="vector.png" className="w-6 h-6 mt-1"></img>
             <p className="font-bold text-2xl">Geld</p>
           </div>
           <div className="flex flex-col gap-2 text-center">
-            <p className="font-semibold text-[24px] text-[#0F172A]">
+            <p className="font-semibold text-[24px] text-[#0F172A] mr-10">
               Welcome Back
             </p>
             <p className="text-slate-700 text-[16px] font-normal">
@@ -28,7 +28,7 @@ export const Login = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col w-80 gap-4 relative">
+        <div className="flex flex-col md:w-80 gap-4 relative">
           <input
             type="text"
             placeholder="  Email"
@@ -67,7 +67,7 @@ export const Login = () => {
             Log in
           </button>
         </div>
-        <div className="flex gap-2 mt-3 pl-10">
+        <div className="flex gap-2 mt-3 md:pl-10">
           <p className="text-[16px] text-[#0F172A]">Don’t have account?</p>
           <p
             className="text-[#0166FF] text-[16px]"
