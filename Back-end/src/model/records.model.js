@@ -1,6 +1,7 @@
 const { default: mongoose } = require("mongoose");
 
 const Record = mongoose.model("Record", {
+  userId: mongoose.Schema.Types.ObjectId,
   type: String,
   category: String,
   amount: String,
@@ -10,6 +11,8 @@ const Record = mongoose.model("Record", {
   color: String,
   icon: String,
   time: String,
+  updatedAt: Date,
+  createdAt: Date,
 });
 
 module.exports = {

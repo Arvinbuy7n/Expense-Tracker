@@ -1,14 +1,1 @@
-[
-  {
-    "type": "Expense",
-    "category": "Apple",
-    "amount": "",
-    "date": "2024-01-10",
-    "payee": "",
-    "note": "",
-    "color": "#000000",
-    "icon": "FaApple",
-    "time": "16:23",
-    "userEmail": "admin"
-  }
-]
+[{"type":"Expense","category":"Apple","amount":"","date":"2024-01-10","payee":"","note":"","color":"#000000","icon":"FaApple","time":"16:23","userEmail":"admin"},{"type":"Expense","category":"Apple","amount":"1000","date":"2024-01-11","payee":"","note":"","color":"#000000","icon":"FaApple","time":"10:57"},{"type":"Expense","category":"Sim","amount":"10","date":"2024-01-11","payee":"","note":"","color":"#41CC00","icon":"FaSimCard","time":"14:01"},{"type":"Expense","category":"Perfume","amount":"9999","date":"2024-01-11","payee":"","note":"","color":"#AE01FF","icon":"FaAirFreshener","time":"15:46"},{"type":"Expense","category":"Apple","amount":"1000","date":"2024-01-12","payee":"","note":"","color":"#000000","icon":"FaApple","time":"09:11"}]

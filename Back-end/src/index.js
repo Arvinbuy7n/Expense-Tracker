@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 const { connectDatabase } = require("./database");
 const { User } = require("./model/user.model");
 const { Category } = require("./model/category.model");
+const { Record } = require("./model/records.model");
 
 const app = express();
 
@@ -122,18 +123,13 @@ app.post("/records", async (req, res) => {
   try {
     const payload = jwt.verify(authorization, "secret-key");
 
-    const { email } = payload;
+    const { id } = payload;
 
     const { category, amount, type, date, payee, note, color, icon, time } =
       req.body;
 
-    const filePath = "src/data/records.json";
-
-    const recordsRaw = await fs.readFile(filePath, "utf-8");
-
-    const records = JSON.parse(recordsRaw);
-
-    records.push({
+    await Record.create({
+      userId: id,
       type,
       category,
       amount,
@@ -143,10 +139,9 @@ app.post("/records", async (req, res) => {
       color,
       icon,
       time,
-      userEmail: email,
+      updatedAt: new Date(),
+      createdAt: new Date(),
     });
-
-    await fs.writeFile(filePath, JSON.stringify(records));
 
     res.json({
       message: "Шинэ хэрэглэгч үүссэн байна.",
@@ -156,6 +151,26 @@ app.post("/records", async (req, res) => {
       message: "Unauthorized",
     });
   }
+  // const filePath = "src/data/records.json";
+
+  // const recordsRaw = await fs.readFile(filePath, "utf-8");
+
+  // const records = JSON.parse(recordsRaw);
+
+  // records.push({
+  //   type,
+  //   category,
+  //   amount,
+  //   date,
+  //   payee,
+  //   note,
+  //   color,
+  //   icon,
+  //   time,
+  //   userEmail: email,
+  // });
+
+  // await fs.writeFile(filePath, JSON.stringify(records));
 });
 
 app.get("/records", async (req, res) => {
@@ -170,22 +185,24 @@ app.get("/records", async (req, res) => {
   try {
     const payload = jwt.verify(authorization, "secret-key");
 
-    const { email } = payload;
+    const { id } = payload;
 
-    const filePath = "src/data/records.json";
+    const record = await Record.find({ userId: id });
 
-    const recordsRaw = await fs.readFile(filePath, "utf-8");
-
-    const records = JSON.parse(recordsRaw);
-
-    const userRecords = records.filter((record) => record.userEmail === email);
-
-    res.json(userRecords);
+    return res.json(record);
   } catch (error) {
     return res.status(401).json({
-      message: "Author",
+      message: "Authorized",
     });
   }
+
+  // const filePath = "src/data/records.json";
+
+  // const recordsRaw = await fs.readFile(filePath, "utf-8");
+
+  // const records = JSON.parse(recordsRaw);
+
+  // const userRecords = records.filter((record) => record.userEmail === email);
 });
 
 app.post("/category", async (req, res) => {

@@ -1,8 +1,8 @@
 import { useAuth } from "@/app/layout";
 import { useState } from "react";
 
-import { FaHouse } from "react-icons/fa6";
-import { MdArrowDropDown } from "react-icons/md";
+import { FaArrowDown } from "react-icons/fa";
+import { FaHouseUser } from "react-icons/fa";
 import { FaWrench } from "react-icons/fa";
 import { FaAirFreshener } from "react-icons/fa";
 import { FaAmazon } from "react-icons/fa";
@@ -19,15 +19,15 @@ import { FaGithub } from "react-icons/fa";
 import { FaGlasses } from "react-icons/fa";
 import { FaGrinStars } from "react-icons/fa";
 import { FaHeadphones } from "react-icons/fa";
-import { FaImage } from "react-icons/fa6";
+import { FaBrain } from "react-icons/fa";
 import { FaAddressBook } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
-import { FaMicrophone } from "react-icons/fa6";
+import { FaBomb } from "react-icons/fa";
 import { FaBaseballBall } from "react-icons/fa";
 import { FaPeace } from "react-icons/fa";
 import { FaPencilAlt } from "react-icons/fa";
 import { FaAddressCard } from "react-icons/fa";
-import { FaSimCard } from "react-icons/fa6";
+import { FaChess } from "react-icons/fa";
 import { FaLaptopCode } from "react-icons/fa";
 import { FaPalette } from "react-icons/fa";
 import { FaPlaystation } from "react-icons/fa";
@@ -36,18 +36,18 @@ import { FaBalanceScale } from "react-icons/fa";
 
 export const AddCategory = () => {
   const { setData, isCategory, addCat, categories, setIsOpen } = useAuth();
-  const [isChoose, setIsChoose] = useState(<FaHouse size={20} />);
+  const [isChoose, setIsChoose] = useState(<FaHouseUser size={20} />);
   const [isColor, setIsColor] = useState("inherit");
 
   const icon = [
-    <FaHouse size={20} />,
+    <FaHouseUser size={20} />,
     <FaAddressBook size={20} />,
     <FaAddressCard size={20} />,
     <FaAirFreshener size={20} />,
     <FaAmazon size={20} />,
     <FaApple size={20} />,
     <FaLock size={20} />,
-    <FaMicrophone size={20} />,
+    <FaBrain size={20} />,
     <FaBatteryFull size={20} />,
     <FaBatteryQuarter size={20} />,
     <FaBluetooth size={20} />,
@@ -62,7 +62,7 @@ export const AddCategory = () => {
     <FaGrinStars size={20} />,
     <FaBaseballBall size={20} />,
     <FaHeadphones size={20} />,
-    <FaSimCard size={20} />,
+    <FaBomb size={20} />,
     <FaLaptopCode size={20} />,
     <FaPalette size={20} />,
     <FaPlaystation size={20} />,
@@ -104,7 +104,7 @@ export const AddCategory = () => {
           <div className="flex gap-2 h-[30px] relative">
             <div className="w-[22%] rounded-lg bg-slate-100 flex gap-2 justify-between items-center p-5">
               <p style={{ color: isColor }}>{isChoose}</p>
-              <MdArrowDropDown size={24} onClick={addCat} />
+              <FaArrowDown size={14} onClick={addCat} />
               {isCategory ? (
                 <div className="absolute left-0 w-fit h-fit bg-white p-7 mt-[400px] rounded-xl flex flex-col gap-6">
                   <div className="drop-shadow-md grid grid-cols-6 gap-x-6 gap-y-6 border-b-2 pb-8">
