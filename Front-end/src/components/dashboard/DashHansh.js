@@ -1,7 +1,7 @@
 export const DashHansh = () => {
   return (
-    <div className="md:flex gap-8 px-36 w-full h-[250px]">
-      <div className="w-1/3 relative">
+    <div className="grid md:grid-cols-3 grid-cols-1 gap-8 md:px-36 w-full h-fit md:h-[250px]">
+      <div className="w-full relative md:px-0 px-4">
         <img
           src="noise.png"
           className="bg-blue-600 w-full h-[250px] rounded-2xl"
@@ -19,7 +19,7 @@ export const DashHansh = () => {
           <p className="text-[24px] text-[#FFFFFF] font-semibold">10,000,00</p>
         </div>
       </div>
-      <div className="w-1/3 bg-white rounded-xl">
+      <div className="w-full bg-white rounded-xl px-10">
         <div className="flex px-[24px] py-[16px] gap-2 border-b-2 ">
           <img src="green.png" className="w-2 h-2 mt-2"></img>
           <p className="text-[16px] font-semibold">Your Income</p>
@@ -38,7 +38,7 @@ export const DashHansh = () => {
           </div>
         </div>
       </div>
-      <div className="w-1/3 bg-white rounded-xl">
+      <div className="w-full bg-white rounded-xl md:px-0 px-4">
         <div className="flex px-[24px] py-[16px] gap-2 border-b-2 ">
           <img src="blue.png" className="w-2 h-2 mt-2"></img>
           <p className="text-[16px] font-semibold">Total Expenses</p>

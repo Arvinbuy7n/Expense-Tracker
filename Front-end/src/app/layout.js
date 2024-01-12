@@ -1,6 +1,7 @@
 "use client";
 
 import { Inter } from "next/font/google";
+
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
@@ -8,10 +9,11 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "@/common/axios";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
+import { AuthProvider } from "@/components/providers/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const AuthContext = createContext();
+// const AuthContext = createContext();
 
 export default function RootLayout({ children }) {
   const [openDraw, setOpenDraw] = useState(false);
@@ -20,7 +22,6 @@ export default function RootLayout({ children }) {
   const [isSign, setIsSign] = useState(false);
   const [isAddition, setIsAddition] = useState(false);
   const [category, setCategory] = useState("Find or choose category");
-  // const [hansh, setHansh] = useState(0);
   const [filterCategory, setFilterCategory] = useState([]);
 
   //front-end new sector
@@ -47,70 +48,12 @@ export default function RootLayout({ children }) {
 
   //connection between the "back" and "front" /////////////////////////
 
-  const [isLogged, setIsLogged] = useState(false);
-  const [isReady, setIsReady] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [categoryList, setCategoryList] = useState([]);
   const [recordList, setRecordList] = useState([]);
   const [refresh, setRefresh] = useState(0);
   const [recordColor, setRecordColor] = useState("#000000");
   const [recordIcon, setRecordIcon] = useState("FaHouse");
   const router = useRouter();
-
-  const login = async (email, password) => {
-    setIsLoading(true);
-
-    try {
-      const { data } = await api.post("/login", {
-        email,
-        password,
-      });
-
-      const { token } = data;
-
-      localStorage.setItem("token", token);
-
-      setIsLogged(true);
-
-      router.push("/main");
-    } catch (err) {
-      toast.error(err.response.data.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const signUp = async (email, password, name) => {
-    setIsLoading(true);
-
-    try {
-      const { data } = await api.post("/sign", {
-        email,
-        password,
-        name,
-      });
-
-      const { token } = data;
-
-      localStorage.setItem("token", token);
-
-      setIsLogged(true);
-
-      router.push("/login");
-    } catch (error) {
-      toast.error(error.response?.data.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const signOut = () => {
-    localStorage.removeItem("token");
-
-    setIsLogged(false);
-
-    router.push("/login");
-  };
 
   const records = async (
     amount,
@@ -208,18 +151,6 @@ export default function RootLayout({ children }) {
   };
 
   useEffect(() => {
-    setIsReady(false);
-
-    const token = localStorage.getItem("token");
-
-    if (token) {
-      setIsLogged(true);
-    }
-
-    setIsReady(true);
-  }, []);
-
-  useEffect(() => {
     getCategory();
     getRecords();
   }, [refresh]);
@@ -227,10 +158,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthContext.Provider
+        {/* <AuthContext.Provider
           value={{
-            isLogged,
-            setIsLogged,
             setOpenDraw,
             openDraw,
             getData,
@@ -246,10 +175,6 @@ export default function RootLayout({ children }) {
             isAddition,
             setAddition,
             setIsAddition,
-            login,
-            signUp,
-            isLoading,
-            signOut,
             records,
             categories,
             categoryList,
@@ -268,13 +193,16 @@ export default function RootLayout({ children }) {
             setRefresh,
           }}
         >
-          {isReady && children}
-        </AuthContext.Provider>
+          
+        </AuthContext.Provider> */}
 
+        <AuthProvider>
+          {children}    
+        </AuthProvider>
         <ToastContainer />
       </body>
     </html>
   );
 }
 
-export const useAuth = () => useContext(AuthContext);
+// export const useAuth = () => useContext(AuthContext);

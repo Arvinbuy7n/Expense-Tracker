@@ -7,7 +7,7 @@ export const Dashboard = () => {
   return (
     <div className="w-full h-full flex flex-col max-w-[1800px] m-auto bg-slate-100">
       <MainHead />
-      <div className="flex flex-col gap-5 py-10">
+      <div className="grid grid-cols-1 gap-5 py-10">
         <DashHansh />
         <DashChart />
         <DashLast />

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/app/layout";
+import { AuthProvider, useAuth } from "./providers/AuthProvider";
 
 export const Signup = () => {
   const [isHidden, setIsHidden] = useState(true);

@@ -7,7 +7,7 @@ export const DashLast = () => {
         <div className="flex px-[24px] py-[16px] gap-2 border-b-2 w-full">
           <p className="text-[16px] font-semibold">Last Records</p>
         </div>
-        <DashMap />
+        {/* <DashMap /> */}
       </div>
     </div>
   );

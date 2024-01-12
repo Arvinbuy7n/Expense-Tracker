@@ -177,7 +177,7 @@ app.get("/records", async (req, res) => {
   const { authorization } = req.headers;
 
   if (!authorization) {
-    res.status(401).json({
+    return res.status(401).json({
       message: "Unauthorization1",
     });
   }
@@ -224,6 +224,7 @@ app.post("/category", async (req, res) => {
     const category = await Category.findOne({ userId: id, cate: cate });
 
     if (category) {
+      console.log("GGG");
       return res.status(401).json({
         message: "Category already exist",
       });
@@ -242,6 +243,7 @@ app.post("/category", async (req, res) => {
       message: "new category created",
     });
   } catch (error) {
+    console.log(error);
     return res.status(401).json({
       message: "Unauthorized",
     });
