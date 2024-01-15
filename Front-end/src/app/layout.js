@@ -13,7 +13,7 @@ import { AuthProvider } from "@/components/providers/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// const AuthContext = createContext();
+const AuthContext = createContext();
 
 export default function RootLayout({ children }) {
   const [openDraw, setOpenDraw] = useState(false);
@@ -158,7 +158,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <AuthContext.Provider
+        <AuthContext.Provider
           value={{
             setOpenDraw,
             openDraw,
@@ -192,17 +192,13 @@ export default function RootLayout({ children }) {
             refresh,
             setRefresh,
           }}
-        >
-          
-        </AuthContext.Provider> */}
+        ></AuthContext.Provider>
 
-        <AuthProvider>
-          {children}    
-        </AuthProvider>
+        <AuthProvider>{children}</AuthProvider>
         <ToastContainer />
       </body>
     </html>
   );
 }
 
-// export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => useContext(AuthContext);
