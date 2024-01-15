@@ -1,8 +1,8 @@
+import { useRecord } from "../recordPro/RecordProvider";
 import { EachCategory } from "./EachCategory";
-import { useAuth } from "@/app/layout";
 
 export const RecordCategory = () => {
-  const { setData, categoryList } = useAuth();
+  const { setData, categoryList } = useRecord();
 
   return (
     <div className="w-full flex flex-col gap-5">
@@ -11,7 +11,9 @@ export const RecordCategory = () => {
         <p className="text-[16px] text-[#1F2937]">Clear</p>
       </div>
       <div className="flex flex-col gap-4 text-[16px] font-normal">
-        {categoryList.map((item, index) => {
+        {categoryList
+       
+        .map((item, index) => {
           return <EachCategory key={index} title={item.cate} />;
         })}
       </div>

@@ -1,8 +1,10 @@
 import { useAuth } from "@/app/layout";
 import * as icons from "react-icons/fa";
+import { RecordProvider } from "../recordPro/RecordProvider";
+import { useRecord } from "../recordPro/RecordProvider";
 
 export const AddIcon = (props) => {
-  const { setCategory, setRecordIcon, setRecordColor } = useAuth();
+  const { setCategory, setRecordIcon, setRecordColor } = useRecord();
   const Icon = icons[props.icon];
 
   if (Icon === undefined) {

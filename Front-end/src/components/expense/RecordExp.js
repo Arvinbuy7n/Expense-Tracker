@@ -5,6 +5,8 @@ import { MdArrowDropDown } from "react-icons/md";
 import { useAuth } from "@/app/layout";
 import { AddIcon } from "../record/AddIcon";
 import { AddCategory } from "../record/AddCategory";
+import { RecordProvider } from "../recordPro/RecordProvider";
+import { useRecord } from "../recordPro/RecordProvider";
 
 export const RecordExp = (props) => {
   const {
@@ -17,7 +19,7 @@ export const RecordExp = (props) => {
     recordIcon,
     setOpenDraw,
     setData,
-  } = useAuth();
+  } = useRecord();
 
   return (
     <form

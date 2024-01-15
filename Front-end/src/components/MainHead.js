@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { Addition } from "./Addition";
-import { useAuth } from "@/app/layout";
 import { useRouter } from "next/navigation";
+import { RecordProvider } from "./recordPro/RecordProvider";
+import { useRecord } from "./recordPro/RecordProvider";
+
 
 export const MainHead = () => {
   const [openDraw, setOpenDraw] = useState(false);
-  const { getData } = useAuth();
+  const { getData } = useRecord();
   const router = useRouter();
 
   const openPage = () => {
@@ -38,7 +40,7 @@ export const MainHead = () => {
       <div className="flex flex-col gap-7">
         <div className="flex h-fit gap-7 justify-between w-full">
           <button
-            className="bg-[#0166FF] text-white rounded-3xl hidden px-4 text-xl"
+            className="md:flex hidden bg-[#0166FF] text-white rounded-3xl px-4 pt-1 text-xl"
             onClick={getData}
           >
             + Records

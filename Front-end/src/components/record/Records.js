@@ -8,17 +8,17 @@ import { RecordHead } from "./RecordHead";
 import { RecordTypes } from "./RecordTypes";
 import { MainHead } from "../MainHead";
 import { RecordAdd } from "../expense/RecordAdd";
-import { useAuth } from "@/app/layout";
 import { AddCategory } from "./AddCategory";
-import { EachYes, RecordPlus } from "./RecordPlus";
+import { useRecord } from "../recordPro/RecordProvider";
 
 export const Records = () => {
-  const { openDraw, getData, isOpen } = useAuth();
+
+  const { getData, isOpen, openDraw } = useRecord();
 
   return (
     <div className="w-full h-full flex flex-col max-w-[1800px] m-auto relative">
       <MainHead />
-      <div className="flex w-full h-screen px-36 py-7 gap-5 bg-slate-100">
+      <div className="flex w-full h-screen md:px-36 px-8 py-7 gap-5 bg-slate-100">
         <div className="w-1/4 border-2 bg-white rounded-2xl p-5 gap-[24px] flex flex-col">
           <div className="flex flex-col gap-[24px]">
             <p className="text-[24px] font-semibold">Records</p>

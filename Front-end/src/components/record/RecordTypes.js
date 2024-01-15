@@ -1,7 +1,9 @@
 import { useAuth } from "@/app/layout";
+import { RecordProvider } from "../recordPro/RecordProvider";
+import { useRecord } from "../recordPro/RecordProvider";
 
 export const RecordTypes = () => {
-  const { records } = useAuth();
+  const { records } = useRecord();
   return (
     <div className="flex flex-col gap-[24px]">
       <div>

@@ -33,9 +33,11 @@ import { FaPalette } from "react-icons/fa";
 import { FaPlaystation } from "react-icons/fa";
 import { FaPowerOff } from "react-icons/fa";
 import { FaBalanceScale } from "react-icons/fa";
+import { RecordProvider } from "../recordPro/RecordProvider";
+import { useRecord } from "../recordPro/RecordProvider";
 
 export const AddCategory = () => {
-  const { setData, isCategory, addCat, categories, setIsOpen } = useAuth();
+  const { setData, isCategory, addCat, categories, setIsOpen } = useRecord();
   const [isChoose, setIsChoose] = useState(<FaHouseUser size={20} />);
   const [isColor, setIsColor] = useState("inherit");
 

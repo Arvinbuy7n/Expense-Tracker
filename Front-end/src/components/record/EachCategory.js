@@ -1,7 +1,8 @@
-import { useAuth } from "@/app/layout";
+import { useRecord } from "../recordPro/RecordProvider";
 
 export const EachCategory = (props) => {
-  const { filterCategory, setFilterCategory, setRefresh, refresh } = useAuth();
+  const { filterCategory, setFilterCategory, setRefresh, refresh } =
+    useRecord();
 
   return (
     <div className="w-full h-fit flex item-center justify-between">
@@ -10,7 +11,6 @@ export const EachCategory = (props) => {
           src={filterCategory.includes(props.title) ? "hide.jpeg" : "eyes.webp"}
           className="w-5 h-5 mt-[2px]"
           onClick={() => {
-            // console.log(filterCategory, filterCategory.includes(props.title));
             if (filterCategory.includes(props.title)) {
               setFilterCategory(
                 filterCategory.filter((item) => item !== props.title)
@@ -18,12 +18,12 @@ export const EachCategory = (props) => {
             } else {
               filterCategory.push(props.title);
               setFilterCategory(filterCategory);
-              setRefresh(refresh + 1);
+             
             }
-            // console.log(filterCategory);
+            setRefresh(refresh + 1);
+            console.log(filterCategory);
           }}
         />
-
         <p>{props.title}</p>
       </div>
       <img className="w-5 h-5" src="let.png"></img>

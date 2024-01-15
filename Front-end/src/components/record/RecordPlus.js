@@ -2,7 +2,6 @@ import { useAuth } from "@/app/layout";
 import * as icons from "react-icons/fa";
 
 export const RecordPlus = (props) => {
-  const {} = useAuth();
   const Icon1 = icons[props.icon];
 
   return (

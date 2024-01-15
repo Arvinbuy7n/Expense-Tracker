@@ -3,11 +3,13 @@
 import { useState } from "react";
 import { RecordExp } from "./RecordExp";
 import { useAuth } from "@/app/layout";
+import { RecordProvider } from "../recordPro/RecordProvider";
+import { useRecord } from "../recordPro/RecordProvider";
 
 export const RecordAdd = () => {
   const [type, setType] = useState("Expense");
 
-  const { getData } = useAuth();
+  const { getData } = useRecord();
 
   return (
     <div className="fixed h-screen w-screen bg-[#00000080] top-[-300px] left-0 flex justify-center items-center mt-[300px] w-full">
