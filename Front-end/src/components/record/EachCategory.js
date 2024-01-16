@@ -18,7 +18,6 @@ export const EachCategory = (props) => {
             } else {
               filterCategory.push(props.title);
               setFilterCategory(filterCategory);
-             
             }
             setRefresh(refresh + 1);
             console.log(filterCategory);
