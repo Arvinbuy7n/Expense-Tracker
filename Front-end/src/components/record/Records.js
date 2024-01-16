@@ -40,7 +40,7 @@ export const Records = () => {
         </div>
         <div className="py-6 w-full flex flex-col gap-[7px]">
           <RecordHead />
-          {/* <RecordSelect /> */}
+          <RecordSelect />
           <RecordYes />
         </div>
       </div>

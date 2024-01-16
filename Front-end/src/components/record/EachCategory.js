@@ -12,12 +12,11 @@ export const EachCategory = (props) => {
           className="w-5 h-5 mt-[2px]"
           onClick={() => {
             if (filterCategory.includes(props.title)) {
-              setFilterCategory(
-                filterCategory.filter((item) => item !== props.title)
+              setFilterCategory((prev) =>
+                prev.filter((item) => item !== props.title)
               );
             } else {
-              filterCategory.push(props.title);
-              setFilterCategory(filterCategory);
+              setFilterCategory((prev) => [...prev, props.title]);
             }
             setRefresh(refresh + 1);
             console.log(filterCategory);

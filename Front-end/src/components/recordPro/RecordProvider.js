@@ -20,6 +20,7 @@ export const RecordProvider = (props) => {
   const [recordIcon, setRecordIcon] = useState("FaHouse");
   const [isSign, setIsSign] = useState(false);
   const [_isLoading, setIsLoading] = useState(false);
+  const [amount, setAmount] = useState(0);
 
   const setAddition = () => {
     setIsAddition((a) => !a);

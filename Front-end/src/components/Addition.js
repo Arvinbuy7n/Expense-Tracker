@@ -1,8 +1,10 @@
-import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useAuth } from "./providers/AuthProvider";
 
 export const Addition = () => {
   const router = useRouter();
+
+  const {signOut} = useAuth();
   return (
     <div className="w-fit border-2 bg-blue-600 flex flex-col z-10 pr-32 pl-5 py-3 gap-3 rounded-xl">
       <p
@@ -13,9 +15,11 @@ export const Addition = () => {
       >
         Profile
       </p>
-      <Link href="/login">
-        <p className="text-white hover:text-red-500">Log Out</p>
-      </Link>
+      <p className="text-white hover:text-red-500"
+        onClick={() => {
+          router.push("/login")
+        }}
+      >Log Out</p>
     </div>
   );
 };

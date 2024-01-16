@@ -22,12 +22,17 @@ export const RecordPlus = (props) => {
           </div>
         </div>
       </div>
-      <p
-        className="pt-5"
-        style={{ color: props.type == "Expense" ? "#F54949" : "#23E01F" }}
-      >
-        {props.amount}
-      </p>
+      <div className="flex">
+        <p
+          className="pt-5"
+          style={{ color: props.type == "Expense" ? "#F54949" : "#23E01F" }}
+        >
+          {props.amount}
+        </p>
+        <p className="text-[16px] font-semibold pt-5"
+           style={{ color: props.type == "Expense" ? "#F54949" : "#23E01F" }}
+        >₮</p>
+      </div>
     </div>
   );
 };

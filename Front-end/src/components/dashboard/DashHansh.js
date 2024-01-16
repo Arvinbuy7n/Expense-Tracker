@@ -1,4 +1,7 @@
+import { useRecord } from "../recordPro/RecordProvider";
+
 export const DashHansh = () => {
+  // const {amount, setAmount} = useRecord();
   return (
     <div className="grid md:grid-cols-3 grid-cols-1 gap-8 md:px-36 w-full h-fit md:h-[250px] px-2">
       <div className="w-full relative">
