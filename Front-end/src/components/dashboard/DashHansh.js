@@ -1,9 +1,12 @@
+"use client";
+
 import { useRecord } from "../recordPro/RecordProvider";
 
 export const DashHansh = () => {
-  // const {amount, setAmount} = useRecord();
+  const { recordList } = useRecord();
+
   return (
-    <div className="grid md:grid-cols-3 grid-cols-1 gap-8 md:px-36 w-full h-fit md:h-[250px] px-2">
+    <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-2 md:px-36 w-full h-fit md:h-[250px] px-6">
       <div className="w-full relative">
         <img
           src="noise.png"
@@ -19,7 +22,12 @@ export const DashHansh = () => {
         ></img>
         <div className="flex flex-col absolute left-0 bottom-0 pb-8 pl-10 gap-1">
           <p className="text-[16px] text-[#FFFFFF] font-normal">Cash</p>
-          <p className="text-[24px] text-[#FFFFFF] font-semibold">10,000,00</p>
+          <p className="text-[24px] text-[#FFFFFF] font-semibold">
+            {recordList.reduce(
+              (total, currentValue) => total - Number(currentValue.amount),
+              0
+            )}
+          </p>
         </div>
       </div>
       <div className="w-full bg-white rounded-xl">
@@ -29,8 +37,20 @@ export const DashHansh = () => {
         </div>
         <div className="p-6 flex flex-col gap-1">
           <div className="flex">
-            <p className="text-[36px] font-semibold">0</p>
-            <p className="text-[36px] font-semibold">₮</p>
+          <p className="text-[28px] mt-1 text-[#23E01F] font-bold">+</p>
+            <p className="text-[36px] font-semibold ml-1" style={{
+              color: "Income" ? "#23E01F" : "inherit"
+            }}>
+              {recordList
+                .filter((recordList) => {
+                  return recordList.type === "Income";
+                })
+                .reduce(
+                  (total, currentValue) => total + Number(currentValue.amount),
+                  0
+                )}
+            </p>
+            <p className="text-[36px] font-semibold text-[#23E01F]">₮</p>
           </div>
           <p className="text-[18px] text-[#64748B] font-normal">
             Your Income Amount
@@ -48,8 +68,30 @@ export const DashHansh = () => {
         </div>
         <div className="p-6 flex flex-col gap-1">
           <div className="flex">
-            <p className="text-[36px] font-semibold">0</p>
-            <p className="text-[36px] font-semibold">₮</p>
+            <p className="text-[28px] mt-1 text-[#F54949] font-bold">-</p>
+            <p
+              className="text-[36px] font-semibold ml-1"
+              style={{
+                color: "Expense" ? "#F54949" : "inherit",
+              }}
+            >
+              {recordList
+                .filter((recordList) => {
+                  return recordList.type === "Expense";
+                })
+                .reduce(
+                  (total, currentValue) => total + Number(currentValue.amount),
+                  0
+                )}
+            </p>
+            <p
+              className="text-[36px] font-semibold"
+              style={{
+                color: "Expense" ? "#F54949" : "inherit",
+              }}
+            >
+              ₮
+            </p>
           </div>
           <p className="text-[18px] text-[#64748B] font-normal">
             Your Income Amount

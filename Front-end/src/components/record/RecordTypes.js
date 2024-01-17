@@ -1,9 +1,7 @@
-import { useAuth } from "@/app/layout";
-import { RecordProvider } from "../recordPro/RecordProvider";
 import { useRecord } from "../recordPro/RecordProvider";
 
 export const RecordTypes = () => {
-  const { records } = useRecord();
+  const { recordList, radioCheck, setRadioCheck } = useRecord();
   return (
     <div className="flex flex-col gap-[24px]">
       <div>
@@ -11,16 +9,47 @@ export const RecordTypes = () => {
       </div>
       <div className="flex flex-col gap-3">
         <div className="flex gap-3">
-          <input type="radio" className="w-4" />
+          <input
+            onClick={(event) => {
+              setRadioCheck(event.target.value);
+            }}
+            type="radio"
+            name="radio"
+            className="w-4"
+            value=""
+          />
           <p className="text-[16px] text-[#1F2937]">All</p>
         </div>
         <div className="flex gap-3">
-          <input type="radio" className="w-4" />
+          <input
+            onClick={(event) => {
+              setRadioCheck(event.target.value);
+            }}
+            type="radio"
+            name="radio"
+            className="w-4"
+            value="Income"
+          />
           <p className="text-[16px] text-[#1F2937]">Income</p>
         </div>
         <div className="flex gap-3">
-          <input type="radio" className="w-4" />
-          <p className="text-[16px] text-[#1F2937]">Expense</p>
+          <input
+            onClick={(event) => {
+              setRadioCheck(event.target.value);
+            }}
+            type="radio"
+            name="radio"
+            className="w-4"
+            value="Expense"
+          />
+          <p
+            className="text-[16px] text-[#1F2937]"
+            onClick={recordList.filter((radioCheck) => {
+              return radioCheck.type === "Expense";
+            })}
+          >
+            Expense
+          </p>
         </div>
       </div>
     </div>

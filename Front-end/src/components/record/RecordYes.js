@@ -1,9 +1,11 @@
+"use client"
+
 import { RecordPlus } from "./RecordPlus";
 import { useRecord } from "../recordPro/RecordProvider";
 
 export const RecordYes = () => {
-  const { recordList, categoryList, filterCategory } = useRecord();
-  console.log(categoryList);
+  const { recordList, filterCategory, radioCheck } = useRecord();
+  
   return (
     <div className="w-full flex flex-col gap-5 py-5">
       <div className="flex flex-col gap-4 text-[16px] font-normal">
@@ -11,6 +13,10 @@ export const RecordYes = () => {
           .filter((item) => {
             if (!filterCategory.length) return true;
             return !filterCategory.includes(item.category);
+          })
+          .filter((item) => {
+          if(!radioCheck) return true;
+            return item.type === radioCheck
           })
           .map((item, index) => {
             return (

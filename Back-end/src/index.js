@@ -175,10 +175,11 @@ app.post("/records", async (req, res) => {
 
 app.get("/records", async (req, res) => {
   const { authorization } = req.headers;
+  // console.log(req.query);
 
   if (!authorization) {
     return res.status(401).json({
-      message: "Unauthorization1",
+      message: "Unauthorization",
     });
   }
 

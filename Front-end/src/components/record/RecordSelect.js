@@ -10,13 +10,13 @@ export const RecordSelect = () => {
           <p className="text-[16px]">Select all</p>
         </div>
         <div className="flex gap-[1.5px]">
-          <p className="text-[16px] text-[#94A3B8] font-semibold">
+          <p className="text-[16px] text-yellow-400 font-semibold">
             {recordList.reduce(
               (total, currentValue) => total + Number(currentValue.amount),
               0
             )}
           </p>
-          <p className="text-[16px] text-[#94A3B8] font-semibold">₮</p>
+          <p className="text-[16px] text-yellow-400 font-semibold">₮</p>
         </div>
       </div>
     </div>

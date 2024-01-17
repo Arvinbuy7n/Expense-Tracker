@@ -20,7 +20,8 @@ export const RecordProvider = (props) => {
   const [recordIcon, setRecordIcon] = useState("FaHouse");
   const [isSign, setIsSign] = useState(false);
   const [_isLoading, setIsLoading] = useState(false);
-  const [amount, setAmount] = useState(0);
+  const [income, setIncome] = useState(0);
+  const [radioCheck, setRadioCheck] = useState("");
 
   const setAddition = () => {
     setIsAddition((a) => !a);
@@ -183,6 +184,10 @@ export const RecordProvider = (props) => {
         setFilterCategory,
         refresh,
         setRefresh,
+        income,
+        radioCheck,
+        setIncome,
+        setRadioCheck,
       }}
     >
       {props?.children}
