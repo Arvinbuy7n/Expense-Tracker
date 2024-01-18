@@ -11,9 +11,7 @@ export const RecordCategory = () => {
         <p className="text-[16px] text-[#1F2937]">Clear</p>
       </div>
       <div className="flex flex-col gap-4 text-[16px] font-normal">
-        {categoryList
-       
-        .map((item, index) => {
+        {categoryList.map((item, index) => {
           return <EachCategory key={index} title={item.cate} />;
         })}
       </div>

@@ -3,6 +3,7 @@
 import { api } from "@/common/axios";
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useAuth } from "../providers/AuthProvider";
 
 export const RecordContext = createContext();
 
@@ -22,6 +23,7 @@ export const RecordProvider = (props) => {
   const [_isLoading, setIsLoading] = useState(false);
   const [income, setIncome] = useState(0);
   const [radioCheck, setRadioCheck] = useState("");
+  const { dark, setDark, toggleDark } = useAuth();
 
   const setAddition = () => {
     setIsAddition((a) => !a);
@@ -188,6 +190,9 @@ export const RecordProvider = (props) => {
         radioCheck,
         setIncome,
         setRadioCheck,
+        dark,
+        setDark,
+        toggleDark,
       }}
     >
       {props?.children}

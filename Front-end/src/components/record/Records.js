@@ -12,18 +12,17 @@ import { AddCategory } from "./AddCategory";
 import { useRecord } from "../recordPro/RecordProvider";
 
 export const Records = () => {
-
   const { getData, isOpen, openDraw } = useRecord();
 
   return (
     <div className="w-full h-full flex flex-col max-w-[1800px] m-auto relative">
       <MainHead />
-      <div className="flex w-full h-screen md:px-36 px-8 py-7 gap-5 bg-slate-100">
-        <div className="w-1/4 border-2 bg-white rounded-2xl p-5 gap-[24px] flex flex-col">
+      <div className="md:flex w-full h-screen md:px-36 px-8 py-7 gap-5 bg-slate-100">
+        <div className="flex md:w-1/4 border-2 bg-white rounded-2xl p-5 md:gap-[24px] gap-3 flex flex-col">
           <div className="flex flex-col gap-[24px]">
             <p className="text-[24px] font-semibold">Records</p>
             <button
-              className="bg-[#0166FF] text-white w-full rounded-2xl py-1 text-[18px]"
+              className="bg-[#0166FF] text-white w-full rounded-2xl py-1 text-[18px] md:flex hidden justify-center"
               onClick={getData}
             >
               + Add
@@ -38,7 +37,7 @@ export const Records = () => {
           <RecordCategory />
           <RecordAmout />
         </div>
-        <div className="py-6 w-full flex flex-col gap-[7px]">
+        <div className="md:py-6 w-full flex flex-col gap-[7px] md:mt-0 mt-6">
           <RecordHead />
           <RecordSelect />
           <RecordYes />

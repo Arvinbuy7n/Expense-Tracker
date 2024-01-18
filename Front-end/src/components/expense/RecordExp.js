@@ -2,10 +2,7 @@
 
 import { FaPlusCircle } from "react-icons/fa";
 import { MdArrowDropDown } from "react-icons/md";
-import { useAuth } from "@/app/layout";
 import { AddIcon } from "../record/AddIcon";
-import { AddCategory } from "../record/AddCategory";
-import { RecordProvider } from "../recordPro/RecordProvider";
 import { useRecord } from "../recordPro/RecordProvider";
 
 export const RecordExp = (props) => {
@@ -40,13 +37,13 @@ export const RecordExp = (props) => {
         setOpenDraw(false);
       }}
     >
-      <div className="w-[50%] flex flex-col gap-6">
-        <div className="bg-[#F3F4F6] rounded-3xl flex justify-between">
+      <div className="md:w-[50%] w-full flex flex-col md:gap-6 gap-4">
+        <div className="bg-[#F3F4F6] rounded-3xl md:flex md:w-0 w-40 justify-between md:ml-0 ml-24">
           <div
             onClick={() => {
               props.setType("Expense");
             }}
-            className="px-16 py-2 rounded-3xl"
+            className="md:px-16 pl-12 py-2 rounded-3xl"
             style={{
               background: props.type === "Expense" ? "#0166FF" : "transparent",
               color: props.type === "Expense" ? "white" : "#000000",
@@ -58,7 +55,7 @@ export const RecordExp = (props) => {
             onClick={() => {
               props.setType("Income");
             }}
-            className="px-16 py-2 text-black rounded-3xl"
+            className="md:px-16 pl-12 py-2 text-black rounded-3xl "
             style={{
               background: props.type === "Income" ? "#16A34A" : "transparent",
               color: props.type === "Income" ? "white" : "#000000",
@@ -86,7 +83,7 @@ export const RecordExp = (props) => {
             <MdArrowDropDown size={20} />
           </div>
           {isAddition ? (
-            <div className="absolute top-[63%] w-[47%] flex flex-col bg-[#FFFFFF] h-[270px] rounded-xl border-2 overflow-scroll ">
+            <div className="absolute md:top-[63%] top-[67%] md:w-[47%] w-[91%] flex flex-col bg-[#FFFFFF] h-[270px] rounded-xl border-2 overflow-scroll ">
               <div className="flex gap-3 p-4 border-b-2">
                 <FaPlusCircle color="#0166FF" size={22} onClick={setData} />
                 <p className="text-[16px]">Add Category</p>
@@ -134,7 +131,7 @@ export const RecordExp = (props) => {
           Add Record
         </button>
       </div>
-      <div className="w-[50%] px-3 flex flex-col gap-3">
+      <div className="md:flex hidden w-[50%] px-3 flex flex-col gap-3">
         <div className="flex flex-col gap-1">
           <p className="text-[#1F2937] text-[16px]">Payee</p>
           <input

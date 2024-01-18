@@ -6,7 +6,7 @@ export const DashHansh = () => {
   const { recordList } = useRecord();
 
   return (
-    <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-2 md:px-36 w-full h-fit md:h-[250px] px-6">
+    <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-4 md:px-36 w-full h-fit md:h-[250px] px-6">
       <div className="w-full relative">
         <img
           src="noise.png"
@@ -24,7 +24,7 @@ export const DashHansh = () => {
           <p className="text-[16px] text-[#FFFFFF] font-normal">Cash</p>
           <p className="text-[24px] text-[#FFFFFF] font-semibold">
             {recordList.reduce(
-              (total, currentValue) => total - Number(currentValue.amount),
+              (total, currentValue) => Number(currentValue.amount) - total,
               0
             )}
           </p>
@@ -37,10 +37,13 @@ export const DashHansh = () => {
         </div>
         <div className="p-6 flex flex-col gap-1">
           <div className="flex">
-          <p className="text-[28px] mt-1 text-[#23E01F] font-bold">+</p>
-            <p className="text-[36px] font-semibold ml-1" style={{
-              color: "Income" ? "#23E01F" : "inherit"
-            }}>
+            <p className="text-[28px] mt-1 text-[#23E01F] font-bold">+</p>
+            <p
+              className="text-[36px] font-semibold ml-1"
+              style={{
+                color: "Income" ? "#23E01F" : "inherit",
+              }}
+            >
               {recordList
                 .filter((recordList) => {
                   return recordList.type === "Income";

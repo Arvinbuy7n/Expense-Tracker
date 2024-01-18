@@ -3,7 +3,7 @@ import { useRecord } from "../recordPro/RecordProvider";
 export const RecordTypes = () => {
   const { recordList, radioCheck, setRadioCheck } = useRecord();
   return (
-    <div className="flex flex-col gap-[24px]">
+    <div className="flex flex-col md:gap-[24px] gap-2">
       <div>
         <p className="text-[16px] font-semibold">Types</p>
       </div>

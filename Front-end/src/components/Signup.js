@@ -183,6 +183,7 @@ export const Signup = () => {
             type="submit"
             className="bg-[#0166FF] text-white py-3 rounded-[20px] w-[410px] text-xl"
             onClick={(e) => {
+              router.push("/step1");
               e.preventDefault();
               signUp(email, password, name);
             }}

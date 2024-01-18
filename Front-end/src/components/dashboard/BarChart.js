@@ -33,14 +33,14 @@ export const options = {
   },
 };
 
-const labels = ["Jan", "Feb", "March", "April", "May", "June", "July"];
+const labels = ["Jan", "Feb", "March", "April"];
 
 export const data = {
   labels,
   datasets: [
     {
       label: "Dataset 1",
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 3000000 })),
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 4000000 })),
       backgroundColor: "#84CC16",
     },
     {
@@ -53,7 +53,7 @@ export const data = {
 
 export const BarChart = () => {
   return (
-    <div className="w-[600px] h-fit">
+    <div className="md:w-[600px] w-[300px] h-fit">
       {" "}
       <Bar options={options} data={data} />{" "}
     </div>
