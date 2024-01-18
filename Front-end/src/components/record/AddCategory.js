@@ -85,10 +85,10 @@ export const AddCategory = () => {
   ];
 
   return (
-    <div className="fixed top-0 bg-[#00000080] w-screen h-screen">
-      <div className="w-[520px] h-fit bg-white absolute top-[35%] left-[35%] rounded-xl">
+    <div className="md:fixed md:top-0 bg-[#00000080] w-screen h-screen">
+      <div className="md:w-[520px] w-full h-fit bg-white absolute md:top-[35%] top-[20%] md:left-[35%] rounded-xl  dark:bg-[#1F2937]">
         <div className="flex justify-between px-6 py-5 border-b-2">
-          <p className="text-[20px] font-semibold">Add Category</p>
+          <p className="text-[20px] font-semibold dark:text-white">Add Category</p>
           <img src="x.png" className="w-6 h-6" onClick={setData}></img>
         </div>
         <form
@@ -101,7 +101,7 @@ export const AddCategory = () => {
             );
             setIsOpen(false);
           }}
-          className="w-full flex flex-col gap-6 py-7 px-3"
+          className="w-full flex flex-col gap-6 py-7 px-3 "
         >
           <div className="flex gap-2 h-[30px] relative">
             <div className="w-[22%] rounded-lg bg-slate-100 flex gap-2 justify-between items-center p-5">

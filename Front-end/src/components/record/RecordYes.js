@@ -7,8 +7,8 @@ export const RecordYes = () => {
   const { recordList, filterCategory, radioCheck } = useRecord();
 
   return (
-    <div className="w-full flex flex-col gap-5 md:py-5">
-      <div className="flex flex-col gap-4 text-[16px] font-normal">
+    <div className="w-full flex flex-col gap-5 md:py-5 md:h-fit h-[350px] overflow-scroll rounded-2xl">
+      <div className="flex flex-col md:gap-4 gap-2 text-[16px] font-normal">
         {recordList
           .filter((item) => {
             if (!filterCategory.length) return true;

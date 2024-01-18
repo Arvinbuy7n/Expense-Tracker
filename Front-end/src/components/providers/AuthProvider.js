@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children,value }) => {
   const [isLogged, setIsLogged] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -93,6 +93,7 @@ export const AuthProvider = ({ children }) => {
         setIsReady,
         isLoading,
         setIsLoading,
+        ...value
       }}
     >
       {children}

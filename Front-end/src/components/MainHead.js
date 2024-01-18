@@ -1,16 +1,13 @@
 "use client";
 
-import { useContext, useState } from "react";
+import {useState } from "react";
 import { Addition } from "./Addition";
 import { useRouter } from "next/navigation";
-import { DarkContext, RecordProvider } from "./recordPro/RecordProvider";
-import { useRecord } from "./recordPro/RecordProvider";
-import { useAuth } from "./providers/AuthProvider";
+import { RecordContext, useRecord } from "./recordPro/RecordProvider";
 
 export const MainHead = () => {
   const [openDraw, setOpenDraw] = useState(false);
-  const { getData } = useRecord();
-  const { dark, setDark, toggleDark } = useAuth();
+  const { getData, toggleDark } = useRecord();
   const router = useRouter();
 
   const openPage = () => {
@@ -18,12 +15,12 @@ export const MainHead = () => {
   };
 
   return (
-    <div className="flex justify-between md:px-36 px-8 py-4 md:py-7 w-full bg-white h-20 md:h-24 dark:bg-black">
+    <div className="flex justify-between md:px-36 px-8 py-4 md:py-7 w-full bg-white h-20 md:h-24 dark:bg-black dark:border-b-2">
       <div className="flex gap-8">
-        <img src="vector.png" className="w-[28px] h-[28px] md:mt-0 mt-2"></img>
+        <img src="vector.png" className="w-[28px] h-[28px] md:mt-0 mt-2 md:flex hidden"></img>
         <div className="md:flex gap-8">
           <p
-            className="text-[16px] font-normal hover:font-bold"
+            className="text-[16px] font-normal hover:font-bold dark:text-white"
             onClick={() => {
               router.push("./main");
             }}
@@ -31,23 +28,23 @@ export const MainHead = () => {
             Dashboard
           </p>
           <p
-            className="text-[16px] font-normal hover:font-bold"
+            className="text-[16px] font-normal hover:font-bold dark:text-white"
             onClick={() => {
               router.push("./record");
             }}
           >
             Records
           </p>
-          <p onClick={toggleDark}>dark</p>
         </div>
+        <input type="checkbox" className="toggle md:mr-0 md:mt-0 mr-8 mt-3" onClick={toggleDark}/>
       </div>
       <div className="flex flex-col gap-7">
         <div className="flex h-fit gap-7 justify-between w-full">
           <button
-            className="flex  bg-[#0166FF] text-white rounded-3xl px-4 pt-[6px] text-xl"
+            className="flex  bg-[#0166FF] text-white rounded-3xl px-4 text-xl pt-1"
             onClick={getData}
           >
-            + Records
+            Records
           </button>
           <img
             src="chess.jpg"
