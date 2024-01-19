@@ -1,4 +1,3 @@
-import { useAuth } from "@/app/layout";
 import * as icons from "react-icons/fa";
 
 export const RecordPlus = (props) => {

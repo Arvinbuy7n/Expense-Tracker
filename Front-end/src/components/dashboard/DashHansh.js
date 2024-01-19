@@ -6,7 +6,7 @@ export const DashHansh = () => {
   const { recordList } = useRecord();
 
   return (
-    <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-4 md:px-36 w-full h-fit md:h-[250px] px-6">
+    <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-4 md:px-36 w-full h-fit md:h-[250px]">
       <div className="w-full relative">
         <img
           src="noise.png"
