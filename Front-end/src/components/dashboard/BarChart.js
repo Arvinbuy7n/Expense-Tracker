@@ -44,12 +44,16 @@ export const BarChart = () => {
     datasets: [
       {
         label: "Income",
-        data: recordList.map((item) =>item.type ? "Income" : null  ),
+        data: recordList.map((item) =>
+          item.type === "Income" ? item.amount : null
+        ),
         backgroundColor: "#84CC16",
       },
       {
         label: "Expense",
-        data: recordList.map((item) => item.type ==="Expense" ? true  : null  ),
+        data: recordList.map((item) =>
+          item.type === "Expense" ? item.amount : null
+        ),
         backgroundColor: "#F97316",
       },
     ],

@@ -17,6 +17,7 @@ export const Signup = () => {
   const router = useRouter();
 
   const { signUp } = useAuth();
+  const { toggleDark } = useAuth();
 
   // function isName(name) {
   //   if (name.length > 5) {
@@ -101,15 +102,22 @@ export const Signup = () => {
 
   return (
     <div className="w-full h-screen flex bg-white max-w-[1800px] m-auto">
-      <div className="md:w-2/4 w-full flex flex-col justify-center items-center gap-12 bg-white">
+      <div className="md:w-2/4 w-full flex flex-col justify-center items-center gap-12 bg-white dark:bg-[#374151]">
+        <input
+          type="checkbox"
+          className="toggle md:ml-20"
+          onClick={toggleDark}
+        />
         <div className="gap-9 flex flex-col md:pl-20">
           <div className="flex justify-center gap-2">
             <img src="vector.png" className="w-5 h-5 mt-1"></img>
-            <p className="font-bold text-2xl">Geld</p>
+            <p className="font-bold text-2xl dark:text-white">Geld</p>
           </div>
           <div className="flex flex-col gap-2 text-center">
-            <p className="font-bold text-[24px]">Create Geld account</p>
-            <p className="text-slate-700 text-[16px]">
+            <p className="font-bold text-[24px] dark:text-white">
+              Create Geld account
+            </p>
+            <p className="text-slate-700 text-[16px] dark:text-white">
               Sign up below to create your Wallet account
             </p>
           </div>
@@ -192,7 +200,7 @@ export const Signup = () => {
           </button>
         </form>
         <div className="flex gap-2 md:pl-20">
-          <p className="text-[16px]">Already have account?</p>
+          <p className="text-[16px] dark:text-white">Already have account?</p>
           <p
             className="text-[#0166FF] text-[16px]"
             onClick={() => {

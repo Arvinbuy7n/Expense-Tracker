@@ -4,11 +4,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "./providers/AuthProvider";
 
-
 export const Login = () => {
   const [isHidden, setIsHidden] = useState(true);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const { toggleDark } = useAuth();
 
   const router = useRouter();
 
@@ -16,17 +16,22 @@ export const Login = () => {
 
   return (
     <div className="w-full h-screen flex bg-white">
-      <div className="md:w-[50%] w-full flex flex-col justify-center items-center gap-10 ">
+      <div className="md:w-[50%] w-full flex flex-col justify-center items-center gap-10 dark:bg-[#374151]">
+        <input
+          type="checkbox"
+          className="toggle md:ml-20"
+          onClick={toggleDark}
+        />
         <div className="gap-9 flex flex-col md:pl-20">
           <div className="flex justify-center gap-2">
             <img src="vector.png" className="w-6 h-6 mt-1"></img>
-            <p className="font-bold text-2xl">Geld</p>
+            <p className="font-bold text-2xl dark:text-white">Geld</p>
           </div>
           <div className="flex flex-col gap-2 text-center">
-            <p className="font-semibold text-[24px] text-[#0F172A] mr-10">
+            <p className="font-semibold text-[24px] text-[#0F172A] mr-10 dark:text-white">
               Welcome Back
             </p>
-            <p className="text-slate-700 text-[16px] font-normal">
+            <p className="text-slate-700 text-[16px] font-normal dark:text-white">
               Welcome back, Please enter your details
             </p>
           </div>
@@ -71,7 +76,9 @@ export const Login = () => {
           </button>
         </div>
         <div className="flex gap-2 mt-3 md:pl-10">
-          <p className="text-[16px] text-[#0F172A]">Don’t have account?</p>
+          <p className="text-[16px] text-[#0F172A] dark:text-white">
+            Don’t have account?
+          </p>
           <p
             className="text-[#0166FF] text-[16px]"
             onClick={() => {
