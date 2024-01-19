@@ -22,16 +22,16 @@ export const Login = () => {
           className="toggle md:ml-20 ml-2"
           onClick={toggleDark}
         />
-        <div className="gap-9 flex flex-col md:pl-20">
+        <div className="md:gap-9 gap-5 flex flex-col md:pl-20">
           <div className="flex justify-center gap-2">
-            <img src="vector.png" className="w-6 h-6 mt-1"></img>
-            <p className="font-bold text-2xl text-black dark:text-white">Geld</p>
+            <img src="vector.png" className="md:w-6 md:h-6  w-4 h-4 md:mt-1 mt-[5px]"></img>
+            <p className="font-bold md:text-2xl text-[18px] text-black dark:text-white">Geld</p>
           </div>
           <div className="flex flex-col gap-2 text-center">
-            <p className="font-semibold text-[24px] text-[#0F172A]  dark:text-white">
+            <p className="font-semibold md:text-[24px] text-[16px] text-[#0F172A]  dark:text-white">
               Welcome Back
             </p>
-            <p className="text-slate-700 text-[16px] font-normal dark:text-white">
+            <p className="text-slate-700 md:text-[16px] text-[13px] font-normal dark:text-white">
               Welcome back, Please enter your details
             </p>
           </div>
@@ -44,7 +44,7 @@ export const Login = () => {
             onChange={(event) => {
               setEmail(event.target.value);
             }}
-            className="border-2 p-3 rounded-lg bg-slate-100 w-[360px] md:w-[384px] md:ml-0 ml-3 text-black"
+            className="border-2 p-3 rounded-lg bg-slate-100 w-[340px] md:w-[384px] text-black"
           />
           <input
             type={isHidden ? "password" : "text"}
@@ -53,9 +53,9 @@ export const Login = () => {
             onChange={(event) => {
               setPassword(event.target.value);
             }}
-            className="border-2 p-3 rounded-lg bg-slate-100 w-[360px] md:w-[384px] md:ml-0 ml-3 text-black"
+            className="border-2 p-3 rounded-lg bg-slate-100 w-[340px] md:w-[384px] text-black"
           />
-          <div className="absolute ml-80 mt-20">
+          <div className="absolute ml-72 mt-20">
             <button
               onClick={() => {
                 setIsHidden(!isHidden);
@@ -66,7 +66,7 @@ export const Login = () => {
             </button>
           </div>
           <button
-            className="bg-[#0166FF] text-white p-3 text-[20px] rounded-2xl w-[360px] md:w-[384px] md:ml-0 ml-3"
+            className="bg-[#0166FF] text-white p-3 text-[20px] rounded-2xl w-[340px] md:w-[384px]"
             onClick={(e) => {
               e.preventDefault();
               login(email, password);
@@ -76,11 +76,11 @@ export const Login = () => {
           </button>
         </div>
         <div className="flex gap-2 mt-3 md:pl-10">
-          <p className="text-[16px] text-[#0F172A] dark:text-white">
+          <p className="md:text-[16px] text-[12px] text-[#0F172A] dark:text-white">
             Don’t have account?
           </p>
           <p
-            className="text-[#0166FF] text-[16px]"
+            className="text-[#0166FF] md:text-[16px] text-[12px]"
             onClick={() => {
               router.push("/sign");
             }}
