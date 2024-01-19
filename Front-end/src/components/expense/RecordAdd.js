@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import { RecordExp } from "./RecordExp";
-import { useAuth } from "@/app/layout";
-import { RecordProvider } from "../recordPro/RecordProvider";
 import { useRecord } from "../recordPro/RecordProvider";
 
 export const RecordAdd = () => {
@@ -18,7 +16,7 @@ export const RecordAdd = () => {
           <p className="text-[20px] font-semibold dark:text-white">Add Record</p>
           <img src="x.png" className="w-5 h-5" onClick={getData}></img>
         </div>
-        <div className="flex w-full md:px-6 md:py-8 p-4 gap-5 border-t-2 border-slate-200">
+        <div className="flex w-full md:px-6 md:py-8 p-4 gap-5 border-t-2 border-slate-200" >
           <RecordExp type={type} setType={setType} />
         </div>
       </div>

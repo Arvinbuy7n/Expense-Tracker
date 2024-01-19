@@ -1,6 +1,4 @@
-import { useAuth } from "@/app/layout";
 import * as icons from "react-icons/fa";
-import { RecordProvider } from "../recordPro/RecordProvider";
 import { useRecord } from "../recordPro/RecordProvider";
 
 export const AddIcon = (props) => {

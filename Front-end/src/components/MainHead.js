@@ -41,10 +41,10 @@ export const MainHead = () => {
       <div className="flex flex-col gap-7">
         <div className="flex h-fit gap-7 justify-between w-full">
           <button
-            className="flex  bg-[#0166FF] text-white rounded-3xl px-4 text-xl pt-1"
+            className="flex  bg-[#0166FF] text-white rounded-3xl px-4 pt-2"
             onClick={getData}
           >
-            Records
+            +Records
           </button>
           <img
             src="chess.jpg"

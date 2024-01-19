@@ -9,7 +9,6 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { faker } from "@faker-js/faker";
 import { useRecord } from "../recordPro/RecordProvider";
 
 export const BarChart = () => {
@@ -44,17 +43,17 @@ export const BarChart = () => {
     datasets: [
       {
         label: "Income",
-        data: recordList.map((item) =>
-          item.type === "Income" ? item.amount : null
+        data: recordList.map(
+          (item) => (item.type === "Income" ? item.amount : null)
         ),
-        backgroundColor: "#84CC16",
+        backgroundColor: "#23E01F",
       },
       {
         label: "Expense",
         data: recordList.map((item) =>
           item.type === "Expense" ? item.amount : null
         ),
-        backgroundColor: "#F97316",
+        backgroundColor: "#eb1e1e ",
       },
     ],
   };

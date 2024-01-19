@@ -1,8 +1,8 @@
 import { useAuth } from "@/app/layout";
 import { useState } from "react";
 
-import { FaArrowDown } from "react-icons/fa";
-import { FaHouseUser } from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa";
+import { FaAlignRight } from "react-icons/fa";
 import { FaWrench } from "react-icons/fa";
 import { FaAirFreshener } from "react-icons/fa";
 import { FaAmazon } from "react-icons/fa";
@@ -38,11 +38,11 @@ import { useRecord } from "../recordPro/RecordProvider";
 
 export const AddCategory = () => {
   const { setData, isCategory, addCat, categories, setIsOpen } = useRecord();
-  const [isChoose, setIsChoose] = useState(<FaHouseUser size={20} />);
+  const [isChoose, setIsChoose] = useState([<FaAlignRight size={16} />]);
   const [isColor, setIsColor] = useState("inherit");
 
   const icon = [
-    <FaHouseUser size={20} />,
+    
     <FaAddressBook size={20} />,
     <FaAddressCard size={20} />,
     <FaAirFreshener size={20} />,
@@ -85,10 +85,12 @@ export const AddCategory = () => {
   ];
 
   return (
-    <div className="md:fixed md:top-0 bg-[#00000080] w-screen h-screen">
+    <div className="md:fixed md:top-0 md:bg-[#00000080]  w-screen h-screen">
       <div className="md:w-[520px] w-full h-fit bg-white absolute md:top-[35%] top-[20%] md:left-[35%] rounded-xl  dark:bg-[#1F2937]">
         <div className="flex justify-between px-6 py-5 border-b-2">
-          <p className="text-[20px] font-semibold dark:text-white">Add Category</p>
+          <p className="text-[20px] font-semibold dark:text-white">
+            Add Category
+          </p>
           <img src="x.png" className="w-6 h-6" onClick={setData}></img>
         </div>
         <form
@@ -106,7 +108,7 @@ export const AddCategory = () => {
           <div className="flex gap-2 h-[30px] relative">
             <div className="w-[22%] rounded-lg bg-slate-100 flex gap-2 justify-between items-center p-5">
               <p style={{ color: isColor }}>{isChoose}</p>
-              <FaArrowDown size={14} onClick={addCat} />
+              <FaAngleDown size={14} onClick={addCat} />
               {isCategory ? (
                 <div className="absolute left-0 w-fit h-fit bg-white p-7 mt-[400px] rounded-xl flex flex-col gap-6">
                   <div className="drop-shadow-md grid grid-cols-6 gap-x-6 gap-y-6 border-b-2 pb-8">
@@ -123,7 +125,7 @@ export const AddCategory = () => {
                       );
                     })}
                   </div>
-                  <div className="flex justify-between items-center gap-4">
+                  <div className="flex justify-between items-center gap-4" onClick={addCat}>
                     {color.map((item, index) => {
                       return (
                         <div

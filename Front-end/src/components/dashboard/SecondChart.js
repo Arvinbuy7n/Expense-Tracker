@@ -7,13 +7,13 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const SecondChart = () => {
   const { recordList } = useRecord();
-  
+
   const data = {
-    labels: ["Bills", "Food", "Shopping", "Insurance", "Clothing"],
+    labels: recordList.map((item) => item.category),
     datasets: [
       {
         label: "# of Votes",
-        data: [2, 4, 2, 1, 3],
+        data: recordList.map((item) => item.amount),
         backgroundColor: [
           "#1C64F2",
           "#E74694",
