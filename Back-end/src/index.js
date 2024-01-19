@@ -99,7 +99,7 @@ app.post("/sign", async (req, res) => {
 });
 
 app.get("/users", async (_req, res) => {
-  const users = await User.find({ name: "Hello" });
+  const users = await User.find({});
 
   res.json({
     users,
