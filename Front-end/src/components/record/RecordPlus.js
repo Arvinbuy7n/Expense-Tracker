@@ -6,7 +6,7 @@ export const RecordPlus = (props) => {
   return (
     <div className="w-full h-fit flex item-center justify-between bg-[#FFFFFF] pt-2 md:px-5 px-3 rounded-2xl dark:bg-[#374151]">
       <div className="flex gap-4 p-2">
-        <input type="checkbox" className="w-6 mt-3" />
+        <input type="checkbox" className="w-6 mt-5" />
         <div
           className="flex items-center justify-center text-white px-4 rounded-full"
           style={{ backgroundColor: props.color }}

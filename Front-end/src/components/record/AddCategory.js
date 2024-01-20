@@ -36,12 +36,12 @@ import { useRecord } from "../recordPro/RecordProvider";
 export const AddCategory = () => {
   const { setData, isCategory, addCat, categories, setIsOpen } = useRecord();
   const [isChoose, setIsChoose] = useState([
-    <FaAlignRight key={1} size={16} />,
+    <FaAlignRight key={1} size={16} className="text-black" />,
   ]);
   const [isColor, setIsColor] = useState("inherit");
 
   const icon = [
-    <FaAddressBook size={20} key={1} />,
+    <FaAddressBook size={20} key={1} color="black" />,
     <FaAddressCard size={20} key={1} />,
     <FaAirFreshener size={20} key={1} />,
     <FaAmazon size={20} key={1} />,
@@ -105,11 +105,13 @@ export const AddCategory = () => {
         >
           <div className="flex gap-2 h-[30px] relative">
             <div className="w-[22%] rounded-lg bg-slate-100 flex gap-2 justify-between items-center p-5">
-              <p style={{ color: isColor }}>{isChoose}</p>
+              <p style={{ color: isColor }} className="text-black">
+                {isChoose}
+              </p>
               <FaAngleDown size={14} onClick={addCat} className="text-black" />
               {isCategory ? (
                 <div className="absolute left-0 w-fit h-fit bg-white p-7 mt-[400px] rounded-xl flex flex-col gap-6">
-                  <div className="drop-shadow-md grid grid-cols-6 gap-x-6 gap-y-6 border-b-2 pb-8">
+                  <div className="drop-shadow-md grid grid-cols-6 gap-x-6 gap-y-6 border-b-2 pb-8 text-black">
                     {icon.map((item, index) => {
                       return (
                         <div
