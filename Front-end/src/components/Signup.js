@@ -110,14 +110,16 @@ export const Signup = () => {
         />
         <div className="gap-9 flex flex-col md:pl-20">
           <div className="flex justify-center gap-2">
-            <img src="vector.png" className="w-5 h-5 mt-1"></img>
-            <p className="font-bold text-2xl dark:text-white">Geld</p>
+            <img src="vector.png" className="md:w-6 md:h-6  w-4 h-4 mt-1"></img>
+            <p className="font-bold md:text-2xl text-[18px] text-black dark:text-white">
+              Geld
+            </p>
           </div>
           <div className="flex flex-col gap-2 text-center">
-            <p className="font-bold text-[24px] dark:text-white">
+            <p className="font-bold md:text-[24px] text-[16px] text-black dark:text-white">
               Create Geld account
             </p>
-            <p className="text-slate-700 text-[16px] dark:text-white">
+            <p className="text-slate-700 md:text-[16px] text-[13px] text-black dark:text-white">
               Sign up below to create your Wallet account
             </p>
           </div>
@@ -138,7 +140,7 @@ export const Signup = () => {
             type="text"
             name="Name"
             placeholder="  Name"
-            className="border-2 p-3 rounded-lg bg-slate-100 w-[410px]"
+            className="border-2 p-3 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
             onChange={(event) => {
               setName(event.target.value);
             }}
@@ -150,7 +152,7 @@ export const Signup = () => {
             type="text"
             name="Email"
             placeholder="  Email"
-            className="border-2 p-3 rounded-lg bg-slate-100 w-[410px]"
+            className="border-2 p-3 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -162,7 +164,7 @@ export const Signup = () => {
             type={isHidden ? "password" : "text"}
             name="Password"
             placeholder="  Password"
-            className="border-2 p-3 rounded-lg bg-slate-100 w-[410px]"
+            className="border-2 p-3 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
@@ -170,7 +172,7 @@ export const Signup = () => {
           <p className="absolute bottom-[37%] ml-7 italic opacity-50 text-red-500">
             {password}
           </p>
-          <div className="absolute ml-[355px] mt-36">
+          <div className="absolute md:ml-[355px] ml-[290px] md:mt-36 mt-[147px]">
             <button
               onClick={() => {
                 setIsHidden(!isHidden);
@@ -184,12 +186,12 @@ export const Signup = () => {
             type={isHidden ? "password" : "text"}
             name="Repassword"
             placeholder="  Re-Password"
-            className="border-2 p-3 rounded-lg bg-slate-100 w-[410px]"
+            className="border-2 p-3 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
           />
           <p className="absolute bottom-[15%] ml-7 italic opacity-50 text-red-500"></p>
           <button
             type="submit"
-            className="bg-[#0166FF] text-white py-3 rounded-[20px] w-[410px] text-xl"
+            className="bg-[#0166FF] text-white py-3 rounded-[20px] w-[340px] md:w-[410px] text-xl"
             onClick={(e) => {
               router.push("/step1");
               e.preventDefault();
@@ -200,9 +202,11 @@ export const Signup = () => {
           </button>
         </form>
         <div className="flex gap-2 md:pl-20">
-          <p className="text-[16px] dark:text-white">Already have account?</p>
+          <p className="md:text-[16px] text-[12px] text-black dark:text-white">
+            Already have account?
+          </p>
           <p
-            className="text-[#0166FF] text-[16px]"
+            className="text-[#0166FF] md:text-[16px] text-[12px]"
             onClick={() => {
               router.push("./login");
             }}

@@ -24,8 +24,13 @@ export const Login = () => {
         />
         <div className="md:gap-9 gap-5 flex flex-col md:pl-20">
           <div className="flex justify-center gap-2">
-            <img src="vector.png" className="md:w-6 md:h-6  w-4 h-4 md:mt-1 mt-[5px]"></img>
-            <p className="font-bold md:text-2xl text-[18px] text-black dark:text-white">Geld</p>
+            <img
+              src="vector.png"
+              className="md:w-6 md:h-6  w-4 h-4 md:mt-1 mt-[5px]"
+            ></img>
+            <p className="font-bold md:text-2xl text-[18px] text-black dark:text-white">
+              Geld
+            </p>
           </div>
           <div className="flex flex-col gap-2 text-center">
             <p className="font-semibold md:text-[24px] text-[16px] text-[#0F172A]  dark:text-white">
@@ -44,7 +49,7 @@ export const Login = () => {
             onChange={(event) => {
               setEmail(event.target.value);
             }}
-            className="border-2 p-3 rounded-lg bg-slate-100 w-[340px] md:w-[384px] text-black"
+            className="border-2 md:p-3 p-2 rounded-lg bg-slate-100 w-[340px] md:w-[384px] text-black"
           />
           <input
             type={isHidden ? "password" : "text"}
@@ -53,9 +58,9 @@ export const Login = () => {
             onChange={(event) => {
               setPassword(event.target.value);
             }}
-            className="border-2 p-3 rounded-lg bg-slate-100 w-[340px] md:w-[384px] text-black"
+            className="border-2 md:p-3 p-2 rounded-lg bg-slate-100 w-[340px] md:w-[384px] text-black"
           />
-          <div className="absolute ml-72 mt-20">
+          <div className="absolute md:ml-[330px] ml-72 md:mt-20 mt-[70px]">
             <button
               onClick={() => {
                 setIsHidden(!isHidden);
@@ -66,7 +71,7 @@ export const Login = () => {
             </button>
           </div>
           <button
-            className="bg-[#0166FF] text-white p-3 text-[20px] rounded-2xl w-[340px] md:w-[384px]"
+            className="bg-[#0166FF] text-white md:p-3 p-2 md:text-[20px] text-[16px] rounded-2xl w-[340px] md:w-[384px]"
             onClick={(e) => {
               e.preventDefault();
               login(email, password);

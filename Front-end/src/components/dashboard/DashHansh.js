@@ -33,7 +33,9 @@ export const DashHansh = () => {
       <div className="w-full bg-white rounded-xl dark:bg-[#374151]">
         <div className="flex px-[24px] py-[16px] gap-2 border-b-2 ">
           <img src="green.png" className="w-2 h-2 mt-2"></img>
-          <p className="text-[16px] font-semibold dark:text-white">Your Income</p>
+          <p className="text-[16px] font-semibold dark:text-white text-black">
+            Your Income
+          </p>
         </div>
         <div className="p-6 flex flex-col gap-1">
           <div className="flex">
@@ -55,19 +57,23 @@ export const DashHansh = () => {
             </p>
             <p className="text-[36px] font-semibold text-[#23E01F]">₮</p>
           </div>
-          <p className="text-[18px] text-[#64748B] font-normal dark:text-[#D1D5DB]">
+          <p className="text-[18px] text-[#64748B] font-normal dark:text-[#D1D5DB] text-black">
             Your Income Amount
           </p>
           <div className="flex gap-2 mt-4">
             <img src="lend.png" className="w-[24px] h-[24px]"></img>
-            <p className="text-[18px] text-black dark:text-white">32% from last month</p>
+            <p className="text-[18px] text-black dark:text-white">
+              32% from last month
+            </p>
           </div>
         </div>
       </div>
       <div className="w-full bg-white rounded-xl md:px-0 dark:bg-[#374151]">
         <div className="flex px-[24px] py-[16px] gap-2 border-b-2 ">
           <img src="blue.png" className="w-2 h-2 mt-2"></img>
-          <p className="text-[16px] font-semibold dark:text-white">Total Expenses</p>
+          <p className="text-[16px] font-semibold dark:text-white text-black">
+            Total Expenses
+          </p>
         </div>
         <div className="p-6 flex flex-col gap-1">
           <div className="flex">
@@ -101,7 +107,9 @@ export const DashHansh = () => {
           </p>
           <div className="flex gap-2 mt-4">
             <img src="led.png" className="w-[24px] h-[24px]"></img>
-            <p className="text-[18px] text-black dark:text-white">32% from last month</p>
+            <p className="text-[18px] text-black dark:text-white">
+              32% from last month
+            </p>
           </div>
         </div>
       </div>

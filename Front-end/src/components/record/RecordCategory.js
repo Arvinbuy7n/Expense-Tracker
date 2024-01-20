@@ -5,13 +5,15 @@ export const RecordCategory = () => {
   const { setData, categoryList, setFilterCategory } = useRecord();
 
   const handleClicker = () => {
-    setFilterCategory([])
-  }
+    setFilterCategory([]);
+  };
 
   return (
     <div className="w-full flex flex-col gap-5">
       <div className="flex justify-between w-full">
-        <p className="text-[16px] font-semibold dark:text-white">Category</p>
+        <p className="text-[16px] font-semibold dark:text-white text-black">
+          Category
+        </p>
         <p
           className="text-[16px] text-[#1F2937] dark:text-[white] hover:font-semibold"
           onClick={handleClicker}
@@ -26,7 +28,7 @@ export const RecordCategory = () => {
       </div>
       <div className="flex gap-2 " onClick={setData}>
         <img src="plus.png" className="w-5 h-5"></img>
-        <p className="dark:text-white">Add Category</p>
+        <p className="dark:text-white text-black">Add Category</p>
       </div>
     </div>
   );

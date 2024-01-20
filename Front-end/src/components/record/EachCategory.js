@@ -22,7 +22,7 @@ export const EachCategory = (props) => {
             console.log(filterCategory);
           }}
         />
-        <p>{props.title}</p>
+        <p className="text-black">{props.title}</p>
       </div>
       <img className="w-5 h-5" src="let.png"></img>
     </div>

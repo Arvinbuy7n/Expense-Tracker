@@ -15,7 +15,7 @@ export const RecordTypes = () => {
             }}
             type="radio"
             name="radio"
-            className="w-4"
+            className="w-4 bg-white"
             value=""
           />
           <p className="text-[16px] text-[#1F2937] dark:text-white">All</p>
@@ -27,7 +27,7 @@ export const RecordTypes = () => {
             }}
             type="radio"
             name="radio"
-            className="w-4"
+            className="w-4 bg-white"
             value="Income"
           />
           <p className="text-[16px] text-[#1F2937] dark:text-white">Income</p>
@@ -39,7 +39,7 @@ export const RecordTypes = () => {
             }}
             type="radio"
             name="radio"
-            className="w-4"
+            className="w-4 bg-white"
             value="Expense"
           />
           <p

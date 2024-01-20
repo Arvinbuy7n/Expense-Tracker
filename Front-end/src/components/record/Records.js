@@ -20,7 +20,9 @@ export const Records = () => {
       <div className="md:flex w-full h-screen md:px-36 p-4 gap-5 bg-slate-100 dark:bg-black">
         <div className="flex md:h-fit h-[320px] overflow-scroll md:w-1/4 md:border-0 border-2 dark:border-slate-400 bg-white rounded-2xl p-5 md:gap-[24px] gap-3 flex flex-col mt-0 md:mt-4 dark:bg-[#374151]">
           <div className="flex flex-col gap-[24px]">
-            <p className="text-[24px] font-semibold dark:text-white">Records</p>
+            <p className="text-[24px] font-semibold dark:text-white text-black">
+              Records
+            </p>
             <button
               className="bg-[#0166FF] text-white w-full rounded-2xl py-1 text-[18px] md:flex hidden justify-center"
               onClick={getData}
@@ -31,7 +33,7 @@ export const Records = () => {
           <input
             type="text"
             placeholder="  Search"
-            className="border-2 p-1 rounded-xl"
+            className="border-2 p-1 rounded-xl bg-white text-black"
           />
           <RecordTypes />
           <RecordCategory />

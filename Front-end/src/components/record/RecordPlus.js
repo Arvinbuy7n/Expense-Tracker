@@ -14,10 +14,16 @@ export const RecordPlus = (props) => {
           <Icon1 size={24} />
         </div>
         <div className="flex flex-col py-1">
-          <p className="text -[18px] dark:text-[#D1D5DB]">{props.title}</p>
+          <p className="text -[18px] dark:text-[#D1D5DB] text-black">
+            {props.title}
+          </p>
           <div className="flex gap-3">
-            <p className="text-[#6B7280] text-[14px] dark:text-[#D1D5DB]">{props.date}</p>
-            <p className="text-[#6B7280] text-[14px] dark:text-[#D1D5DB]">{props.time}</p>
+            <p className="text-[#6B7280] text-[14px] dark:text-[#D1D5DB]">
+              {props.date}
+            </p>
+            <p className="text-[#6B7280] text-[14px] dark:text-[#D1D5DB]">
+              {props.time}
+            </p>
           </div>
         </div>
       </div>
