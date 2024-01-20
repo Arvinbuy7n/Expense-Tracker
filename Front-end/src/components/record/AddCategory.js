@@ -1,4 +1,3 @@
-import { useAuth } from "@/app/layout";
 import { useState } from "react";
 
 import { FaAngleDown } from "react-icons/fa";
@@ -27,51 +26,50 @@ import { FaBaseballBall } from "react-icons/fa";
 import { FaPeace } from "react-icons/fa";
 import { FaPencilAlt } from "react-icons/fa";
 import { FaAddressCard } from "react-icons/fa";
-import { FaChess } from "react-icons/fa";
 import { FaLaptopCode } from "react-icons/fa";
 import { FaPalette } from "react-icons/fa";
 import { FaPlaystation } from "react-icons/fa";
 import { FaPowerOff } from "react-icons/fa";
 import { FaBalanceScale } from "react-icons/fa";
-import { RecordProvider } from "../recordPro/RecordProvider";
 import { useRecord } from "../recordPro/RecordProvider";
 
 export const AddCategory = () => {
   const { setData, isCategory, addCat, categories, setIsOpen } = useRecord();
-  const [isChoose, setIsChoose] = useState([<FaAlignRight key={1} size={16} />]);
+  const [isChoose, setIsChoose] = useState([
+    <FaAlignRight key={1} size={16} />,
+  ]);
   const [isColor, setIsColor] = useState("inherit");
 
   const icon = [
-    
-    <FaAddressBook size={20} key={1}/>,
-    <FaAddressCard size={20} key={1}/>,
-    <FaAirFreshener size={20} key={1}/>,
-    <FaAmazon size={20} key={1}/>,
-    <FaApple size={20} key={1}/>,
-    <FaLock size={20} key={1}/>,
-    <FaBrain size={20} key={1}/>,
-    <FaBatteryFull size={20} key={1}/>,
-    <FaBatteryQuarter size={20} key={1}/>,
-    <FaBluetooth size={20} key={1}/>,
-    <FaBusAlt size={20} key={1}/>,
-    <FaCamera size={20} key={1}/>,
-    <FaCalendarAlt size={20} key={1}/>,
-    <FaFacebook size={20} key={1}/>,
-    <FaFingerprint size={20} key={1}/>,
-    <FaBalanceScale size={20} key={1}/>,
-    <FaGithub size={20} key={1}/>,
-    <FaGlasses size={20} key={1}/>,
-    <FaGrinStars size={20} key={1}/>,
-    <FaBaseballBall size={20} key={1}/>,
-    <FaHeadphones size={20} key={1}/>,
-    <FaBomb size={20} key={1}/>,
-    <FaLaptopCode size={20} key={1}/>,
-    <FaPalette size={20} key={1}/>,
-    <FaPlaystation size={20} key={1}/>,
-    <FaPeace size={20} key={1}/>,
-    <FaPowerOff size={20} key={1}/>,
-    <FaPencilAlt size={20} key={1}/>,
-    <FaWrench size={20} key={1}/>,
+    <FaAddressBook size={20} key={1} />,
+    <FaAddressCard size={20} key={1} />,
+    <FaAirFreshener size={20} key={1} />,
+    <FaAmazon size={20} key={1} />,
+    <FaApple size={20} key={1} />,
+    <FaLock size={20} key={1} />,
+    <FaBrain size={20} key={1} />,
+    <FaBatteryFull size={20} key={1} />,
+    <FaBatteryQuarter size={20} key={1} />,
+    <FaBluetooth size={20} key={1} />,
+    <FaBusAlt size={20} key={1} />,
+    <FaCamera size={20} key={1} />,
+    <FaCalendarAlt size={20} key={1} />,
+    <FaFacebook size={20} key={1} />,
+    <FaFingerprint size={20} key={1} />,
+    <FaBalanceScale size={20} key={1} />,
+    <FaGithub size={20} key={1} />,
+    <FaGlasses size={20} key={1} />,
+    <FaGrinStars size={20} key={1} />,
+    <FaBaseballBall size={20} key={1} />,
+    <FaHeadphones size={20} key={1} />,
+    <FaBomb size={20} key={1} />,
+    <FaLaptopCode size={20} key={1} />,
+    <FaPalette size={20} key={1} />,
+    <FaPlaystation size={20} key={1} />,
+    <FaPeace size={20} key={1} />,
+    <FaPowerOff size={20} key={1} />,
+    <FaPencilAlt size={20} key={1} />,
+    <FaWrench size={20} key={1} />,
   ];
 
   const color = [
@@ -88,7 +86,7 @@ export const AddCategory = () => {
     <div className="md:fixed md:top-0 md:bg-[#00000080]  w-screen h-screen">
       <div className="md:w-[520px] w-full h-fit bg-white absolute md:top-[35%] top-[20%] md:left-[35%] rounded-xl  dark:bg-[#1F2937]">
         <div className="flex justify-between px-6 py-5 border-b-2">
-          <p className="text-[20px] font-semibold dark:text-white">
+          <p className="md:text-[20px] text-[16px] font-semibold dark:text-white text-black">
             Add Category
           </p>
           <img src="x.png" className="w-6 h-6" onClick={setData}></img>
@@ -108,7 +106,7 @@ export const AddCategory = () => {
           <div className="flex gap-2 h-[30px] relative">
             <div className="w-[22%] rounded-lg bg-slate-100 flex gap-2 justify-between items-center p-5">
               <p style={{ color: isColor }}>{isChoose}</p>
-              <FaAngleDown size={14} onClick={addCat} />
+              <FaAngleDown size={14} onClick={addCat} className="text-black" />
               {isCategory ? (
                 <div className="absolute left-0 w-fit h-fit bg-white p-7 mt-[400px] rounded-xl flex flex-col gap-6">
                   <div className="drop-shadow-md grid grid-cols-6 gap-x-6 gap-y-6 border-b-2 pb-8">
@@ -125,7 +123,10 @@ export const AddCategory = () => {
                       );
                     })}
                   </div>
-                  <div className="flex justify-between items-center gap-4" onClick={addCat}>
+                  <div
+                    className="flex justify-between items-center gap-4"
+                    onClick={addCat}
+                  >
                     {color.map((item, index) => {
                       return (
                         <div

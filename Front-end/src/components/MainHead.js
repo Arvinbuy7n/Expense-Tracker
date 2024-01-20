@@ -15,7 +15,7 @@ export const MainHead = () => {
   };
 
   return (
-    <div className="flex justify-between md:px-36 px-12 py-4 md:py-7 bg-white h-20 md:h-24 dark:bg-black dark:border-b-2">
+    <div className="flex justify-between md:px-36 px-6 py-4 md:py-7 bg-white h-20 md:h-24 dark:bg-black dark:border-b-2">
       <div className="flex md:gap-8 gap-3">
         <img
           src="vector.png"

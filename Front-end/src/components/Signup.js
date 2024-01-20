@@ -140,7 +140,7 @@ export const Signup = () => {
             type="text"
             name="Name"
             placeholder="  Name"
-            className="border-2 p-3 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
+            className="border-2 md:p-3 p-2 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
             onChange={(event) => {
               setName(event.target.value);
             }}
@@ -152,7 +152,7 @@ export const Signup = () => {
             type="text"
             name="Email"
             placeholder="  Email"
-            className="border-2 p-3 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
+            className="border-2 md:p-3 p-2 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -164,7 +164,7 @@ export const Signup = () => {
             type={isHidden ? "password" : "text"}
             name="Password"
             placeholder="  Password"
-            className="border-2 p-3 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
+            className="border-2 md:p-3 p-2 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
@@ -186,7 +186,7 @@ export const Signup = () => {
             type={isHidden ? "password" : "text"}
             name="Repassword"
             placeholder="  Re-Password"
-            className="border-2 p-3 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
+            className="border-2 md:p-3 p-2 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
           />
           <p className="absolute bottom-[15%] ml-7 italic opacity-50 text-red-500"></p>
           <button

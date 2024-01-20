@@ -18,7 +18,9 @@ export const RecordTypes = () => {
             className="w-4 bg-white"
             value=""
           />
-          <p className="text-[16px] text-[#1F2937] dark:text-white">All</p>
+          <p className="text-[16px] text-[#1F2937] dark:text-white md:mb-0 mb-1">
+            All
+          </p>
         </div>
         <div className="flex gap-3">
           <input
@@ -30,7 +32,9 @@ export const RecordTypes = () => {
             className="w-4 bg-white"
             value="Income"
           />
-          <p className="text-[16px] text-[#1F2937] dark:text-white">Income</p>
+          <p className="text-[16px] text-[#1F2937] dark:text-white md:mb-0 mb-1">
+            Income
+          </p>
         </div>
         <div className="flex gap-3">
           <input
@@ -43,7 +47,7 @@ export const RecordTypes = () => {
             value="Expense"
           />
           <p
-            className="text-[16px] text-[#1F2937] dark:text-white"
+            className="text-[16px] text-[#1F2937] dark:text-white md:mb-0 mb-1"
             onClick={recordList.filter((radioCheck) => {
               return radioCheck.type === "Expense";
             })}
