@@ -147,7 +147,7 @@ export const AddCategory = () => {
             </div>
             <input
               name="categoryName"
-              className="w-[85%] rounded-lg bg-slate-100 p-5"
+              className="w-[85%] rounded-lg bg-slate-100 p-5 text-black"
             />{" "}
           </div>
           <button

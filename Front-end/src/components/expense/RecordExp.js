@@ -16,7 +16,6 @@ export const RecordExp = (props) => {
     recordIcon,
     setOpenDraw,
     setData,
-    openPage
   } = useRecord();
 
   return (
@@ -86,10 +85,13 @@ export const RecordExp = (props) => {
           {isAddition ? (
             <div className="absolute md:top-[63%] top-[67%] md:w-[47%] w-[91%] flex flex-col bg-[#FFFFFF] h-[270px] rounded-xl border-2 overflow-scroll ">
               <div className="flex gap-3 p-4 border-b-2">
-                <FaPlusCircle color="#0166FF" size={22} onClick={setData}/>
+                <FaPlusCircle color="#0166FF" size={22} onClick={setData} />
                 <p className="text-[16px]">Add Category</p>
               </div>
-              <div className="flex flex-col gap-7 text-[16px] font-normal p-5" onClick={setAddition}>
+              <div
+                className="flex flex-col gap-7 text-[16px] font-normal p-5"
+                onClick={setAddition}
+              >
                 {categoryList.map((item, index) => {
                   return (
                     <AddIcon
@@ -110,7 +112,7 @@ export const RecordExp = (props) => {
             <input
               name="date"
               type="date"
-              className="py-3 px-2 rounded-lg bg-slate-100 text-[#94A3B8]"
+              className="py-3 px-2 rounded-lg bg-slate-100 text-black"
             />
           </div>
           <div className="w-[50%] flex flex-col gap-1">
@@ -118,7 +120,7 @@ export const RecordExp = (props) => {
             <input
               name="time"
               type="time"
-              className="w-full py-3 rounded-lg px-2 bg-slate-100 text-[#94A3B8]"
+              className="w-full py-3 rounded-lg px-2 bg-slate-100 text-black"
             />
           </div>
         </div>

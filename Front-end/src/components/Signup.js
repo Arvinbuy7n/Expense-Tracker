@@ -172,7 +172,7 @@ export const Signup = () => {
           <p className="absolute bottom-[37%] ml-7 italic opacity-50 text-red-500">
             {password}
           </p>
-          <div className="absolute md:ml-[355px] ml-[290px] md:mt-36 mt-[147px]">
+          <div className="absolute md:ml-[355px] ml-[290px] md:mt-36 mt-[130px] text-black">
             <button
               onClick={() => {
                 setIsHidden(!isHidden);
@@ -191,7 +191,7 @@ export const Signup = () => {
           <p className="absolute bottom-[15%] ml-7 italic opacity-50 text-red-500"></p>
           <button
             type="submit"
-            className="bg-[#0166FF] text-white py-3 rounded-[20px] w-[340px] md:w-[410px] text-xl"
+            className="bg-[#0166FF] text-white md:p-3 p-2 rounded-[20px] w-[340px] md:w-[410px] text-xl"
             onClick={(e) => {
               router.push("/step1");
               e.preventDefault();
