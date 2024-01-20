@@ -1,7 +1,9 @@
+"use client";
+
 import { useRecord } from "../recordPro/RecordProvider";
 
 export const RecordTypes = () => {
-  const { recordList, radioCheck, setRadioCheck } = useRecord();
+  const { recordList, setRadioCheck } = useRecord();
   return (
     <div className="flex flex-col md:gap-[24px] gap-2">
       <div>

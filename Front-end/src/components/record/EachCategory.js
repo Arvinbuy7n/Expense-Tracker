@@ -1,3 +1,5 @@
+"use client";
+
 import { useRecord } from "../recordPro/RecordProvider";
 
 export const EachCategory = (props) => {

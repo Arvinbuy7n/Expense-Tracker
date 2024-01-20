@@ -2,103 +2,99 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { AuthProvider, useAuth } from "./providers/AuthProvider";
+import { useAuth } from "./providers/AuthProvider";
 
 export const Signup = () => {
   const [isHidden, setIsHidden] = useState(true);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-
-  // const [name, setName] = useState("");
-  // const [repass, setRepass] = useState("");
+  const [repass, setRepass] = useState("");
 
   const router = useRouter();
+  const { signUp, toggleDark } = useAuth();
 
-  const { signUp } = useAuth();
-  const { toggleDark } = useAuth();
+  function isName(name) {
+    if (name.length > 5) {
+      return true;
+    } else return "insert name";
+  }
 
-  // function isName(name) {
-  //   if (name.length > 5) {
-  //     return true;
-  //   } else return "insert name";
-  // }
+  function emailValidation(email) {
+    let atChar = 0;
+    let dotChar = 0;
+    let spaceChar = 0;
+    for (let i = 0; i < email.length; i++) {
+      if (email.charCodeAt(i) == 64) {
+        atChar++;
+      }
+      if (email.charCodeAt(i) == 46) {
+        dotChar++;
+      }
+      if (email.charCodeAt(i) == 40) {
+        spaceChar++;
+      }
+    }
+    if (email.length == 0) {
+      return "insert email";
+    }
+    if (email.length < 5) {
+      return "5aas ih bich";
+    }
+    if (atChar != 1) {
+      return "must be atchar";
+    }
+    if (dotChar != 1) {
+      return "must be dotchar";
+    }
+    if (spaceChar > 0) {
+      return "not space";
+    } else return true;
+  }
 
-  // function emailValidation(email) {
-  //   let atChar = 0;
-  //   let dotChar = 0;
-  //   let spaceChar = 0;
-  //   for (let i = 0; i < email.length; i++) {
-  //     if (email.charCodeAt(i) == 64) {
-  //       atChar++;
-  //     }
-  //     if (email.charCodeAt(i) == 46) {
-  //       dotChar++;
-  //     }
-  //     if (email.charCodeAt(i) == 40) {
-  //       spaceChar++;
-  //     }
-  //   }
-  //   if (email.length == 0) {
-  //     return "insert email";
-  //   }
-  //   if (email.length < 5) {
-  //     return "5aas ih bich";
-  //   }
-  //   if (atChar != 1) {
-  //     return "must be atchar";
-  //   }
-  //   if (dotChar != 1) {
-  //     return "must be dotchar";
-  //   }
-  //   if (spaceChar > 0) {
-  //     return "not space";
-  //   } else return true;
-  // }
+  function passwordValid(password) {
+    let num = 0;
+    let capNum = 0;
+    let specialCharacter = 0;
 
-  // function passwordValid(password) {
-  //   let num = 0;
-  //   let capNum = 0;
-  //   let specialCharacter = 0;
+    for (let i = 0; i < password.length; i++) {
+      if (password.charCodeAt(i) > 47 && password.charCodeAt(i) < 58) {
+        num++;
+      }
+      if (password.charCodeAt(i) > 64 && password.charCodeAt(i) < 91) {
+        capNum++;
+      }
+      if (password.charCodeAt(i) > 33 && password.charCodeAt(i) < 47) {
+        specialCharacter++;
+      }
+      if (password.charCodeAt(i) > 57 && password.charCodeAt(i) < 65) {
+        specialCharacter++;
+      }
+    }
+    if (password.length == 0) {
+      return "insert password";
+    }
+    if (password.length < 8) {
+      return "Password length should be min 8 character";
+    }
+    if (num < 0) {
+      return "Password should include number";
+    }
+    if (capNum == 0) {
+      return "Password should include CAPITAL letter";
+    }
+    if (specialCharacter == 0) {
+      return "Password should include special character";
+    } else return true;
+  }
 
-  //   for (let i = 0; i < password.length; i++) {
-  //     if (password.charCodeAt(i) > 47 && password.charCodeAt(i) < 58) {
-  //       num++;
-  //     }
-  //     if (password.charCodeAt(i) > 64 && password.charCodeAt(i) < 91) {
-  //       capNum++;
-  //     }
-  //     if (password.charCodeAt(i) > 33 && password.charCodeAt(i) < 47) {
-  //       specialCharacter++;
-  //     }
-  //     if (password.charCodeAt(i) > 57 && password.charCodeAt(i) < 65) {
-  //       specialCharacter++;
-  //     }
-  //   }
-  //   if (password.length == 0) {
-  //     return "insert password";
-  //   }
-  //   if (password.length < 8) {
-  //     return "Password length should be min 8 character";
-  //   }
-  //   if (num < 0) {
-  //     return "Password should include number";
-  //   }
-  //   if (capNum == 0) {
-  //     return "Password should include CAPITAL letter";
-  //   }
-  //   if (specialCharacter == 0) {
-  //     return "Password should include special character";
-  //   } else return true;
-  // }
-  // function isRepasswordSimilar(password, repassword) {
-  //   if (password === repassword) {
-  //     return true;
-  //   } else return "Re-entered password not similar";
-  // }
+  function isRepasswordSimilar(password, repassword) {
+    if (password === repassword) {
+      return true;
+    } else return "Re-entered password not similar";
+  }
 
-  // function signUpValidation(Name, Email, Password, Repassword) {}
+  function signUpValidation(Name, Email, Password, Repassword) {}
 
   return (
     <div className="w-full h-screen flex bg-white max-w-[1800px] m-auto">
@@ -128,23 +124,24 @@ export const Signup = () => {
           onSubmit={(event) => {
             event.preventDefault();
             signUp(email, password);
-            // signUpValidation();
-            // setName(isName(event.target.Name.value));
-            // setEmail(emailValidation(event.target.Email.value));
-            // setPassword(passwordValid(event.target.Password.value));
-            // setRepass(isRepasswordSimilar(event.target.Repassword.value));
+            signUpValidation();
+            setName(isName(event.target.Name.value));
+            setEmail(emailValidation(event.target.Email.value));
+            setPassword(passwordValid(event.target.Password.value));
+            setRepass(isRepasswordSimilar(event.target.Repassword.value));
           }}
           className="flex flex-col md:w-80 gap-4 relative"
         >
           <input
             type="text"
             name="Name"
-            placeholder="  Name"
-            className="border-2 md:p-3 p-2 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
+            placeholder=" Name"
+            className="border-2
+            md:p-3 p-2 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
             onChange={(event) => {
               setName(event.target.value);
             }}
-          />
+          ></input>
           <p className="absolute bottom-[78%] ml-7 italic opacity-50 text-red-500">
             {name}
           </p>
@@ -168,7 +165,7 @@ export const Signup = () => {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-          />
+          ></input>
           <p className="absolute bottom-[37%] ml-7 italic opacity-50 text-red-500">
             {password}
           </p>
@@ -187,8 +184,13 @@ export const Signup = () => {
             name="Repassword"
             placeholder="  Re-Password"
             className="border-2 md:p-3 p-2 rounded-lg bg-slate-100 w-[340px] md:w-[410px]"
-          />
-          <p className="absolute bottom-[15%] ml-7 italic opacity-50 text-red-500"></p>
+            onChange={(e) => {
+              setRepass(e.target.value);
+            }}
+          ></input>
+          <p className="absolute bottom-[15%] ml-7 italic opacity-50 text-red-500">
+            {repass}
+          </p>
           <button
             type="submit"
             className="bg-[#0166FF] text-white md:p-3 p-2 rounded-[20px] w-[340px] md:w-[410px] text-xl"

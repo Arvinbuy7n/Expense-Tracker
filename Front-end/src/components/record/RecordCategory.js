@@ -1,3 +1,5 @@
+"use client";
+
 import { useRecord } from "../recordPro/RecordProvider";
 import { EachCategory } from "./EachCategory";
 

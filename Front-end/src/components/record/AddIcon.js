@@ -1,3 +1,5 @@
+"use client";
+
 import * as icons from "react-icons/fa";
 import { useRecord } from "../recordPro/RecordProvider";
 
