@@ -65,7 +65,7 @@ export const Login = () => {
               onClick={() => {
                 setIsHidden(!isHidden);
               }}
-              className="text-[15px]"
+              className="text-[15px] text-black"
             >
               {isHidden ? "Show" : "Hide"}
             </button>

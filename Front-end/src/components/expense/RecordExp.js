@@ -86,7 +86,9 @@ export const RecordExp = (props) => {
             <div className="absolute md:top-[63%] top-[67%] md:w-[47%] w-[91%] flex flex-col bg-[#FFFFFF] h-[270px] rounded-xl border-2 overflow-scroll ">
               <div className="flex gap-3 p-4 border-b-2">
                 <FaPlusCircle color="#0166FF" size={22} onClick={setData} />
-                <p className="text-[16px]">Add Category</p>
+                <p className="text-[16px] text-black dark:text-white">
+                  Add Category
+                </p>
               </div>
               <div
                 className="flex flex-col gap-7 text-[16px] font-normal p-5"
