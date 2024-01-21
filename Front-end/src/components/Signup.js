@@ -193,7 +193,7 @@ export const Signup = () => {
           </p>
           <button
             type="submit"
-            className="bg-[#0166FF] text-white md:p-3 p-2 rounded-[20px] w-[340px] md:w-[410px] text-xl"
+            className="bg-[#0166FF] text-white md:p-3 p-2 rounded-[20px] w-[340px] md:w-[410px] md:text-[20px] text-[16px]"
             onClick={(e) => {
               router.push("/step1");
               e.preventDefault();

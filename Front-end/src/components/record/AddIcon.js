@@ -18,7 +18,7 @@ export const AddIcon = (props) => {
         className="flex gap-4 items-center"
       >
         <Icon size={20} fill={props.color} />
-        <p>{props.title}</p>
+        <p className="text-black dark:text-white">{props.title}</p>
       </div>
     </div>
   );

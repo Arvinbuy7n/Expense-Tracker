@@ -38,7 +38,7 @@ import { useRecord } from "../recordPro/RecordProvider";
 export const AddCategory = () => {
   const { setData, isCategory, addCat, categories, setIsOpen } = useRecord();
   const [isChoose, setIsChoose] = useState([
-    <FaAlignRight key={1} size={16} className="text-black" />,
+    <FaAlignRight key={1} size={16} color="black" />,
   ]);
   const [isColor, setIsColor] = useState("inherit");
 

@@ -68,13 +68,13 @@ export const RecordExp = (props) => {
           type="text"
           name="amount"
           placeholder="  ₮ 000.00"
-          className=" w-full rounded-xl bg-slate-100 border-2 pt-8 pb-4 relative"
+          className=" w-full rounded-xl bg-slate-100 border-2 pt-8 pb-4 relative text-black"
         />
         <p className="absolute top-[183px] ml-4 text-slate-600">Amount</p>
         <div className="w-full flex flex-col gap-1">
           <p className="text-[16px] text-[#1F2937]">Category</p>
           <div
-            className="flex justify-between w-full py-4 px-3 rounded-lg bg-slate-100 text-[#94A3B8] relative"
+            className="flex justify-between w-full py-4 px-3 rounded-lg bg-slate-100 text-black relative"
             onClick={() => {
               setAddition();
             }}

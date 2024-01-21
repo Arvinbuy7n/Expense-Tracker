@@ -13,10 +13,12 @@ export const RecordAdd = () => {
     <div className="fixed h-screen w-screen bg-[#00000080] top-[-300px] left-0 flex justify-center items-center mt-[300px] w-full">
       <div className="flex flex-col justify-center bg-white w-[800px] h-fit rounded-lg relative  dark:bg-[#1F2937]">
         <div className="flex w-full h-fit justify-between px-6 md:py-6 py-4">
-          <p className="text-[20px] font-semibold dark:text-white">Add Record</p>
+          <p className="text-[20px] font-semibold dark:text-white text-black">
+            Add Record
+          </p>
           <img src="x.png" className="w-5 h-5" onClick={getData}></img>
         </div>
-        <div className="flex w-full md:px-6 md:py-8 p-4 gap-5 border-t-2 border-slate-200" >
+        <div className="flex w-full md:px-6 md:py-8 p-4 gap-5 border-t-2 border-slate-200">
           <RecordExp type={type} setType={setType} />
         </div>
       </div>
