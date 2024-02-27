@@ -31,7 +31,7 @@ export const AuthProvider = ({ children, value }) => {
 
       router.push("/main");
     } catch (err) {
-      toast.error(err.response.data.message);
+      toast.error(err.response?.data.message);
     } finally {
       setIsLoading(false);
     }

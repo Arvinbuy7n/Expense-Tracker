@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { DashChart } from "./DashChart";
 import { DashHansh } from "./DashHansh";
