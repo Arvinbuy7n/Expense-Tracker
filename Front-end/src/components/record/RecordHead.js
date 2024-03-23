@@ -1,3 +1,5 @@
+"use client";
+
 export const RecordHead = () => {
   return (
     <div className="flex justify-between">

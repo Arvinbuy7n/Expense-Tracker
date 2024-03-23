@@ -1,3 +1,5 @@
+"use client";
+
 export const RecordAmout = () => {
   return (
     <div className="w-full md:flex hidden flex-col gap-3 mt-6">
