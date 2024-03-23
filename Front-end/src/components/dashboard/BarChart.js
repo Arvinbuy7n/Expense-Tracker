@@ -9,7 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { useRecord } from "../recordPro/RecordProvider";
+import { useRecord } from "../providers/RecordProvider";
 
 export const BarChart = () => {
   const { recordList } = useRecord();
@@ -43,8 +43,8 @@ export const BarChart = () => {
     datasets: [
       {
         label: "Income",
-        data: recordList.map(
-          (item) => (item.type === "Income" ? item.amount : null)
+        data: recordList.map((item) =>
+          item.type === "Income" ? item.amount : null
         ),
         backgroundColor: "#23E01F",
       },

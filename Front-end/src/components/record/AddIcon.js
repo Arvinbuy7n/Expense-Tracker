@@ -1,7 +1,7 @@
 "use client";
 
 import * as icons from "react-icons/fa";
-import { useRecord } from "../recordPro/RecordProvider";
+import { useRecord } from "../providers/RecordProvider";
 
 export const AddIcon = (props) => {
   const { setCategory, setRecordIcon, setRecordColor } = useRecord();

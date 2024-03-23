@@ -144,7 +144,7 @@ app.post("/records", async (req, res) => {
     });
 
     res.json({
-      message: "Шинэ хэрэглэгч үүссэн байна.",
+      message: "Шинэ бүтээгдхүүн амжилттай үүслээ.",
     });
   } catch (err) {
     return res.status(401).json({
@@ -175,7 +175,6 @@ app.post("/records", async (req, res) => {
 
 app.get("/records", async (req, res) => {
   const { authorization } = req.headers;
-  // console.log(req.query);
 
   if (!authorization) {
     return res.status(401).json({

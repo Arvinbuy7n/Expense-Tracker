@@ -3,7 +3,7 @@
 import { DashChart } from "./DashChart";
 import { DashHansh } from "./DashHansh";
 import { DashLast } from "./DashLast";
-import { MainHead } from "../MainHead";
+import { MainHead } from "../auto/MainHead";
 
 export const Dashboard = () => {
   return (

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { RecordExp } from "./RecordExp";
-import { useRecord } from "../recordPro/RecordProvider";
+import { useRecord } from "../providers/RecordProvider";
 
 export const RecordAdd = () => {
   const [type, setType] = useState("Expense");

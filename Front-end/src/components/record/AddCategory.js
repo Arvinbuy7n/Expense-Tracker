@@ -23,7 +23,6 @@ import { FaHeadphones } from "react-icons/fa";
 import { FaBrain } from "react-icons/fa";
 import { FaAddressBook } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
-import { FaBomb } from "react-icons/fa";
 import { FaBaseballBall } from "react-icons/fa";
 import { FaPeace } from "react-icons/fa";
 import { FaPencilAlt } from "react-icons/fa";
@@ -33,7 +32,7 @@ import { FaPalette } from "react-icons/fa";
 import { FaPlaystation } from "react-icons/fa";
 import { FaPowerOff } from "react-icons/fa";
 import { FaBalanceScale } from "react-icons/fa";
-import { useRecord } from "../recordPro/RecordProvider";
+import { useRecord } from "../providers/RecordProvider";
 
 export const AddCategory = () => {
   const { setData, isCategory, addCat, categories, setIsOpen } = useRecord();
@@ -64,7 +63,6 @@ export const AddCategory = () => {
     <FaGrinStars size={20} key={1} />,
     <FaBaseballBall size={20} key={1} />,
     <FaHeadphones size={20} key={1} />,
-    <FaBomb size={20} key={1} />,
     <FaLaptopCode size={20} key={1} />,
     <FaPalette size={20} key={1} />,
     <FaPlaystation size={20} key={1} />,

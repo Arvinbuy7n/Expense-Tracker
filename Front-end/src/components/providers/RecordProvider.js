@@ -3,7 +3,7 @@
 import { api } from "@/common/axios";
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { useAuth } from "../providers/AuthProvider";
+import { useAuth } from "./AuthProvider";
 
 export const RecordContext = createContext();
 
@@ -16,7 +16,7 @@ export const RecordProvider = (props) => {
   const [filterCategory, setFilterCategory] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
   const [recordList, setRecordList] = useState([]);
-  const [refresh, setRefresh] = useState(0);
+  const [refresh, setRefresh] = useState(1);
   const [recordColor, setRecordColor] = useState("#000000");
   const [recordIcon, setRecordIcon] = useState("FaHouse");
   const [isSign, setIsSign] = useState(false);
@@ -45,6 +45,8 @@ export const RecordProvider = (props) => {
     setIsOpen((p) => !p);
   };
 
+  //add record and category
+
   const records = async (
     amount,
     category,
@@ -56,8 +58,6 @@ export const RecordProvider = (props) => {
     icon,
     time
   ) => {
-    setIsLoading(true);
-
     try {
       const { data } = await api.post(
         "/records",
@@ -78,7 +78,11 @@ export const RecordProvider = (props) => {
           },
         }
       );
-      setIsLogged(true);
+
+      toast.success(data.message, {
+        position: "top-center",
+      });
+
       setRefresh(refresh + 1);
     } catch (error) {
       if (error?.response) {
@@ -121,6 +125,11 @@ export const RecordProvider = (props) => {
           },
         }
       );
+
+      toast.success(data.message, {
+        position: "top-centers",
+      });
+
       setRefresh(refresh + 1);
     } catch (error) {
       if (error?.response) {

@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { useAuth } from "./providers/AuthProvider";
+import { useAuth } from "../providers/AuthProvider";
 
 export const Addition = () => {
   const { signOut } = useAuth();

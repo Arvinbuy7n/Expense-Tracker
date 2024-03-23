@@ -8,7 +8,7 @@ import "./globals.css";
 import { createContext, useContext, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { AuthProvider } from "@/components/providers/AuthProvider";
-import { RecordProvider } from "@/components/recordPro/RecordProvider";
+import { RecordProvider } from "@/components/providers/RecordProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 

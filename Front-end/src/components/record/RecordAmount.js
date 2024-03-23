@@ -2,11 +2,11 @@
 
 export const RecordAmout = () => {
   return (
-    <div className="w-full md:flex hidden flex-col gap-3 mt-6">
+    <div className="w-full md:flex hidden flex-col gap-3 mt-2">
       <p className="text-[16px] dark:text-white">Amount Range</p>
       <div className="md:flex w-[90%] justify-between gap-3">
-        <button className="bg-slate-100 rounded-xl pl-3 pr-20 py-3">0</button>
-        <button className="bg-slate-100 rounded-xl pl-3 pr-20 py-3">
+        <button className="bg-slate-100 rounded-xl pl-3 pr-12 py-3">0</button>
+        <button className="bg-slate-100 rounded-xl pl-3 pr-10 py-3">
           1000
         </button>
       </div>

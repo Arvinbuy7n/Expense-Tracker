@@ -3,7 +3,7 @@
 import { FaPlusCircle } from "react-icons/fa";
 import { MdArrowDropDown } from "react-icons/md";
 import { AddIcon } from "../record/AddIcon";
-import { useRecord } from "../recordPro/RecordProvider";
+import { useRecord } from "../providers/RecordProvider";
 
 export const RecordExp = (props) => {
   const {

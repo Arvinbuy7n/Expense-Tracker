@@ -1,7 +1,7 @@
 "use client";
 
 import { RecordPlus } from "./RecordPlus";
-import { useRecord } from "../recordPro/RecordProvider";
+import { useRecord } from "../providers/RecordProvider";
 
 export const RecordYes = () => {
   const { recordList, filterCategory, radioCheck } = useRecord();

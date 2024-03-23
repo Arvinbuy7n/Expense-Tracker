@@ -1,6 +1,6 @@
 "use client";
 
-import { useRecord } from "../recordPro/RecordProvider";
+import { useRecord } from "../providers/RecordProvider";
 
 export const RecordTypes = () => {
   const { recordList, setRadioCheck } = useRecord();
