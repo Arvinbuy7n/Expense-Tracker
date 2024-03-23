@@ -24,7 +24,7 @@ export const RecordCategory = () => {
         </p>
       </div>
       <div className="flex flex-col gap-2">
-        <div className="flex flex-col gap-4 text-[16px] font-normal dark:text-white h-[200px] overflow-scroll">
+        <div className="flex flex-col gap-4 text-[16px] font-normal dark:text-white  overflow-scroll">
           {categoryList.map((item, index) => {
             return <EachCategory key={index} title={item.cate} />;
           })}
