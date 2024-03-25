@@ -60,7 +60,7 @@ export const RecordProvider = (props) => {
   ) => {
     try {
       const { data } = await api.post(
-        "/records",
+        "https://expensetracker-a7q0.onrender.com/records",
         {
           amount,
           category,
@@ -97,11 +97,14 @@ export const RecordProvider = (props) => {
 
   const getRecords = async () => {
     try {
-      const { data } = await api.get("/records", {
-        headers: {
-          Authorization: localStorage.getItem("token"),
-        },
-      });
+      const { data } = await api.get(
+        "https://expensetracker-a7q0.onrender.com/records",
+        {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        }
+      );
       setRecordList(data);
     } catch (error) {
       console.log(error), "FFF";
@@ -113,7 +116,7 @@ export const RecordProvider = (props) => {
 
     try {
       const { data } = api.post(
-        "/category",
+        "https://expensetracker-a7q0.onrender.com/category",
         {
           icon,
           cate,
@@ -144,11 +147,14 @@ export const RecordProvider = (props) => {
 
   const getCategory = async () => {
     try {
-      const { data } = await api.get("/category", {
-        headers: {
-          Authorization: localStorage.getItem("token"),
-        },
-      });
+      const { data } = await api.get(
+        "https://expensetracker-a7q0.onrender.com/category",
+        {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        }
+      );
 
       setCategoryList(data);
     } catch (err) {

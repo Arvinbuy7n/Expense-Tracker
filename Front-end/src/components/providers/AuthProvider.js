@@ -18,10 +18,13 @@ export const AuthProvider = ({ children, value }) => {
     setIsLoading(true);
 
     try {
-      const { data } = await api.post("/login", {
-        email,
-        password,
-      });
+      const { data } = await api.post(
+        "https://expensetracker-a7q0.onrender.com/login",
+        {
+          email,
+          password,
+        }
+      );
 
       const { token } = data;
 
@@ -41,11 +44,14 @@ export const AuthProvider = ({ children, value }) => {
     setIsLoading(true);
 
     try {
-      const { data } = await api.post("/sign", {
-        email,
-        password,
-        name,
-      });
+      const { data } = await api.post(
+        "https://expensetracker-a7q0.onrender.com/sign",
+        {
+          email,
+          password,
+          name,
+        }
+      );
 
       const { token } = data;
 
