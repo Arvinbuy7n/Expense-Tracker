@@ -135,11 +135,7 @@ export const RecordProvider = (props) => {
 
       setRefresh(refresh + 1);
     } catch (error) {
-      if (error?.response) {
-        toast.error(error.response.data.message);
-      } else {
-        toast.error(error.message);
-      }
+      console.log(error);
     } finally {
       setIsLoading(false);
     }

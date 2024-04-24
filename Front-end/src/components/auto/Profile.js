@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 
 export const Profile = () => {
   const router = useRouter();
+
   return (
     <div className="w-full h-screen bg-[#00000080] flex justify-center items-center relative">
       <div className="h-[500px] w-[380px] bg-white flex flex-col items-center p-10 rounded-2xl">

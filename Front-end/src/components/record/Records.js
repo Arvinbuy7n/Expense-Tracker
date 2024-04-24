@@ -15,7 +15,7 @@ export const Records = () => {
   const { getData, isOpen, openDraw } = useRecord();
 
   return (
-    <div className="w-full h-full flex flex-col max-w-[1800px] m-auto">
+    <div className="w-full h-screen flex flex-col max-w-[1800px] m-auto">
       <MainHead />
       <div className="md:flex w-full h-full md:px-36 p-4 gap-5 bg-slate-100 dark:bg-black">
         <div className="flex md:h-fit h-[320px] overflow-scroll md:w-[282px] md:border-0 border-2 dark:border-slate-400 bg-white rounded-2xl p-5 md:gap-[24px] gap-3 flex flex-col mt-0 md:mt-4 dark:bg-[#374151]">

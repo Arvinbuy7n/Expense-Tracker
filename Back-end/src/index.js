@@ -111,6 +111,26 @@ app.get("/users", async (_req, res) => {
   // const users = JSON.parse(usersRaw);
 });
 
+app.get("/getUser", async (req, res) => {
+  const { authorization } = req.headers;
+
+  if (!authorization) {
+    return res.status(401).json({
+      message: "Unauthorized",
+    });
+  }
+
+  const id = jwt.verify(authorization, "secret-key");
+
+  try {
+    const user = await User.findOne({ _id: id });
+
+    return res.json(user);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 app.post("/records", async (req, res) => {
   const { authorization } = req.headers;
 
@@ -214,21 +234,21 @@ app.post("/category", async (req, res) => {
     });
   }
 
+  const payload = jwt.verify(authorization, "secret-key");
+
+  const { id } = payload;
+
   try {
-    const payload = jwt.verify(authorization, "secret-key");
-
-    const { id } = payload;
-
     const { icon, cate, color } = req.body;
 
     const category = await Category.findOne({ userId: id, cate: cate });
 
-    if (category) {
-      console.log("GGG");
-      return res.status(401).json({
-        message: "Category already exist",
-      });
-    }
+    // if (category) {
+    //   console.log("GGG");
+    //   return res.status(401).json({
+    //     message: "Category already exist",
+    //   });
+    // }
 
     await Category.create({
       userId: id,

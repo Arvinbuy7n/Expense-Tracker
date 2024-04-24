@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Addition } from "./Addition";
 import { useRouter } from "next/navigation";
 import { useRecord } from "../providers/RecordProvider";
+import { useAuth } from "../providers/AuthProvider";
 
 export const MainHead = () => {
   const [openDraw, setOpenDraw] = useState(false);
   const { getData, toggleDark } = useRecord();
+  const { signOut } = useAuth();
   const router = useRouter();
 
   const openPage = () => {
@@ -43,7 +44,7 @@ export const MainHead = () => {
         />
       </div>
 
-      <div className="flex flex-col gap-7 md:mr-10 justify-center">
+      <div className="flex flex-col gap-7 md:mr-10 justify-center relative">
         <div className="flex md:gap-7 gap-3 justify-between w-full">
           <button
             className="flex  bg-[#0166FF] text-white rounded-3xl px-4 pt-2"
@@ -55,9 +56,29 @@ export const MainHead = () => {
             src="chess.jpg"
             className="w-10 h-10 rounded-full"
             onClick={openPage}
-          ></img>
+          />
+
+          {openDraw && (
+            <div className="absolute w-[150px] border-2 bg-blue-600 flex flex-col z-10 gap-3 rounded-xl px-2 py-2 md:top-8 top-14 right-0">
+              <p
+                className="text-white hover:text-cyan-500"
+                onClick={() => {
+                  router.push("/profile");
+                }}
+              >
+                Profile
+              </p>
+              <p
+                className="text-white hover:text-red-500"
+                onClick={() => {
+                  signOut();
+                }}
+              >
+                Log Out
+              </p>
+            </div>
+          )}
         </div>
-        {openDraw ? <Addition openPage={openPage} /> : null}
       </div>
     </div>
   );
